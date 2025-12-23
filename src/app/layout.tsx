@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import LoadingAnimation from '../components/Layout/LoadingAnimation'
+import Header from '../components/Layout/Header'
+import Footer from '../components/Layout/Footer'
 
 export const metadata: Metadata = {
   title: "Not selling liquid - We build, manage, and grow fashion brands",
@@ -56,7 +59,17 @@ export default function RootLayout({
         <link rel="preconnect" href="https://cdn.shopify.com" crossOrigin="" />
       </head>
       <body className="antialiased">
-        {children}
+        
+          <div className="transition_div">&nbsp;</div>
+          <a className="skip-to-content-link visually-hidden" href="#MainContent">
+            Skip to content
+          </a>
+          <LoadingAnimation />
+          <Header />
+          <main id="MainContent" role="main" tabIndex={-1} style={{ paddingTop: '65px' }}>
+            {children}
+          </main>
+          <Footer />
         
         {/* Scripts converted to Next.js Script components */}
         <Script

@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import LoadingAnimation from '../../components/Routes/Landing/LoadingAnimation'
-import Header from '../../components/Layout/Header'
 import ServicesMainSection from '../../components/Routes/Services/ServicesMainSection'
-import Footer from '../../components/Layout/Footer'
 
 export const metadata: Metadata = {
   title: "Services – Not selling liquid",
@@ -12,18 +9,11 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <div className="transition_div">&nbsp;</div>
-      <a className="skip-to-content-link visually-hidden" href="#MainContent">
-        Skip to content
-      </a>
-      <LoadingAnimation />
-      <Header currentPage="services" />
       <main id="MainContent" role="main" tabIndex={-1} style={{ paddingTop: '65px' }}>
         <div className="template-page">
           <ServicesMainSection />
         </div>
       </main>
-      <Footer />
     </>
   )
 }
