@@ -1,13 +1,13 @@
 
-import LoadingAnimation from '../components/LoadingAnimation'
-import Header from '../components/Header'
-import IntroSection from '../components/IntroSection'
-import BannerSection from '../components/BannerSection'
-import CasesSection from '../components/CasesSection'
-import ShopifyPlusSection from '../components/ShopifyPlusSection'
-import TestimonialSection from '../components/TestimonialSection'
-import TextMediaSection from '../components/TextMediaSection'
-import Footer from '../components/Footer'
+import LoadingAnimation from '../components/Routes/Landing/LoadingAnimation'
+import Header from '../components/Layout/Header'
+import IntroSection from '../components/Routes/Landing/IntroSection'
+import BannerSection from '../components/Routes/Landing/BannerSection'
+import CasesSection from '../components/Routes/Landing/CasesSection'
+import ShopifyPlusSection from '../components/Routes/Landing/ShopifyPlusSection'
+import TestimonialSection from '../components/Routes/Landing/TestimonialSection'
+import TextMediaSection from '../components/Routes/Landing/TextMediaSection'
+import Footer from '../components/Layout/Footer'
 
 export default function Home() {
   return (
