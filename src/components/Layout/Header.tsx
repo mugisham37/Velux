@@ -12,6 +12,7 @@ export default function Header() {
     if (pathname === '/') return 'home'
     if (pathname === '/services') return 'services'
     if (pathname === '/cases') return 'cases'
+    if (pathname === '/clients') return 'clients'
     return pathname.slice(1)
   }
   
@@ -70,7 +71,7 @@ export default function Header() {
                       <Link href="/cases" className={currentPage === 'cases' ? 'active' : ''}>Cases</Link>
                     </li>
                     <li>
-                      <Link href="/pages/clients">Clients</Link>
+                      <Link href="/clients" className={currentPage === 'clients' ? 'active' : ''}>Clients</Link>
                     </li>
                     <li>
                       <Link href="/blogs/inside-the-industry">Articles</Link>
@@ -88,7 +89,8 @@ export default function Header() {
                     <>
                       <span>/</span>
                       <span className="capitalize">
-                        {currentPage === 'cases' ? 'Case Studies' : currentPage}
+                        {currentPage === 'cases' ? 'Case Studies' : 
+                         currentPage === 'clients' ? 'Clients' : currentPage}
                       </span>
                     </>
                   )}
@@ -137,7 +139,7 @@ export default function Header() {
               <li><Link href="/services" className={`mob_link ${currentPage === 'services' ? 'active' : ''}`}>Services</Link></li>
               <li><Link href="/pages/about-us" className="mob_link">About us</Link></li>
               <li><Link href="/cases" className={`mob_link ${currentPage === 'cases' ? 'active' : ''}`}>Cases</Link></li>
-              <li><Link href="/pages/clients" className="mob_link">Clients</Link></li>
+              <li><Link href="/clients" className={`mob_link ${currentPage === 'clients' ? 'active' : ''}`}>Clients</Link></li>
               <li>
                 <Link href="/blogs/inside-the-industry" className="mob_link">Articles</Link>
               </li>
