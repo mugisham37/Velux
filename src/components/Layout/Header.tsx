@@ -13,6 +13,7 @@ export default function Header() {
     if (pathname === '/services') return 'services'
     if (pathname === '/cases') return 'cases'
     if (pathname === '/clients') return 'clients'
+    if (pathname.startsWith('/blogs')) return 'articles'
     return pathname.slice(1)
   }
   
@@ -74,7 +75,7 @@ export default function Header() {
                       <Link href="/clients" className={currentPage === 'clients' ? 'active' : ''}>Clients</Link>
                     </li>
                     <li>
-                      <Link href="/blogs/inside-the-industry">Articles</Link>
+                      <Link href="/blogs/inside-the-industry" className={currentPage === 'articles' ? 'active' : ''}>Articles</Link>
                     </li>
                     <li>
                       <Link href="/pages/contact">Contact</Link>
@@ -90,7 +91,8 @@ export default function Header() {
                       <span>/</span>
                       <span className="capitalize">
                         {currentPage === 'cases' ? 'Case Studies' : 
-                         currentPage === 'clients' ? 'Clients' : currentPage}
+                         currentPage === 'clients' ? 'Clients' : 
+                         currentPage === 'articles' ? 'Blog' : currentPage}
                       </span>
                     </>
                   )}
@@ -141,7 +143,7 @@ export default function Header() {
               <li><Link href="/cases" className={`mob_link ${currentPage === 'cases' ? 'active' : ''}`}>Cases</Link></li>
               <li><Link href="/clients" className={`mob_link ${currentPage === 'clients' ? 'active' : ''}`}>Clients</Link></li>
               <li>
-                <Link href="/blogs/inside-the-industry" className="mob_link">Articles</Link>
+                <Link href="/blogs/inside-the-industry" className={`mob_link ${currentPage === 'articles' ? 'active' : ''}`}>Articles</Link>
               </li>
               <li>
                 <Link href="https://careers.notsellingliquid.com/" className="mob_link">Careers</Link>
