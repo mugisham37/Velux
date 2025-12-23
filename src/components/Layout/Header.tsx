@@ -13,6 +13,7 @@ export default function Header() {
     if (pathname === '/services') return 'services'
     if (pathname === '/cases') return 'cases'
     if (pathname === '/clients') return 'clients'
+    if (pathname === '/contact') return 'contact'
     if (pathname.startsWith('/blogs')) return 'articles'
     return pathname.slice(1)
   }
@@ -78,7 +79,7 @@ export default function Header() {
                       <Link href="/blogs/inside-the-industry" className={currentPage === 'articles' ? 'active' : ''}>Articles</Link>
                     </li>
                     <li>
-                      <Link href="/pages/contact">Contact</Link>
+                      <Link href="/contact" className={currentPage === 'contact' ? 'active' : ''}>Contact</Link>
                     </li>
                   </ul>
                 </div>
@@ -92,7 +93,8 @@ export default function Header() {
                       <span className="capitalize">
                         {currentPage === 'cases' ? 'Case Studies' : 
                          currentPage === 'clients' ? 'Clients' : 
-                         currentPage === 'articles' ? 'Blog' : currentPage}
+                         currentPage === 'articles' ? 'Blog' : 
+                         currentPage === 'contact' ? 'Contact' : currentPage}
                       </span>
                     </>
                   )}
@@ -101,7 +103,7 @@ export default function Header() {
                 </div>
               </div>
               <div className="header-right">
-                <Link href="/pages/contact" className="link-arrow link-pure-cacao sheader-right">
+                <Link href="/contact" className="link-arrow link-pure-cacao sheader-right">
                   <span className="arrow">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path fillRule="evenodd" clipRule="evenodd"
@@ -148,7 +150,7 @@ export default function Header() {
               <li>
                 <Link href="https://careers.notsellingliquid.com/" className="mob_link">Careers</Link>
               </li>
-              <li><Link href="/pages/contact" className="mob_link">Contact</Link></li>
+              <li><Link href="/contact" className={`mob_link ${currentPage === 'contact' ? 'active' : ''}`}>Contact</Link></li>
             </ul>
             <div className="menu-prtship">
               <div className="menu-prtshipinr">
