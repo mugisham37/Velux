@@ -58,7 +58,7 @@ export default function RootLayout({
         <meta name="theme-color" content="" />
         <link rel="preconnect" href="https://cdn.shopify.com" crossOrigin="" />
       </head>
-      <body className="antialiased">
+      <body className="antialiased sticky-header case-studies">
         
           <div className="transition_div">&nbsp;</div>
           <a className="skip-to-content-link visually-hidden" href="#MainContent">

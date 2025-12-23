@@ -1,13 +1,21 @@
 'use client'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
-interface HeaderProps {
-  currentPage?: string;
-}
-
-export default function Header({ currentPage = 'home' }: HeaderProps) {
+export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+  
+  // Determine current page for active states
+  const getCurrentPage = () => {
+    if (pathname === '/') return 'home'
+    if (pathname === '/services') return 'services'
+    if (pathname === '/cases') return 'cases'
+    return pathname.slice(1)
+  }
+  
+  const currentPage = getCurrentPage()
 
   return (
     <>
@@ -59,7 +67,7 @@ export default function Header({ currentPage = 'home' }: HeaderProps) {
                       <Link href="/pages/about-us">About us</Link>
                     </li>
                     <li>
-                      <Link href="/pages/case-studies">Cases</Link>
+                      <Link href="/cases" className={currentPage === 'cases' ? 'active' : ''}>Cases</Link>
                     </li>
                     <li>
                       <Link href="/pages/clients">Clients</Link>
@@ -76,12 +84,14 @@ export default function Header({ currentPage = 'home' }: HeaderProps) {
                   <div className="hb-blk block-id-3409d0e4-c257-4ab0-b955-4355fab3e254">
                     <p className="xs-body">
                       <Link href="/">Home</Link> 
-                      {currentPage !== 'home' && (
-                        <>
-                          <span>/</span>
-                          <span className="capitalize">{currentPage}</span>
-                        </>
-                      )}
+                  {currentPage !== 'home' && (
+                    <>
+                      <span>/</span>
+                      <span className="capitalize">
+                        {currentPage === 'cases' ? 'Case Studies' : currentPage}
+                      </span>
+                    </>
+                  )}
                     </p>
                   </div>
                 </div>
@@ -126,7 +136,7 @@ export default function Header({ currentPage = 'home' }: HeaderProps) {
             <ul className="mob_navigation">
               <li><Link href="/services" className={`mob_link ${currentPage === 'services' ? 'active' : ''}`}>Services</Link></li>
               <li><Link href="/pages/about-us" className="mob_link">About us</Link></li>
-              <li><Link href="/pages/case-studies" className="mob_link">Cases</Link></li>
+              <li><Link href="/cases" className={`mob_link ${currentPage === 'cases' ? 'active' : ''}`}>Cases</Link></li>
               <li><Link href="/pages/clients" className="mob_link">Clients</Link></li>
               <li>
                 <Link href="/blogs/inside-the-industry" className="mob_link">Articles</Link>

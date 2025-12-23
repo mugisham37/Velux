@@ -1,35 +1,33 @@
 # Cases Page Migration Guide
 
 ## Overview
-This guide provides step-by-step instructions to migrate the cases.html file to a Next.js page structure. The cases page contains case studies with video backgrounds and interactive elements.
+This guide provides detailed instructions for migrating the `htmls/cases.html` file to the Next.js project structure. The cases page contains a case studies section with video backgrounds and case study cards.
 
-## Analysis of HTML Structure
+## Analysis Summary
 
-### 1. Page Metadata (Lines 1-150)
-The HTML head contains:
-- Meta tags for SEO and social media
-- Facebook Pixel tracking
-- LinkedIn tracking
-- Hotjar tracking
-- Apollo tracking
-- Various Shopify-specific scripts
-- CSS font definitions and variables
+### What's Already Migrated:
+- ✅ Layout structure (Header, Footer, LoadingAnimation)
+- ✅ Basic page routing structure
+- ✅ Meta tags and SEO setup in layout
+- ✅ Global styles and scripts
+- ✅ Header navigation with active states
 
-### 2. Body Structure (Lines 151-end)
-The body contains:
-- Loading animation (already migrated)
-- Header (already migrated)
-- Main content section with case studies
-- Various tracking scripts
+### What Needs to be Migrated:
+- 🔄 Cases page-specific metadata
+- 🔄 Case studies main section component
+- 🔄 Case studies CSS styles
+- 🔄 Video components with autoplay functionality
+- 🔄 Case study cards with content
 
 ## Migration Steps
 
 ### Step 1: Create the Cases Page Route
-Create a new file: `src/app/cases/page.tsx`
+
+**File to create:** `src/app/cases/page.tsx`
 
 ```typescript
 import type { Metadata } from "next";
-import CasesMainSection from '../../components/Routes/Cases/CasesMainSection'
+import CaseStudiesMainSection from '../../components/Routes/Cases/CaseStudiesMainSection'
 
 export const metadata: Metadata = {
   title: "Case Studies – Not selling liquid",
@@ -64,37 +62,72 @@ export const metadata: Metadata = {
 export default function CasesPage() {
   return (
     <div className="template-page">
-      <CasesMainSection />
+      <CaseStudiesMainSection />
     </div>
   )
 }
 ```
 
-### Step 2: Create the Main Cases Component
-Create a new file: `src/components/Routes/Cases/CasesMainSection.tsx`
+### Step 2: Update Header Component for Cases Page
 
-Copy the following sections from the HTML:
+**File to update:** `src/components/Layout/Header.tsx`
 
-#### Section 1: Main Container and Styling (Lines 1058-1080)
+**Lines to modify:** Update the navigation link for cases to point to `/cases` instead of `/pages/case-studies`
+
+**Change this line:**
+```typescript
+<Link href="/pages/case-studies">Cases</Link>
+```
+
+**To:**
+```typescript
+<Link href="/cases" className={currentPage === 'cases' ? 'active' : ''}>Cases</Link>
+```
+
+**Also update the mobile navigation:**
+```typescript
+<li><Link href="/cases" className={`mob_link ${currentPage === 'cases' ? 'active' : ''}`}>Cases</Link></li>
+```
+
+**And update the breadcrumb logic to handle 'cases' as 'Case Studies':**
+```typescript
+{currentPage !== 'home' && (
+  <>
+    <span>/</span>
+    <span className="capitalize">
+      {currentPage === 'cases' ? 'Case Studies' : currentPage}
+    </span>
+  </>
+)}
+```
+
+### Step 3: Create the Main Cases Component Directory
+
+**Directory to create:** `src/components/Routes/Cases/`
+
+### Step 4: Create the Main Case Studies Section Component
+
+**File to create:** `src/components/Routes/Cases/CaseStudiesMainSection.tsx`
+
+**Content to copy from HTML (lines 1090-1200 approximately):**
+
 ```typescript
 'use client'
+import CaseStudyCard from './CaseStudyCard'
 
-export default function CasesMainSection() {
+export default function CaseStudiesMainSection() {
   return (
-    <section 
-      className="section-case-studies section-id-template--26430797545815__ae9d7d70-dbe0-4046-9916-e0fbe50d8c2e relative-sec"
-      style={{ background: '#c0bbae' }}
-    >
+    <section className="section-case-studies section-id-template--26430797545815__ae9d7d70-dbe0-4046-9916-e0fbe50d8c2e relative-sec">
       <style jsx>{`
-        .section-case-studies {
+        .section-id-template--26430797545815__ae9d7d70-dbe0-4046-9916-e0fbe50d8c2e {
           background: #c0bbae;
         }
-        .case-studies {
+        .section-id-template--26430797545815__ae9d7d70-dbe0-4046-9916-e0fbe50d8c2e .case-studies {
           padding-top: 180px;
           padding-bottom: 40px;
         }
         @media(min-width:992px) {
-          .case-studies {
+          .section-id-template--26430797545815__ae9d7d70-dbe0-4046-9916-e0fbe50d8c2e .case-studies {
             padding-top: 200px;
             padding-bottom: 40px;
           }
@@ -103,22 +136,21 @@ export default function CasesMainSection() {
       
       <div className="container">
         <div className="case-studies">
-          {/* Header Section */}
           <div className="cs-header grid">
             <div className="grid-6-fcol">
               <h3>Together with our clients, we're changing the way to do e-commerce.</h3>
             </div>
             <div className="grid-4-lcol">
               <p className="s-caption">
-                Enhancing each other, positively influencing one another, uncovering new possible territories in the digital space and in the minds of their communities.
+                Enhancing each other, positively influencing one another,
+                uncovering new possible territories in the digital space and in the minds of
+                their communities.
               </p>
             </div>
           </div>
           
-          {/* Cases Grid */}
           <div className="cases-grid">
-            {/* Case 1: Fabienne Chapot - Full Width */}
-            <CaseItem 
+            <CaseStudyCard
               type="full-width"
               videoDesktop="//www.notsellingliquid.com/cdn/shop/videos/c/vp/d4d832f6fceb43a989e0c497805ddf2d/d4d832f6fceb43a989e0c497805ddf2d.HD-1080p-7.2Mbps-45627631.mp4?v=0"
               videoMobile="//www.notsellingliquid.com/cdn/shop/videos/c/vp/d4d832f6fceb43a989e0c497805ddf2d/d4d832f6fceb43a989e0c497805ddf2d.HD-1080p-7.2Mbps-45627631.mp4?v=0"
@@ -129,8 +161,7 @@ export default function CasesMainSection() {
               link="/pages/fabienne-chapot-shopify-new-site"
             />
             
-            {/* Case 2: Hang Eleven - Half Width */}
-            <CaseItem 
+            <CaseStudyCard
               type="half-width"
               videoDesktop="//www.notsellingliquid.com/cdn/shop/videos/c/vp/c511976946554306bd997337c1ab7992/c511976946554306bd997337c1ab7992.HD-1080p-7.2Mbps-35760312.mp4?v=0"
               videoMobile="//www.notsellingliquid.com/cdn/shop/videos/c/vp/1b7fc4accae94cf79b2598c5b2b37a20/1b7fc4accae94cf79b2598c5b2b37a20.HD-1080p-7.2Mbps-35760313.mp4?v=0"
@@ -149,14 +180,17 @@ export default function CasesMainSection() {
 }
 ```
 
-### Step 3: Create the CaseItem Component
-Create a new file: `src/components/Routes/Cases/CaseItem.tsx`
+### Step 5: Create the Case Study Card Component
+
+**File to create:** `src/components/Routes/Cases/CaseStudyCard.tsx`
+
+**Content to extract from HTML (lines 1201-1350 approximately):**
 
 ```typescript
 'use client'
 import Link from 'next/link'
 
-interface CaseItemProps {
+interface CaseStudyCardProps {
   type: 'full-width' | 'half-width';
   videoDesktop: string;
   videoMobile?: string;
@@ -169,7 +203,7 @@ interface CaseItemProps {
   link: string;
 }
 
-export default function CaseItem({
+export default function CaseStudyCard({
   type,
   videoDesktop,
   videoMobile,
@@ -180,11 +214,11 @@ export default function CaseItem({
   title,
   description,
   link
-}: CaseItemProps) {
-  const containerClass = type === 'full-width' ? 'full-width' : 'half-width';
+}: CaseStudyCardProps) {
+  const widthClass = type === 'full-width' ? 'full-width' : 'half-width';
   
   return (
-    <div className={`cases-gridinr block-id-case_${Math.random().toString(36).substr(2, 9)} ${containerClass}`}>
+    <div className={`cases-gridinr block-id-case_${Math.random().toString(36).substr(2, 9)} ${widthClass}`}>
       <div className="cases-gridwrap">
         {/* Desktop Video */}
         <video 
@@ -214,20 +248,16 @@ export default function CaseItem({
           <img src={posterMobile || poster} alt="" />
         </video>
         
-        {/* Content Overlay */}
         <div className="cases-content banner-content">
           <div className="cases-coninr">
-            {/* Tags */}
             <div className="cases-btag">
               {tags.map((tag, index) => (
                 <p key={index} className="xs-body tag">{tag}</p>
               ))}
             </div>
             
-            {/* Logo placeholder */}
             <div className="cases-logo d-none d-lg-block text-center"></div>
             
-            {/* Text Content */}
             <div className="cases-btext">
               <div className="cases-btextinr">
                 <p className="s-body">{title}</p>
@@ -236,7 +266,6 @@ export default function CaseItem({
                 </div>
               </div>
               
-              {/* CTA Button */}
               <div className="cases-bbtn desk_right">
                 <Link href={link} className="cases-bbtninr">
                   <div className="link-arrow">
@@ -267,98 +296,131 @@ export default function CaseItem({
 }
 ```
 
-### Step 4: Update Header Component
-In `src/components/Layout/Header.tsx`, update the Cases link to use the new route:
+### Step 6: Add Case Studies CSS Styles
 
-**Line to change (around line 45):**
+**File to create:** `src/app/cases/cases.css`
+
+**Content to copy from HTML (lines 1050-1089 - the CSS link reference):**
+
+You'll need to extract the CSS from the original Shopify CSS file:
+`//www.notsellingliquid.com/cdn/shop/t/39/assets/case-studies.css?v=106501624443217175951758090047`
+
+**Then import it in the page:**
 ```typescript
-// Change from:
-<Link href="/pages/case-studies">Cases</Link>
-
-// To:
-<Link href="/cases" className={currentPage === 'cases' ? 'active' : ''}>Cases</Link>
+import './cases.css'
 ```
 
-**Also update the mobile menu (around line 85):**
-```typescript
-// Change from:
-<li><Link href="/pages/case-studies" className="mob_link">Cases</Link></li>
+### Step 7: Update Layout to Handle Cases Page
 
-// To:
-<li><Link href="/cases" className={`mob_link ${currentPage === 'cases' ? 'active' : ''}`}>Cases</Link></li>
+**File to update:** `src/app/layout.tsx`
+
+**Add body class handling for cases page:**
+
+```typescript
+// Add this to handle page-specific body classes
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <head>
+        {/* existing head content */}
+      </head>
+      <body className="antialiased sticky-header">
+        {/* existing body content */}
+      </body>
+    </html>
+  );
+}
 ```
 
-### Step 5: Update Layout to Handle Cases Page
-In `src/app/layout.tsx`, update the body className to handle the cases page:
+### Step 8: Update Header Component Usage
 
-**Around line 50, update the body tag:**
+**File to update:** `src/app/cases/page.tsx`
+
+**Import and use Header with current page:**
+
 ```typescript
-// Add conditional className for cases page
-<body className={`antialiased ${pathname === '/cases' ? 'sticky-header case-studies' : ''}`}>
+import Header from '../../components/Layout/Header'
+
+// In the component, pass the current page
+<Header currentPage="cases" />
 ```
 
-You'll need to import usePathname:
+**But since Header is already in layout, you just need to detect the current page in the Header component itself using usePathname:**
+
+**File to update:** `src/components/Layout/Header.tsx`
+
 ```typescript
 'use client'
 import { usePathname } from 'next/navigation'
 
-// Then inside the component:
-const pathname = usePathname()
-```
-
-### Step 6: Create CSS File for Cases
-Create a new file: `src/app/cases/cases.css`
-
-Copy the CSS from the HTML file (lines 1058-1080 and any additional case-studies specific styles from the original CSS files referenced in the HTML).
-
-### Step 7: Import CSS in Cases Page
-In `src/app/cases/page.tsx`, add:
-```typescript
-import './cases.css'
+export default function Header() {
+  const pathname = usePathname()
+  const currentPage = pathname === '/' ? 'home' : pathname.slice(1)
+  
+  // rest of component logic
+}
 ```
 
 ## Additional Notes
 
 ### Video Handling
 - The original HTML uses autoplay videos with multiple sources
-- Ensure video files are accessible and consider adding loading states
-- Videos should be optimized for web delivery
+- Ensure videos are optimized for web delivery
+- Consider adding loading states for videos
+- Test video playback across different browsers
 
 ### Responsive Design
-- The layout uses different videos for desktop and mobile
-- Ensure proper responsive behavior with CSS Grid
+- The layout uses CSS Grid and Flexbox
+- Ensure mobile responsiveness is maintained
 - Test on various screen sizes
 
-### SEO Considerations
-- The metadata is properly configured for social media sharing
-- Canonical URLs are set correctly
-- Open Graph and Twitter Card data is included
+### Performance Considerations
+- Videos should be lazy-loaded when possible
+- Consider using Next.js Image component for poster images
+- Implement proper SEO meta tags
 
-### Performance
-- Consider lazy loading for videos not in viewport
-- Optimize video file sizes
-- Add proper error handling for failed video loads
-
-## Files to Create/Modify
-
-### New Files:
-1. `src/app/cases/page.tsx`
-2. `src/app/cases/cases.css`
-3. `src/components/Routes/Cases/CasesMainSection.tsx`
-4. `src/components/Routes/Cases/CaseItem.tsx`
-
-### Files to Modify:
-1. `src/components/Layout/Header.tsx` - Update navigation links
-2. `src/app/layout.tsx` - Add conditional body classes
+### CSS Classes to Preserve
+Key CSS classes from the original that need to be maintained:
+- `.section-case-studies`
+- `.case-studies`
+- `.cs-header`
+- `.cases-grid`
+- `.cases-gridinr`
+- `.cases-gridwrap`
+- `.fullvideo`
+- `.cases-content`
+- `.cases-btag`
+- `.tag`
+- `.cases-btext`
+- `.cases-bbtn`
+- `.link-arrow`
 
 ## Testing Checklist
-- [ ] Page loads correctly at `/cases`
-- [ ] Videos autoplay and loop properly
-- [ ] Responsive design works on mobile and desktop
-- [ ] Navigation highlights "Cases" when on the page
-- [ ] All links work correctly
-- [ ] SEO metadata is properly set
-- [ ] Loading animation works
-- [ ] Header breadcrumb shows correct path
 
-This migration maintains the original functionality while adapting it to Next.js patterns and best practices.
+After migration, test:
+- [ ] Page loads correctly at `/cases`
+- [ ] Videos autoplay and loop
+- [ ] Mobile responsive design works
+- [ ] Navigation highlights "Cases" as active
+- [ ] Breadcrumb shows "Case Studies"
+- [ ] Links to individual case studies work
+- [ ] SEO meta tags are correct
+- [ ] CSS animations and transitions work
+- [ ] Mobile menu functions properly
+
+## Files Created/Modified Summary
+
+**New Files:**
+- `src/app/cases/page.tsx`
+- `src/app/cases/cases.css`
+- `src/components/Routes/Cases/CaseStudiesMainSection.tsx`
+- `src/components/Routes/Cases/CaseStudyCard.tsx`
+
+**Modified Files:**
+- `src/components/Layout/Header.tsx` (navigation links and active states)
+
+This completes the migration of the cases page from the HTML document to the Next.js structure while maintaining all functionality and styling.
