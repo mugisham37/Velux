@@ -2,7 +2,11 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-export default function Header() {
+interface HeaderProps {
+  currentPage?: string;
+}
+
+export default function Header({ currentPage = 'home' }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
@@ -49,7 +53,7 @@ export default function Header() {
                 <div className="snippet-header-nav">
                   <ul className="list-menu" role="list">
                     <li>
-                      <Link href="/pages/services">Services</Link>
+                      <Link href="/services" className={currentPage === 'services' ? 'active' : ''}>Services</Link>
                     </li>
                     <li>
                       <Link href="/pages/about-us">About us</Link>
@@ -69,8 +73,16 @@ export default function Header() {
                   </ul>
                 </div>
                 <div className="header-breadcrumb">
-                  <div className="snippet-breadcrumb">
-                    <p>Home</p>
+                  <div className="hb-blk block-id-3409d0e4-c257-4ab0-b955-4355fab3e254">
+                    <p className="xs-body">
+                      <Link href="/">Home</Link> 
+                      {currentPage !== 'home' && (
+                        <>
+                          <span>/</span>
+                          <span className="capitalize">{currentPage}</span>
+                        </>
+                      )}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -112,7 +124,7 @@ export default function Header() {
         <div className={`snippet-menu-drawer ${isMobileMenuOpen ? 'open' : ''}`} style={{ top: '65.8px', height: isMobileMenuOpen ? 'auto' : '0px' }}>
           <div className="menu-drawer-inner">
             <ul className="mob_navigation">
-              <li><Link href="/pages/services" className="mob_link">Services</Link></li>
+              <li><Link href="/services" className={`mob_link ${currentPage === 'services' ? 'active' : ''}`}>Services</Link></li>
               <li><Link href="/pages/about-us" className="mob_link">About us</Link></li>
               <li><Link href="/pages/case-studies" className="mob_link">Cases</Link></li>
               <li><Link href="/pages/clients" className="mob_link">Clients</Link></li>

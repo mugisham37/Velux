@@ -88,6 +88,10 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
         <Script
+          src="//www.notsellingliquid.com/cdn/shop/t/39/assets/jquery.min.js?v=118972937870852736831758090047"
+          strategy="beforeInteractive"
+        />
+        <Script
           src="//www.notsellingliquid.com/cdn/shop/t/39/assets/theme.js?v=52259930801849237631758090047"
           strategy="afterInteractive"
         />

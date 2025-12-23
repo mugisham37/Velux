@@ -860,3 +860,130 @@ button:focus {
     display: none !important;
   }
 }
+
+/* Services Page Styles */
+.services-main {
+  position: relative;
+}
+
+.section-services {
+  padding: 80px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.services-wrap {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.services-left {
+  position: relative;
+}
+
+.services-leftinr {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.services-leftinr svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.services-right {
+  position: relative;
+}
+
+.services-rightinr h2 {
+  font-family: var(--font-heading-family);
+  font-size: var(--desktop-h2-font);
+  color: var(--pure-cacao);
+  line-height: 1.1;
+  margin: 20px 0 0 0;
+}
+
+.services-rightinr .n-body {
+  color: var(--pure-cacao);
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.services-rightinr .ser_simdesc {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 30px 0 20px 0;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.services-rightinr .m-caption {
+  color: var(--pure-cacao);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.services-rightinr .m-caption p {
+  margin: 0;
+}
+
+.grid-8-fcol {
+  grid-column: span 8;
+}
+
+.grid-4-lcol {
+  grid-column: span 4;
+}
+
+/* Active navigation state */
+.snippet-header-nav a.active {
+  opacity: 1;
+  font-weight: 500;
+}
+
+.mob_link.active {
+  opacity: 1;
+  font-weight: 500;
+}
+
+/* Responsive Design for Services */
+@media (max-width: 991px) {
+  .services-wrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .services-rightinr h2 {
+    font-size: var(--mobile-h2-font);
+  }
+  
+  .section-services {
+    padding: 60px 0;
+  }
+  
+  .services-rightinr .ser_simdesc {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-leftinr svg {
+    width: 100%;
+    max-width: 370px;
+  }
+  
+  .section-services {
+    padding: 40px 0;
+  }
+  
+  .services-wrap {
+    gap: 30px;
+  }
+}

@@ -17,7 +17,7 @@ export default function Home() {
         Skip to content
       </a>
       <LoadingAnimation />
-      <Header />
+      <Header currentPage="home" />
       <main id="MainContent" role="main" tabIndex={-1} style={{ paddingTop: '65px' }}>
         <IntroSection />
         <BannerSection />
