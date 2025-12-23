@@ -1,5 +1,6 @@
 'use client'
 import ClientsList from './ClientsList'
+import TextBannerSection from './TextBannerSection'
 
 export default function ClientsMainSection() {
   return (
@@ -50,6 +51,7 @@ export default function ClientsMainSection() {
       </div>
 
       <ClientsList />
+      <TextBannerSection />
     </>
   )
 }
