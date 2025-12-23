@@ -7,26 +7,24 @@ export default function LoadingAnimation() {
 
   useEffect(() => {
     const targetValue = 100
+    let currentVal = 0
+    
     const updatePercentage = () => {
-      setCurrentValue(prev => {
-        if (prev < targetValue) {
-          return prev + 1
-        }
-        return prev
-      })
+      if (currentVal < targetValue) {
+        currentVal += 1
+        setCurrentValue(currentVal)
+      } else {
+        clearInterval(interval)
+        setTimeout(() => {
+          setIsVisible(false)
+        }, 2000)
+      }
     }
 
     const interval = setInterval(updatePercentage, 20)
     
-    if (currentValue >= targetValue) {
-      clearInterval(interval)
-      setTimeout(() => {
-        setIsVisible(false)
-      }, 2000)
-    }
-
     return () => clearInterval(interval)
-  }, [currentValue])
+  }, []) // Remove currentValue dependency
 
   if (!isVisible) return null
 

@@ -17,30 +17,16 @@ export default function ShopifyPlusSection() {
 
   return (
     <div id="shopify-section-template--26430796759383__b7c8b597-4f0c-454b-8ffd-e2c4d58acaa6" className="shopify-section">
-      <section className="section-shopify-plus section-id-template--26430796759383__b7c8b597-4f0c-454b-8ffd-e2c4d58acaa6 relative-sec">
-        <style jsx>{`
-          .section-id-template--26430796759383__b7c8b597-4f0c-454b-8ffd-e2c4d58acaa6 {
-            background: #e5e2de;
-          }
-          .section-id-template--26430796759383__b7c8b597-4f0c-454b-8ffd-e2c4d58acaa6 .shopify-plus {
-            padding-top: 40px;
-            padding-bottom: 40px;
-          }
-          @media (min-width: 992px) {
-            .section-id-template--26430796759383__b7c8b597-4f0c-454b-8ffd-e2c4d58acaa6 .shopify-plus {
-              padding-top: 40px;
-              padding-bottom: 80px;
-              border-bottom: 1px solid var(--pure-cacao);
-            }
-          }
-          @media (max-width: 991px) {
-            .section-id-template--26430796759383__b7c8b597-4f0c-454b-8ffd-e2c4d58acaa6 .shopify-plus {
-              border-bottom: 1px solid var(--pure-cacao);
-            }
-          }
-        `}</style>
+      <section 
+        className="section-shopify-plus section-id-template--26430796759383__b7c8b597-4f0c-454b-8ffd-e2c4d58acaa6 relative-sec"
+        style={{ background: '#e5e2de' }}
+      >
         <div className="container">
-          <div className="shopify-plus grid">
+          <div className="shopify-plus grid" style={{ 
+            paddingTop: '40px', 
+            paddingBottom: '40px',
+            borderBottom: '1px solid var(--pure-cacao)'
+          }}>
             <div className="sp-left grid-4-fcol">
               <svg xmlns="http://www.w3.org/2000/svg" width="160" height="56" viewBox="0 0 160 56" fill="none">
                 <g clipPath="url(#clip0_2350_4544)">
