@@ -4,9 +4,6 @@ export default function AboutStepsSection() {
   return (
     <div id="shopify-section-template--26430796890455__06691c3a-e084-4fa5-b1c6-05671a57f694"
          className="shopify-section">
-      <link
-        href="//www.notsellingliquid.com/cdn/shop/t/39/assets/about-steps.css?v=102037383378599771211758090047"
-        rel="stylesheet" type="text/css" media="all" />
       <section className="section-about-steps section-id-template--26430796890455__06691c3a-e084-4fa5-b1c6-05671a57f694 relative-sec">
         <style jsx>{`
           .section-id-template--26430796890455__06691c3a-e084-4fa5-b1c6-05671a57f694 {
@@ -24,7 +21,6 @@ export default function AboutStepsSection() {
                   <Image
                     src="//www.notsellingliquid.com/cdn/shop/files/INTRODUCING_91f45b7a-88c0-4dc3-be39-dd574d0b92a0.webp?v=1746016032"
                     alt=""
-                    loading="lazy"
                     className="d-none d-lg-block"
                     width={2049}
                     height={1534}
@@ -32,7 +28,6 @@ export default function AboutStepsSection() {
                   <Image
                     src="//www.notsellingliquid.com/cdn/shop/files/INTRODUCING_91f45b7a-88c0-4dc3-be39-dd574d0b92a0.webp?v=1746016032"
                     alt=""
-                    loading="lazy"
                     className="d-block d-lg-none"
                     width={2049}
                     height={1534}

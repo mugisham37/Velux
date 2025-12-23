@@ -5,9 +5,6 @@ export default function AboutIntroSection() {
     <div id="shopify-section-template--26430796890455__e888cf0f-1c90-47ca-a12b-c0a1b957457e"
          className="shopify-section about_intro" 
          style={{ marginTop: '-67.775px' }}>
-      <link
-        href="//www.notsellingliquid.com/cdn/shop/t/39/assets/about-intro.css?v=23907028594662014411758090047"
-        rel="stylesheet" type="text/css" media="all" />
       <section className="section-about-intro section-id-template--26430796890455__e888cf0f-1c90-47ca-a12b-c0a1b957457e relative-sec">
         <style jsx>{`
           .section-id-template--26430796890455__e888cf0f-1c90-47ca-a12b-c0a1b957457e {

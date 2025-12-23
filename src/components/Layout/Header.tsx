@@ -11,6 +11,7 @@ export default function Header() {
   const getCurrentPage = () => {
     if (pathname === '/') return 'home'
     if (pathname === '/services') return 'services'
+    if (pathname === '/about-us') return 'about-us'
     if (pathname === '/cases') return 'cases'
     if (pathname === '/clients') return 'clients'
     if (pathname === '/contact') return 'contact'
@@ -67,7 +68,7 @@ export default function Header() {
                       <Link href="/services" className={currentPage === 'services' ? 'active' : ''}>Services</Link>
                     </li>
                     <li>
-                      <Link href="/pages/about-us">About us</Link>
+                      <Link href="/about-us" className={currentPage === 'about-us' ? 'active' : ''}>About us</Link>
                     </li>
                     <li>
                       <Link href="/cases" className={currentPage === 'cases' ? 'active' : ''}>Cases</Link>
@@ -94,7 +95,8 @@ export default function Header() {
                         {currentPage === 'cases' ? 'Case Studies' : 
                          currentPage === 'clients' ? 'Clients' : 
                          currentPage === 'articles' ? 'Blog' : 
-                         currentPage === 'contact' ? 'Contact' : currentPage}
+                         currentPage === 'contact' ? 'Contact' : 
+                         currentPage === 'about-us' ? 'About Us' : currentPage}
                       </span>
                     </>
                   )}
@@ -141,7 +143,7 @@ export default function Header() {
           <div className="menu-drawer-inner">
             <ul className="mob_navigation">
               <li><Link href="/services" className={`mob_link ${currentPage === 'services' ? 'active' : ''}`}>Services</Link></li>
-              <li><Link href="/pages/about-us" className="mob_link">About us</Link></li>
+              <li><Link href="/about-us" className={`mob_link ${currentPage === 'about-us' ? 'active' : ''}`}>About us</Link></li>
               <li><Link href="/cases" className={`mob_link ${currentPage === 'cases' ? 'active' : ''}`}>Cases</Link></li>
               <li><Link href="/clients" className={`mob_link ${currentPage === 'clients' ? 'active' : ''}`}>Clients</Link></li>
               <li>
