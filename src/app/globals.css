@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("//www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff2?v=11777328378613522966")
+      format("woff2"),
+    url("//www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff?v=14984412462167582789")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Editorial Old";
+  src: url("//www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff2?v=13586537134979268968")
+      format("woff2"),
+    url("//www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff?v=12339577768757059424")
+      format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-body-family: "Aeonik";
+  --font-heading-family: "PP Editorial Old";
+  --desktop-body-font: 12px;
+  --desktop-h1-font: 80px;
+  --desktop-h2-font: 60px;
+  --desktop-h3-font: 48px;
+  --desktop-h4-font: 16px;
+  --desktop-h5-font: 40px;
+  --desktop-h6-font: 30px;
+  --mobile-body-font: 12px;
+  --mobile-h1-font: 60px;
+  --mobile-h2-font: 40px;
+  --mobile-h3-font: 30px;
+  --mobile-h4-font: 40px;
+  --mobile-h5-font: 30px;
+  --mobile-h6-font: 25px;
+  --header-width: 100%;
+  --background-color: #e5e2de;
+  --text-color: #262424;
+  --button-background: #c0bbae;
+  --button-text: #262424;
+  --cart-overlay: linear-gradient(
+    63deg,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  --grid-product-ratio: 1/1;
+  --dark-stone: #9b978b;
+  --stone: #c0bbae;
+  --fog: #e5e2de;
+  --light-fog: #f7f7f6;
+  --glacier: #ffffff;
+  --pure-cacao: #262424;
+  --pure-black: #000000;
+  --channel-orange: #f27e4c;
+  --sale-red: #ef4b4b;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
