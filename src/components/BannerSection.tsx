@@ -1,3 +1,5 @@
+'use client'
+
 export default function BannerSection() {
   return (
     <div id="shopify-section-template--26430796759383__f1214721-46d5-4d18-93ff-183e7995facb"

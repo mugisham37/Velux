@@ -1,3 +1,5 @@
+'use client'
+
 export default function IntroSection() {
   return (
     <div id="shopify-section-template--26430796759383__5068ab18-3ac5-4273-b159-c935f9d1f90a"

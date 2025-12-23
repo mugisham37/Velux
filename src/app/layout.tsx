@@ -55,7 +55,7 @@ export default function RootLayout({
         <meta name="theme-color" content="" />
         <link rel="preconnect" href="https://cdn.shopify.com" crossOrigin="" />
       </head>
-      <body className={`${aeonik.variable} ${ppEditorialOld.variable} antialiased`}>
+      <body className="antialiased">
         {children}
         
         {/* Scripts converted to Next.js Script components */}

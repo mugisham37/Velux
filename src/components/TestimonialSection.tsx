@@ -1,3 +1,5 @@
+'use client'
+
 export default function TestimonialSection() {
   return (
     <div id="shopify-section-template--26430796759383__38f6249f-94cf-42a2-8903-5a33c0e1258e" className="shopify-section">
