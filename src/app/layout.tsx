@@ -4,6 +4,7 @@ import "./globals.css";
 import LoadingAnimation from '../components/Layout/LoadingAnimation'
 import Header from '../components/Layout/Header'
 import Footer from '../components/Layout/Footer'
+import BodyContent from '../components/Layout/BodyContent'
 
 export const metadata: Metadata = {
   title: "Not selling liquid - We build, manage, and grow fashion brands",
@@ -58,18 +59,17 @@ export default function RootLayout({
         <meta name="theme-color" content="" />
         <link rel="preconnect" href="https://cdn.shopify.com" crossOrigin="" />
       </head>
-      <body className="antialiased sticky-header">{/* Removed hardcoded case-studies class */}
-        
-          <div className="transition_div">&nbsp;</div>
-          <a className="skip-to-content-link visually-hidden" href="#MainContent">
-            Skip to content
-          </a>
-          <LoadingAnimation />
-          <Header />
-          <main id="MainContent" role="main" tabIndex={-1} style={{ paddingTop: '65px' }}>
-            {children}
-          </main>
-          <Footer />
+      <BodyContent>
+        <div className="transition_div">&nbsp;</div>
+        <a className="skip-to-content-link visually-hidden" href="#MainContent">
+          Skip to content
+        </a>
+        <LoadingAnimation />
+        <Header />
+        <main id="MainContent" role="main" tabIndex={-1} style={{ paddingTop: '65px' }}>
+          {children}
+        </main>
+        <Footer />
         
         {/* Scripts converted to Next.js Script components */}
         <Script
@@ -108,7 +108,7 @@ export default function RootLayout({
           src="//www.notsellingliquid.com/cdn/shop/t/39/assets/theme.js?v=52259930801849237631758090047"
           strategy="afterInteractive"
         />
-      </body>
+      </BodyContent>
     </html>
   );
 }
