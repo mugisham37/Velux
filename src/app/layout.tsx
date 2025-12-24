@@ -4,7 +4,6 @@ import "./globals.css";
 import LoadingAnimation from '../components/Layout/LoadingAnimation'
 import Header from '../components/Layout/Header'
 import Footer from '../components/Layout/Footer'
-import BodyContent from '../components/Layout/BodyContent'
 
 export const metadata: Metadata = {
   title: "Not selling liquid - We build, manage, and grow fashion brands",
@@ -59,7 +58,7 @@ export default function RootLayout({
         <meta name="theme-color" content="" />
         <link rel="preconnect" href="https://cdn.shopify.com" crossOrigin="" />
       </head>
-      <BodyContent>
+      
         <div className="transition_div">&nbsp;</div>
         <a className="skip-to-content-link visually-hidden" href="#MainContent">
           Skip to content
@@ -108,7 +107,6 @@ export default function RootLayout({
           src="//www.notsellingliquid.com/cdn/shop/t/39/assets/theme.js?v=52259930801849237631758090047"
           strategy="afterInteractive"
         />
-      </BodyContent>
     </html>
   );
 }
