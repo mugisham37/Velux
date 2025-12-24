@@ -58,7 +58,7 @@ export default function RootLayout({
         <meta name="theme-color" content="" />
         <link rel="preconnect" href="https://cdn.shopify.com" crossOrigin="" />
       </head>
-      
+      <body className="home-index sticky-header loading-nsl">
         <div className="transition_div">&nbsp;</div>
         <a className="skip-to-content-link visually-hidden" href="#MainContent">
           Skip to content
@@ -107,6 +107,7 @@ export default function RootLayout({
           src="//www.notsellingliquid.com/cdn/shop/t/39/assets/theme.js?v=52259930801849237631758090047"
           strategy="afterInteractive"
         />
+      </body>
     </html>
   );
 }
