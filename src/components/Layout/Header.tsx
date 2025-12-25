@@ -55,12 +55,12 @@ const Header = () => {
             <div className="flex justify-center">
               <div className="hidden lg:block">
                 <ul className="flex space-x-8 font-['Aeonik'] text-xs text-white" role="list">
-                  <li><a href="/pages/services" className="hover:opacity-75 transition-opacity duration-200">Services</a></li>
-                  <li><a href="/pages/about-us" className="hover:opacity-75 transition-opacity duration-200">About us</a></li>
-                  <li><a href="/pages/case-studies" className="hover:opacity-75 transition-opacity duration-200">Cases</a></li>
-                  <li><a href="/pages/clients" className="hover:opacity-75 transition-opacity duration-200">Clients</a></li>
-                  <li><a href="/blogs/inside-the-industry" className="hover:opacity-75 transition-opacity duration-200">Articles</a></li>
-                  <li><a href="/pages/contact" className="hover:opacity-75 transition-opacity duration-200">Contact</a></li>
+                  <li><Link href="/services" className="hover:opacity-75 transition-opacity duration-200">Services</Link></li>
+                  <li><Link href="/about-us" className="hover:opacity-75 transition-opacity duration-200">About us</Link></li>
+                  <li><Link href="/cases" className="hover:opacity-75 transition-opacity duration-200">Cases</Link></li>
+                  <li><Link href="/clients" className="hover:opacity-75 transition-opacity duration-200">Clients</Link></li>
+                  <li><Link href="/blogs/inside-the-industry" className="hover:opacity-75 transition-opacity duration-200">Articles</Link></li>
+                  <li><Link href="/contact" className="hover:opacity-75 transition-opacity duration-200">Contact</Link></li>
                 </ul>
               </div>
               
@@ -72,7 +72,7 @@ const Header = () => {
             
             {/* Header Right - Contact Link & Mobile Menu */}
             <div className="flex justify-end items-center space-x-4">
-              <a href="/pages/contact" className="hidden lg:flex items-center space-x-2 text-white font-['Aeonik'] text-xs hover:opacity-75 transition-opacity duration-200 group">
+              <Link href="/contact" className="hidden lg:flex items-center space-x-2 text-white font-['Aeonik'] text-xs hover:opacity-75 transition-opacity duration-200 group">
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z" fill="currentColor"></path>
@@ -84,7 +84,7 @@ const Header = () => {
                     <path fillRule="evenodd" clipRule="evenodd" d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z" fill="currentColor"></path>
                   </svg>
                 </span>
-              </a>
+              </Link>
               
               {/* Mobile Menu Button */}
               <div className="block lg:hidden">
@@ -105,13 +105,13 @@ const Header = () => {
       <div className="fixed left-0 w-full bg-[#262424] z-40 overflow-hidden transition-all duration-300 ease-in-out" style={{top: '65.8px', height: '0px'}}>
         <div className="p-6">
           <ul className="space-y-4 mb-8">
-            <li><a href="/pages/services" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">Services</a></li>
-            <li><a href="/pages/about-us" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">About us</a></li>
-            <li><a href="/pages/case-studies" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">Cases</a></li>
-            <li><a href="/pages/clients" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">Clients</a></li>
-            <li><a href="/blogs/inside-the-industry" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">Articles</a></li>
+            <li><Link href="/services" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">Services</Link></li>
+            <li><Link href="/about-us" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">About us</Link></li>
+            <li><Link href="/cases" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">Cases</Link></li>
+            <li><Link href="/clients" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">Clients</Link></li>
+            <li><Link href="/blogs/inside-the-industry" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">Articles</Link></li>
             <li><a href="https://careers.notsellingliquid.com/" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">Careers</a></li>
-            <li><a href="/pages/contact" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">Contact</a></li>
+            <li><Link href="/contact" className="block text-white font-['Aeonik'] text-sm hover:opacity-75 transition-opacity duration-200">Contact</Link></li>
           </ul>
           
           {/* Partnership Section */}
