@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import ClientsMainSection from '../../components/Routes/Clients/ClientsMainSection'
+import TextBannerSection from "@/src/components/Routes/Clients/TextBannerSection";
+import ClientsList from "@/src/components/Routes/Clients/ClientsList";
 
 export const metadata: Metadata = {
   title: "Clients – Not selling liquid",
@@ -43,6 +45,8 @@ export const metadata: Metadata = {
 export default function ClientsPage() {
   return (
     <div className="template-page">
+      <TextBannerSection/>
+      <ClientsList/>
       <ClientsMainSection />
     </div>
   )
