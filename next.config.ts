@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Add empty turbopack config to silence the warning
+  turbopack: {},
+  
   // Webpack optimizations
   webpack: (config, { dev, isServer }) => {
     // Optimize for development
@@ -54,12 +57,15 @@ const nextConfig: NextConfig = {
     formats: ['image/webp', 'image/avif'],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // Allow images with query strings
+    // Allow images with query strings by disabling optimization for external images
     unoptimized: false,
     // Add loader to handle protocol-relative URLs
     loader: 'default',
-    // Disable image optimization for external images with query strings
+    // Set minimum cache TTL
     minimumCacheTTL: 60,
+    // Allow query strings in image URLs
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 }
 

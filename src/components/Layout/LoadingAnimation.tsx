@@ -195,7 +195,7 @@ const LoadingAnimation = () => {
         {images.map((image, index) => (
           <Image
             key={index}
-            src={`https:${image.src}`}
+            src={image.src}
             width={image.width}
             height={image.height}
             alt={image.alt}
