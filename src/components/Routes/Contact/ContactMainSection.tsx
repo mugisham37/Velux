@@ -8,7 +8,7 @@ const ContactMainSection = () => {
   useEffect(() => {
     // Load custom fonts
     const fontLink1 = document.createElement('link');
-    fontLink1.href = "//www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff2?v=11777328378613522966";
+    fontLink1.href = "https://www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff2?v=11777328378613522966";
     fontLink1.rel = "preload";
     fontLink1.as = "font";
     fontLink1.type = "font/woff2";
@@ -16,7 +16,7 @@ const ContactMainSection = () => {
     document.head.appendChild(fontLink1);
 
     const fontLink2 = document.createElement('link');
-    fontLink2.href = "//www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff2?v=13586537134979268968";
+    fontLink2.href = "https://www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff2?v=13586537134979268968";
     fontLink2.rel = "preload";
     fontLink2.as = "font";
     fontLink2.type = "font/woff2";
@@ -28,16 +28,16 @@ const ContactMainSection = () => {
     fontStyle.textContent = `
       @font-face {
         font-family: 'Aeonik';
-        src: url("//www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff2?v=11777328378613522966") format('woff2'),
-             url("//www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff?v=14984412462167582789") format('woff');
+        src: url("https://www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff2?v=11777328378613522966") format('woff2'),
+             url("https://www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff?v=14984412462167582789") format('woff');
         font-weight: normal;
         font-style: normal;
         font-display: swap;
       }
       @font-face {
         font-family: 'PP Editorial Old';
-        src: url("//www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff2?v=13586537134979268968") format('woff2'),
-             url("//www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff?v=12339577768757059424") format('woff');
+        src: url("https://www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff2?v=13586537134979268968") format('woff2'),
+             url("https://www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff?v=12339577768757059424") format('woff');
         font-weight: 300;
         font-style: normal;
         font-display: swap;
@@ -572,3 +572,4 @@ const ContactMainSection = () => {
 }
 
 export default ContactMainSection
+

@@ -170,7 +170,7 @@ const Header = () => {
       
       {/* Scripts */}
       <script 
-        src="//www.notsellingliquid.com/cdn/shop/t/39/assets/header.js?v=9328361740610842761758090047" 
+        src="https://www.notsellingliquid.com/cdn/shop/t/39/assets/header.js?v=9328361740610842761758090047" 
         defer={true}>
       </script>
       
@@ -208,3 +208,4 @@ const Header = () => {
 }
 
 export default Header
+

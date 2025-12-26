@@ -56,6 +56,10 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     // Allow images with query strings
     unoptimized: false,
+    // Add loader to handle protocol-relative URLs
+    loader: 'default',
+    // Disable image optimization for external images with query strings
+    minimumCacheTTL: 60,
   },
 }
 

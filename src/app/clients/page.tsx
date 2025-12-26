@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: "Together with our clients, we're changing the way to do e-commerce. We will use our expertise to build, manage and grow your brand on Shopify Plus, to elevate its position in the market alongside these players.",
     images: [
       {
-        url: "http://www.notsellingliquid.com/cdn/shop/files/shareimage.png?v=1686743284",
+        url: "http:https://www.notsellingliquid.com/cdn/shop/files/shareimage.png?v=1686743284",
         secureUrl: "https://www.notsellingliquid.com/cdn/shop/files/shareimage.png?v=1686743284",
         width: 1200,
         height: 630,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: {
-      url: "//www.notsellingliquid.com/cdn/shop/files/Group_298.png?crop=center&height=32&v=1686287724&width=32",
+      url: "https://www.notsellingliquid.com/cdn/shop/files/Group_298.png?crop=center&height=32&v=1686287724&width=32",
       type: "image/png",
     },
   },
@@ -51,3 +51,4 @@ export default function ClientsPage() {
     </div>
   )
 }
+

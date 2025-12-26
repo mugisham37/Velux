@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: "As a certified Shopify Premier agency, Not selling liquid provides a service that builds, manages, and grows the presence of purpose-led brands in the digital space, powered by Shopify Plus. With our intrinsic appreciation of the fashion industry, our team creates specialist solutions for longevity in a dynamic space.",
     images: [
       {
-        url: "http://www.notsellingliquid.com/cdn/shop/files/shareimage.png?v=1686743284",
+        url: "http:https://www.notsellingliquid.com/cdn/shop/files/shareimage.png?v=1686743284",
         secureUrl: "https://www.notsellingliquid.com/cdn/shop/files/shareimage.png?v=1686743284",
         width: 1200,
         height: 630,
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: {
-      url: "//www.notsellingliquid.com/cdn/shop/files/Group_298.png?crop=center&height=32&v=1686287724&width=32",
+      url: "https://www.notsellingliquid.com/cdn/shop/files/Group_298.png?crop=center&height=32&v=1686287724&width=32",
       type: "image/png",
     },
   },
@@ -76,7 +76,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <Script
-          src="//www.notsellingliquid.com/cdn/s/trekkie.storefront.4b0d51228c8d1703f19d66468963c9de55bf59b0.min.js"
+          src="https://www.notsellingliquid.com/cdn/s/trekkie.storefront.4b0d51228c8d1703f19d66468963c9de55bf59b0.min.js"
           strategy="afterInteractive"
         />
         <Script
@@ -100,14 +100,16 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
         <Script
-          src="//www.notsellingliquid.com/cdn/shop/t/39/assets/jquery.min.js?v=118972937870852736831758090047"
+          src="https://www.notsellingliquid.com/cdn/shop/t/39/assets/jquery.min.js?v=118972937870852736831758090047"
           strategy="beforeInteractive"
         />
         <Script
-          src="//www.notsellingliquid.com/cdn/shop/t/39/assets/theme.js?v=52259930801849237631758090047"
+          src="https://www.notsellingliquid.com/cdn/shop/t/39/assets/theme.js?v=52259930801849237631758090047"
           strategy="afterInteractive"
         />
       </body>
     </html>
   );
 }
+
+

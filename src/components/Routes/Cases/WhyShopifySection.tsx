@@ -396,3 +396,4 @@ const WhyShopifySection = () => {
 }
 
 export default WhyShopifySection
+

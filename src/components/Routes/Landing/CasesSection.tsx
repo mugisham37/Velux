@@ -69,17 +69,17 @@ const CasesSection: React.FC = () => {
                       loop
                       preload="metadata" 
                       className="absolute inset-0 w-full h-full object-cover hidden lg:block"
-                      poster={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/preview_images/d4d832f6fceb43a989e0c497805ddf2d.thumbnail.0000000000_small.jpg?v=1744187207")}
+                      poster={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/files/preview_images/d4d832f6fceb43a989e0c497805ddf2d.thumbnail.0000000000_small.jpg?v=1744187207")}
                     >
                       <source
-                        src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/videos/c/vp/d4d832f6fceb43a989e0c497805ddf2d/d4d832f6fceb43a989e0c497805ddf2d.HD-1080p-7.2Mbps-45627631.mp4?v=0")}
+                        src={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/videos/c/vp/d4d832f6fceb43a989e0c497805ddf2d/d4d832f6fceb43a989e0c497805ddf2d.HD-1080p-7.2Mbps-45627631.mp4?v=0")}
                         type="video/mp4" 
                       />
                       <Image 
                         alt="" 
                         width={800} 
                         height={600}
-                        src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/preview_images/d4d832f6fceb43a989e0c497805ddf2d.thumbnail.0000000000_small.jpg?v=1744187207")} 
+                        src={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/files/preview_images/d4d832f6fceb43a989e0c497805ddf2d.thumbnail.0000000000_small.jpg?v=1744187207")} 
                         className="w-full h-full object-cover"
                       />
                     </video>
@@ -90,17 +90,17 @@ const CasesSection: React.FC = () => {
                       loop
                       preload="metadata" 
                       className="absolute inset-0 w-full h-full object-cover block lg:hidden"
-                      poster={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/preview_images/d4d832f6fceb43a989e0c497805ddf2d.thumbnail.0000000000_small.jpg?v=1744187207")}
+                      poster={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/files/preview_images/d4d832f6fceb43a989e0c497805ddf2d.thumbnail.0000000000_small.jpg?v=1744187207")}
                     >
                       <source
-                        src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/videos/c/vp/d4d832f6fceb43a989e0c497805ddf2d/d4d832f6fceb43a989e0c497805ddf2d.HD-1080p-7.2Mbps-45627631.mp4?v=0")}
+                        src={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/videos/c/vp/d4d832f6fceb43a989e0c497805ddf2d/d4d832f6fceb43a989e0c497805ddf2d.HD-1080p-7.2Mbps-45627631.mp4?v=0")}
                         type="video/mp4" 
                       />
                       <Image 
                         alt="" 
                         width={800} 
                         height={600}
-                        src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/preview_images/d4d832f6fceb43a989e0c497805ddf2d.thumbnail.0000000000_small.jpg?v=1744187207")} 
+                        src={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/files/preview_images/d4d832f6fceb43a989e0c497805ddf2d.thumbnail.0000000000_small.jpg?v=1744187207")} 
                         className="w-full h-full object-cover"
                       />
                     </video>
@@ -171,17 +171,17 @@ const CasesSection: React.FC = () => {
                       loop
                       preload="metadata" 
                       className="absolute inset-0 w-full h-full object-cover hidden lg:block"
-                      poster={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/preview_images/c511976946554306bd997337c1ab7992.thumbnail.0000000000_small.jpg?v=1727946458")}
+                      poster={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/files/preview_images/c511976946554306bd997337c1ab7992.thumbnail.0000000000_small.jpg?v=1727946458")}
                     >
                       <source
-                        src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/videos/c/vp/c511976946554306bd997337c1ab7992/c511976946554306bd997337c1ab7992.HD-1080p-7.2Mbps-35760312.mp4?v=0")}
+                        src={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/videos/c/vp/c511976946554306bd997337c1ab7992/c511976946554306bd997337c1ab7992.HD-1080p-7.2Mbps-35760312.mp4?v=0")}
                         type="video/mp4" 
                       />
                       <Image 
                         alt="" 
                         width={800} 
                         height={600}
-                        src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/preview_images/c511976946554306bd997337c1ab7992.thumbnail.0000000000_small.jpg?v=1727946458")} 
+                        src={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/files/preview_images/c511976946554306bd997337c1ab7992.thumbnail.0000000000_small.jpg?v=1727946458")} 
                         className="w-full h-full object-cover"
                       />
                     </video>
@@ -192,17 +192,17 @@ const CasesSection: React.FC = () => {
                       loop
                       preload="metadata" 
                       className="absolute inset-0 w-full h-full object-cover block lg:hidden"
-                      poster={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/preview_images/1b7fc4accae94cf79b2598c5b2b37a20.thumbnail.0000000000_small.jpg?v=1727946455")}
+                      poster={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/files/preview_images/1b7fc4accae94cf79b2598c5b2b37a20.thumbnail.0000000000_small.jpg?v=1727946455")}
                     >
                       <source
-                        src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/videos/c/vp/1b7fc4accae94cf79b2598c5b2b37a20/1b7fc4accae94cf79b2598c5b2b37a20.HD-1080p-7.2Mbps-35760313.mp4?v=0")}
+                        src={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/videos/c/vp/1b7fc4accae94cf79b2598c5b2b37a20/1b7fc4accae94cf79b2598c5b2b37a20.HD-1080p-7.2Mbps-35760313.mp4?v=0")}
                         type="video/mp4" 
                       />
                       <Image 
                         alt="" 
                         width={800} 
                         height={600}
-                        src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/preview_images/1b7fc4accae94cf79b2598c5b2b37a20.thumbnail.0000000000_small.jpg?v=1727946455")} 
+                        src={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/files/preview_images/1b7fc4accae94cf79b2598c5b2b37a20.thumbnail.0000000000_small.jpg?v=1727946455")} 
                         className="w-full h-full object-cover"
                       />
                     </video>
@@ -273,22 +273,22 @@ const CasesSection: React.FC = () => {
                       preload="metadata" 
                       className="absolute inset-0 w-full h-full object-cover hidden lg:block"
                       aria-label="Shopify Plus Agency Case - Arte Antwerp"
-                      poster={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/preview_images/d5f3186a25b34e6aabe7cc582edd3c17.thumbnail.0000000000_small.jpg?v=1692610307")}
+                      poster={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/files/preview_images/d5f3186a25b34e6aabe7cc582edd3c17.thumbnail.0000000000_small.jpg?v=1692610307")}
                     >
                       <source
-                        src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/videos/c/vp/d5f3186a25b34e6aabe7cc582edd3c17/d5f3186a25b34e6aabe7cc582edd3c17.HD-1080p-2.5Mbps-17527902.mp4?v=0")}
+                        src={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/videos/c/vp/d5f3186a25b34e6aabe7cc582edd3c17/d5f3186a25b34e6aabe7cc582edd3c17.HD-1080p-2.5Mbps-17527902.mp4?v=0")}
                         type="video/mp4" 
                       />
                       <Image 
                         alt="Shopify Plus Agency Case - Arte Antwerp" 
                         width={800} 
                         height={600}
-                        src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/preview_images/d5f3186a25b34e6aabe7cc582edd3c17.thumbnail.0000000000_small.jpg?v=1692610307")} 
+                        src={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/files/preview_images/d5f3186a25b34e6aabe7cc582edd3c17.thumbnail.0000000000_small.jpg?v=1692610307")} 
                         className="w-full h-full object-cover"
                       />
                     </video>
                     <Image 
-                      src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/9-arte.jpg?v=1692609357")}
+                      src={normalizeImageUrl("https://www.notsellingliquid.com/cdn/shop/files/9-arte.jpg?v=1692609357")}
                       alt="Shopify Plus Agency Case - Arte Antwerp" 
                       className="absolute inset-0 w-full h-full object-cover block lg:hidden" 
                       width={1689} 
@@ -390,3 +390,4 @@ const CasesSection: React.FC = () => {
 };
 
 export default CasesSection;
+

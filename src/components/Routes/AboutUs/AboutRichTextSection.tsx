@@ -114,3 +114,4 @@ const AboutRichTextSection = () => {
 }
 
 export default AboutRichTextSection
+

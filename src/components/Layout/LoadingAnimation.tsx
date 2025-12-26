@@ -10,55 +10,55 @@ const LoadingAnimation = () => {
 
   const images = [
     {
-      src: "//www.notsellingliquid.com/cdn/shop/files/flaneur-look-02-full2_0_75x_b0ae6315-d84c-4783-8401-df3d2f0739a7.jpg?v=1765366376",
+      src: "https://www.notsellingliquid.com/cdn/shop/files/flaneur-look-02-full2_0_75x_b0ae6315-d84c-4783-8401-df3d2f0739a7.jpg?v=1765366376",
       width: 3000,
       height: 1510,
       alt: ""
     },
     {
-      src: "//www.notsellingliquid.com/cdn/shop/files/Mask_group2.webp?v=1744187290",
+      src: "https://www.notsellingliquid.com/cdn/shop/files/Mask_group2.webp?v=1744187290",
       width: 1401,
       height: 800,
       alt: ""
     },
     {
-      src: "//www.notsellingliquid.com/cdn/shop/files/nsl-article-shopify-markets-cover.png?v=1756800540",
+      src: "https://www.notsellingliquid.com/cdn/shop/files/nsl-article-shopify-markets-cover.png?v=1756800540",
       width: 1000,
       height: 667,
       alt: ""
     },
     {
-      src: "//www.notsellingliquid.com/cdn/shop/files/ss23_paper_LB_10-copy_1.jpg?v=1687114691",
+      src: "https://www.notsellingliquid.com/cdn/shop/files/ss23_paper_LB_10-copy_1.jpg?v=1687114691",
       width: 1500,
       height: 1285,
       alt: "Shopify Plus Agency Case - Arte Antwerp"
     },
     {
-      src: "//www.notsellingliquid.com/cdn/shop/files/FC-10Feb_4727-min.webp?v=1686924461",
+      src: "https://www.notsellingliquid.com/cdn/shop/files/FC-10Feb_4727-min.webp?v=1686924461",
       width: 1440,
       height: 961,
       alt: "Shopify Plus Agency Case - Fabienne Chapot"
     },
     {
-      src: "//www.notsellingliquid.com/cdn/shop/files/53A584C0-4882-460F-885B-0134EAB6E6BD-m.jpg?v=1758090427",
+      src: "https://www.notsellingliquid.com/cdn/shop/files/53A584C0-4882-460F-885B-0134EAB6E6BD-m.jpg?v=1758090427",
       width: 2164,
       height: 1440,
       alt: ""
     },
     {
-      src: "//www.notsellingliquid.com/cdn/shop/files/PP_SS24_Banner_1440x826_f5e0eb41-6699-49d5-b342-59250050057a.jpg?v=1714461205",
+      src: "https://www.notsellingliquid.com/cdn/shop/files/PP_SS24_Banner_1440x826_f5e0eb41-6699-49d5-b342-59250050057a.jpg?v=1714461205",
       width: 1440,
       height: 826,
       alt: ""
     },
     {
-      src: "//www.notsellingliquid.com/cdn/shop/files/Z6E6414-copy.jpg?v=1687115170",
+      src: "https://www.notsellingliquid.com/cdn/shop/files/Z6E6414-copy.jpg?v=1687115170",
       width: 2540,
       height: 1690,
       alt: "Shopify Plus agency Amsterdam"
     },
     {
-      src: "//www.notsellingliquid.com/cdn/shop/files/sweatsuit_banner_shopify.webp?v=1742381685",
+      src: "https://www.notsellingliquid.com/cdn/shop/files/sweatsuit_banner_shopify.webp?v=1742381685",
       width: 5472,
       height: 3648,
       alt: ""
@@ -217,3 +217,4 @@ const LoadingAnimation = () => {
 };
 
 export default LoadingAnimation;
+

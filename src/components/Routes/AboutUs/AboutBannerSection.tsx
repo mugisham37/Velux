@@ -1,5 +1,5 @@
 // Self-contained Tailwind component - no external CSS dependencies required
-// Converted from: //www.notsellingliquid.com/cdn/shop/t/39/assets/banner.css?v=54277540370872013631758090047
+// Converted from: https://www.notsellingliquid.com/cdn/shop/t/39/assets/banner.css?v=54277540370872013631758090047
 
 const AboutBannerSection = () => {
   return (
@@ -19,3 +19,4 @@ const AboutBannerSection = () => {
 }
 
 export default AboutBannerSection
+

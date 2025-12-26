@@ -7,3 +7,4 @@ const BlogBanner = () => {
 }
 
 export default BlogBanner
+

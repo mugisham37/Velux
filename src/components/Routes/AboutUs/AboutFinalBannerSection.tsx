@@ -10,7 +10,7 @@ const AboutFinalBannerSection = () => {
             <div className="w-full">
               <div className="relative">
                 <Image 
-                  src="//www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1273.jpg?v=1759500048" 
+                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1273.jpg?v=1759500048" 
                   alt=""
                   loading="lazy" 
                   className="w-full h-auto rounded-lg hidden lg:block" 
@@ -19,7 +19,7 @@ const AboutFinalBannerSection = () => {
                   unoptimized
                 />
                 <Image
-                  src="//www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1273.jpg?v=1759500048"
+                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1273.jpg?v=1759500048"
                   alt="" 
                   loading="lazy" 
                   className="w-full h-auto rounded-lg block lg:hidden" 
@@ -35,7 +35,7 @@ const AboutFinalBannerSection = () => {
             <div className="w-full">
               <div className="relative">
                 <Image 
-                  src="//www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1257.jpg?v=1759500048" 
+                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1257.jpg?v=1759500048" 
                   alt=""
                   loading="lazy" 
                   className="w-full h-auto rounded-lg hidden lg:block" 
@@ -44,7 +44,7 @@ const AboutFinalBannerSection = () => {
                   unoptimized
                 />
                 <Image
-                  src="//www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1257.jpg?v=1759500048"
+                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1257.jpg?v=1759500048"
                   alt="" 
                   loading="lazy" 
                   className="w-full h-auto rounded-lg block lg:hidden" 
@@ -60,7 +60,7 @@ const AboutFinalBannerSection = () => {
             <div className="w-full">
               <div className="relative">
                 <Image 
-                  src="//www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1364.jpg?v=1759500046" 
+                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1364.jpg?v=1759500046" 
                   alt=""
                   loading="lazy" 
                   className="w-full h-auto rounded-lg hidden lg:block" 
@@ -69,7 +69,7 @@ const AboutFinalBannerSection = () => {
                   unoptimized
                 />
                 <Image
-                  src="//www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1364.jpg?v=1759500046"
+                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1364.jpg?v=1759500046"
                   alt="" 
                   loading="lazy" 
                   className="w-full h-auto rounded-lg block lg:hidden" 
@@ -85,7 +85,7 @@ const AboutFinalBannerSection = () => {
             <div className="w-full">
               <div className="relative">
                 <Image 
-                  src="//www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1334.jpg?v=1759500047" 
+                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1334.jpg?v=1759500047" 
                   alt=""
                   loading="lazy" 
                   className="w-full h-auto rounded-lg hidden lg:block" 
@@ -94,7 +94,7 @@ const AboutFinalBannerSection = () => {
                   unoptimized
                 />
                 <Image
-                  src="//www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1334.jpg?v=1759500047"
+                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1334.jpg?v=1759500047"
                   alt="" 
                   loading="lazy" 
                   className="w-full h-auto rounded-lg block lg:hidden" 
@@ -115,3 +115,4 @@ const AboutFinalBannerSection = () => {
 }
 
 export default AboutFinalBannerSection
+

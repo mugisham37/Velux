@@ -1,5 +1,5 @@
 // Self-contained Tailwind component - no external CSS dependencies required
-// Converted from: //www.notsellingliquid.com/cdn/shop/t/39/assets/about-intro.css?v=23907028594662014411758090047
+// Converted from: https://www.notsellingliquid.com/cdn/shop/t/39/assets/about-intro.css?v=23907028594662014411758090047
 
 const AboutIntroSection = () => {
   return (
@@ -70,3 +70,4 @@ const AboutIntroSection = () => {
 }
 
 export default AboutIntroSection
+

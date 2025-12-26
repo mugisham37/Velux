@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect } from 'react'
 
 const TextBannerSection = () => {
@@ -79,3 +81,4 @@ const TextBannerSection = () => {
 }
 
 export default TextBannerSection
+
