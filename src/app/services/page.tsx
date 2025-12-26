@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import ServicesMainSection from '../../components/Routes/Services/ServicesMainSection'
+import ServicesTextBannerSection from "@/src/components/Routes/Services/ServicesTextBannerSection";
+import ServicesVideoSection from "@/src/components/Routes/Services/ServicesVideoSection";
+import LogosSectionsSection from "@/src/components/Routes/Services/LogosSectionsSection";
 
 export const metadata: Metadata = {
   title: "Services – Not selling liquid",
@@ -11,7 +14,10 @@ export default function ServicesPage() {
     <>
       <main id="MainContent" role="main" tabIndex={-1} style={{ paddingTop: '65px' }}>
         <div className="template-page">
+          <ServicesTextBannerSection/>
+          <ServicesVideoSection/>
           <ServicesMainSection />
+          <LogosSectionsSection/>
         </div>
       </main>
     </>
