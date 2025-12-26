@@ -54,6 +54,8 @@ const nextConfig: NextConfig = {
     formats: ['image/webp', 'image/avif'],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Allow images with query strings
+    unoptimized: false,
   },
 }
 

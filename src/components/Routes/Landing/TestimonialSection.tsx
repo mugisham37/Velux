@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { normalizeImageUrl } from '../../../utils/imageUtils'
 
 const TestimonialSection = () => {
   return (
@@ -19,7 +20,7 @@ const TestimonialSection = () => {
                 <div className="space-y-6">
                   <div className="max-w-[60px] max-h-[60px]">
                     <Image 
-                      src="//www.notsellingliquid.com/cdn/shop/files/Arte_249682ff-c069-4279-8305-be8ab8a41b9d_320x.png?v=1687154871"
+                      src={normalizeImageUrl("//www.notsellingliquid.com/cdn/shop/files/Arte_249682ff-c069-4279-8305-be8ab8a41b9d_320x.png?v=1687154871")}
                       width={320} 
                       height={116}
                       alt="Shopify Plus Agency Case - Arte Antwerp"
