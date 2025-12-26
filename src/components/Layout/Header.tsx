@@ -59,7 +59,6 @@ const Header = () => {
                   <li><Link href="/about-us" className="hover:opacity-75 transition-opacity duration-200">About us</Link></li>
                   <li><Link href="/cases" className="hover:opacity-75 transition-opacity duration-200">Cases</Link></li>
                   <li><Link href="/clients" className="hover:opacity-75 transition-opacity duration-200">Clients</Link></li>
-                  <li><Link href="/blogs/inside-the-industry" className="hover:opacity-75 transition-opacity duration-200">Articles</Link></li>
                   <li><Link href="/contact" className="hover:opacity-75 transition-opacity duration-200">Contact</Link></li>
                 </ul>
               </div>
