@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import BlogBanner from '../../../components/Routes/Blog/BlogBanner';
 import BlogMainSection from '../../../components/Routes/Blog/BlogMainSection';
-import './blog.css';
 
 export const metadata: Metadata = {
   title: "Inside the Industry – Not selling liquid",
