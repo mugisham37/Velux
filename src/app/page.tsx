@@ -8,7 +8,7 @@ import TextMediaSection from '../components/Routes/Landing/TextMediaSection'
 export default function Home() {
   return (
     <>
-      <main id="MainContent" role="main" tabIndex={-1} style={{ paddingTop: '65px' }}>
+      <main id="MainContent" role="main" tabIndex={-1} className="pt-[65px]">
         <IntroSection />
         <BannerSection />
         <CasesSection />

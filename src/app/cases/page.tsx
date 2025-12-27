@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 
 export default function CasesPage() {
   return (
-    <>
-      <div className="template-page">
+    <main id="MainContent" role="main" tabIndex={-1} className="pt-[65.55px]">
+      <div className="">
         <CasesMainSection />
         <WhyShopifySection />
       </div>
-    </>
+    </main>
   )
 }
 

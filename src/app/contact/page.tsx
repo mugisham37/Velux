@@ -34,8 +34,8 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <main id="MainContent" role="main" tabIndex={-1} style={{ paddingTop: '0px' }}>
-        <div className="template-page">
+      <main id="MainContent" role="main" tabIndex={-1} className="pt-0">
+        <div className="">
           <ContactMainSection />
         </div>
       </main>

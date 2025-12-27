@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <main id="MainContent" role="main" tabIndex={-1} style={{ paddingTop: '65px' }}>
-        <div className="template-page">
+      <main id="MainContent" role="main" tabIndex={-1} className="pt-[65px]">
+        <div className="">
           <ServicesTextBannerSection/>
           <ServicesVideoSection/>
           <ServicesMainSection />

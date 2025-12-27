@@ -44,11 +44,13 @@ export const metadata: Metadata = {
 
 export default function ClientsPage() {
   return (
-    <div className="template-page">
-      <TextBannerSection/>
-      <ClientsList/>
-      <ClientsMainSection />
-    </div>
+    <main id="MainContent" role="main" tabIndex={-1} className="pt-[61.1px]">
+      <div className="">
+        <TextBannerSection/>
+        <ClientsList/>
+        <ClientsMainSection />
+      </div>
+    </main>
   )
 }
 

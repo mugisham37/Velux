@@ -12,13 +12,15 @@ export const metadata: Metadata = {
 
 export default function AboutUsPage() {
   return (
-    <div className="template-page">
-      <AboutIntroSection />
-      <AboutBannerSection />
-      <AboutStepsSection />
-      <AboutRichTextSection />
-      <AboutFinalBannerSection />
-    </div>
+    <main id="MainContent" role="main" tabIndex={-1} className="pt-[67.775px]">
+      <div className="">
+        <AboutIntroSection />
+        <AboutBannerSection />
+        <AboutStepsSection />
+        <AboutRichTextSection />
+        <AboutFinalBannerSection />
+      </div>
+    </main>
   )
 }
 
