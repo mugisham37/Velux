@@ -58,16 +58,14 @@ export default function RootLayout({
         <meta name="theme-color" content="" />
         <link rel="preconnect" href="https://cdn.shopify.com" crossOrigin="" />
       </head>
-      <body className="home-index sticky-header loading-nsl">
-        <div className="transition_div">&nbsp;</div>
-        <a className="skip-to-content-link visually-hidden" href="#MainContent">
+      <body className="relative overflow-x-hidden">
+        <div className="fixed inset-0 pointer-events-none z-50 opacity-0 transition-opacity duration-1000">&nbsp;</div>
+        <a className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded" href="#MainContent">
           Skip to content
         </a>
         <LoadingAnimation />
         <Header />
-        <main id="MainContent" role="main" tabIndex={-1} style={{ paddingTop: '65px' }}>
-          {children}
-        </main>
+        {children}
         <Footer />
         
         {/* Scripts converted to Next.js Script components */}
