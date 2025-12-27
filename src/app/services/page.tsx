@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ServicesMainSection from '../../components/Routes/Services/ServicesMainSection'
+import ServicesMainSection from "@/src/components/Routes/Services/ServicesMainSection";
 import ServicesTextBannerSection from "@/src/components/Routes/Services/ServicesTextBannerSection";
 import ServicesVideoSection from "@/src/components/Routes/Services/ServicesVideoSection";
 import LogosSectionsSection from "@/src/components/Routes/Services/LogosSectionsSection";

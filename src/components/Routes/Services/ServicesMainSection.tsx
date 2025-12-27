@@ -3,15 +3,14 @@ const ServicesMainSection = () => {
     <div id="shopify-section-template--26430798102871__d4f5e014-0bfe-4120-9ec0-29f36a046f54"
                 className="relative">
                 <section
-                    className="relative pt-[60px] pb-[80px] lg:pt-[100px] lg:pb-[100px] rounded-t-[15px] bg-[#c0bbae] -mt-[15px]"
-                    style={{ fontFamily: 'Aeonik, sans-serif' }}>
+                    className="relative pt-[60px] pb-[80px] lg:pt-[100px] lg:pb-[100px] rounded-t-[15px] bg-[#c0bbae] -mt-[15px] font-aeonik">
                     <div className="max-w-[1200px] mx-auto px-4">
                         <div className="relative">
                             <div className="grid lg:grid-cols-12 gap-8">
                                 <div className="lg:col-span-8">
                                     <div className="block lg:hidden mb-8">
-                                        <p className="text-xs font-normal text-[#262424] mb-4" style={{ fontFamily: 'Aeonik, sans-serif' }}>The way we work</p>
-                                        <h3 className="text-[30px] lg:text-[48px] leading-tight text-[#262424] font-light" style={{ fontFamily: 'PP Editorial Old, serif' }}>With our intrinsic appreciation of the fashion industry, our team creates
+                                        <p className="text-xs font-normal text-[#262424] mb-4 font-aeonik">The way we work</p>
+                                        <h3 className="text-[30px] lg:text-[48px] leading-tight text-[#262424] font-light font-pp-editorial">With our intrinsic appreciation of the fashion industry, our team creates
                                             tailored solutions for longevity in a dynamic landscape.</h3>
                                     </div>
                                     <div className="relative">
@@ -158,10 +157,10 @@ const ServicesMainSection = () => {
                                 </div>
                                 <div className="lg:col-span-4 flex items-start justify-end">
                                     <div className="hidden lg:block text-right">
-                                        <p className="text-xs font-normal text-[#262424] mb-4" style={{ fontFamily: 'Aeonik, sans-serif' }}>The way we work</p>
-                                        <h3 className="text-[48px] leading-tight text-[#262424] font-light mb-6" style={{ fontFamily: 'PP Editorial Old, serif' }}>With our intrinsic appreciation of the fashion industry, our team creates
+                                        <p className="text-xs font-normal text-[#262424] mb-4 font-aeonik">The way we work</p>
+                                        <h3 className="text-[48px] leading-tight text-[#262424] font-light mb-6 font-pp-editorial">With our intrinsic appreciation of the fashion industry, our team creates
                                             tailored solutions for longevity in a dynamic landscape.</h3>
-                                        <div className="text-xs leading-relaxed text-[#262424] mb-8" style={{ fontFamily: 'Aeonik, sans-serif' }}>
+                                        <div className="text-xs leading-relaxed text-[#262424] mb-8 font-aeonik">
                                             <p>Our pro-active approach thinks along with the client, looking for the next
                                                 steps and progressing them forward in their journey. We know to offer the
                                                 best thing for them specifically, depending on their needs and capabilities.
@@ -176,7 +175,7 @@ const ServicesMainSection = () => {
                                                         fill="currentColor"></path>
                                                 </svg>
                                             </span>
-                                            <span className="text-xs font-normal" style={{ fontFamily: 'Aeonik, sans-serif' }}>Our Approach</span>
+                                            <span className="text-xs font-normal font-aeonik">Our Approach</span>
                                             <span className="w-4 h-4">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                     <path fillRule="evenodd" clipRule="evenodd"
@@ -191,9 +190,9 @@ const ServicesMainSection = () => {
                             <div className="mt-16 lg:mt-20">
                                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-16 lg:mb-20" data-block-id="0954e71a-257a-4c7c-94bf-9938d5c4e8fb">
                                     <div className="flex flex-col">
-                                        <span className="text-[80px] font-light text-[#262424] leading-none mb-4" style={{ fontFamily: 'PP Editorial Old, serif' }}>01</span>
-                                        <p className="text-base font-normal text-[#262424] mb-4" style={{ fontFamily: 'Aeonik, sans-serif' }}>Build</p>
-                                        <p className="text-xs leading-relaxed text-[#262424] mb-8" style={{ fontFamily: 'Aeonik, sans-serif' }}>As certified Shopify Premier partner, we design and develop
+                                        <span className="text-[80px] font-light text-[#262424] leading-none mb-4 font-pp-editorial">01</span>
+                                        <p className="text-base font-normal text-[#262424] mb-4 font-aeonik">Build</p>
+                                        <p className="text-xs leading-relaxed text-[#262424] mb-8 font-aeonik">As certified Shopify Premier partner, we design and develop
                                             Shopify Plus platforms with multi-channel solutions. Our team applies their
                                             years of experience in e-commerce, Shopify and fashion to build tailor-made
                                             digital flagship stores.</p>
