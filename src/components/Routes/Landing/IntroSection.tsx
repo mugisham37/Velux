@@ -3,7 +3,7 @@ import React from 'react'
 const IntroSection = () => {
   return (
     <div>
-      <section className="bg-[#262424] pt-22">
+      <section className="bg-[#262424] pt-42 intro-section">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-12 gap-4">
             {/* Left Column - Hidden on mobile, visible on lg+ */}
