@@ -2,17 +2,14 @@ import React from 'react'
 
 const IntroSection = () => {
   return (
-    <div 
-      id="shopify-section-template--26430796759383__5068ab18-3ac5-4273-b159-c935f9d1f90a"
-      className="shopify-section main-intro -mt-[65px]"
-    >
-      <section className="section-intro section-id-template--26430796759383__5068ab18-3ac5-4273-b159-c935f9d1f90a bg-[#262424]">
+    <div>
+      <section className="bg-[#262424] pt-22">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="intro-wrap grid grid-cols-12 gap-4">
+          <div className="grid grid-cols-12 gap-4">
             {/* Left Column - Hidden on mobile, visible on lg+ */}
-            <div className="intro-left col-span-4 hidden lg:block">
+            <div className="col-span-3 hidden lg:block">
               <p 
-                className="s-body text-[12px] leading-relaxed"
+                className="uppercase s-body text-[18px] leading-relaxed mb-6"
                 style={{
                   fontFamily: '"Aeonik", sans-serif',
                   color: '#ffffff'
@@ -23,10 +20,10 @@ const IntroSection = () => {
             </div>
             
             {/* Right Column */}
-            <div className="intro-right col-span-12 lg:col-span-7">
+            <div className="col-span-12 lg:col-span-9">
               <div className="intro-rightinr">
                 <h2 
-                  className="text-[40px] lg:text-[60px] leading-tight font-light text-white mb-6"
+                  className="text-[40px] lg:text-[66px] leading-[44px] md:leading-[42px] lg:leading-[76px] font-light text-white mb-6"
                   style={{
                     fontFamily: '"PP Editorial Old", serif',
                     fontWeight: 300
@@ -37,7 +34,7 @@ const IntroSection = () => {
                 </h2>
                 <div className="n-body">
                   <p 
-                    className="text-[12px] leading-relaxed text-white"
+                    className="uppercase text-[15px] leading-relaxed text-white"
                     style={{
                       fontFamily: '"Aeonik", sans-serif'
                     }}
