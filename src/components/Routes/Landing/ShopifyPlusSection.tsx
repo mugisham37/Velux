@@ -3,20 +3,125 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
+// Logo configuration with all data in one place
+const LOGO_CONFIG = [
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/merrachi.png?v=1699440937",
+    alt: "Shopify Plus Agency Case - Arte Antwerp",
+    height: { mobile: 16, desktop: 28 },
+    maxHeight: { mobile: "max-h-4", desktop: "max-h-7" },
+    initialOpacity: 1
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/logo-oqium.svg?v=1686921431",
+    alt: "Shopify Plus Agency Case - Merrachi",
+    height: { mobile: 17, desktop: 18 },
+    maxHeight: { mobile: "max-h-[17px]", desktop: "max-h-[18px]" },
+    initialOpacity: 1
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/blush-gold-jewels_juweliershuys-van-veen-simons_merk_logo.jpg?v=1687176473",
+    alt: "Shopify Plus Agency Case - Viktor&amp;Rolf",
+    height: { mobile: 18, desktop: 18 },
+    maxHeight: { mobile: "max-h-[18px]", desktop: "max-h-[18px]" },
+    initialOpacity: 1
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/logo-rinopelle.svg?v=1686921431",
+    alt: "Shopify Plus Agency Case - Fabienne Chapot",
+    height: { mobile: 14, desktop: 17 },
+    maxHeight: { mobile: "max-h-[14px]", desktop: "max-h-[17px]" },
+    initialOpacity: 1
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/298b29fcddb8c2ddab1fd523daa5b75c.png?v=1687155091",
+    alt: "Shopify Plus Agency Case - Maha Amsterdam",
+    height: { mobile: 20, desktop: 38 },
+    maxHeight: { mobile: "max-h-5", desktop: "max-h-[38px]" },
+    initialOpacity: 1
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/Viktor_Rolf_Logo.png?v=1699440943",
+    alt: "Shopify Plus Agency Case - Four Amsterdam",
+    height: { mobile: 15, desktop: 25 },
+    maxHeight: { mobile: "max-h-[15px]", desktop: "max-h-[25px]" },
+    initialOpacity: 0
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/logo-fabiennechapot.svg?v=1686921430",
+    alt: "Shopify Plus Agency Case - Olaf",
+    height: { mobile: 15, desktop: 28 },
+    maxHeight: { mobile: "max-h-[15px]", desktop: "max-h-7" },
+    initialOpacity: 1
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/Four.png?v=1687154869",
+    alt: "Shopify Plus Agency Case - Rino &amp; Pelle",
+    height: { mobile: 12, desktop: 17 },
+    maxHeight: { mobile: "max-h-3", desktop: "max-h-[17px]" },
+    initialOpacity: 1
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/olaf_c53cd18f-5a38-4941-b851-0a6c2c2be4da.png?v=1687176376",
+    alt: "Shopify Plus Agency Case - Blush Jewels",
+    height: { mobile: 20, desktop: 50 },
+    maxHeight: { mobile: "max-h-5", desktop: "max-h-[50px]" },
+    initialOpacity: 1
+  }
+]
+
+// All available logos for carousel
+const ALL_LOGOS_DATA = [
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/Arte_249682ff-c069-4279-8305-be8ab8a41b9d.png?v=1687154871",
+    height: { mobile: 16, desktop: 28 }
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/merrachi.png?v=1699440937",
+    height: { mobile: 17, desktop: 18 }
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/Viktor_Rolf_Logo.png?v=1699440943",
+    height: { mobile: 18, desktop: 18 }
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/logo-fabiennechapot.svg?v=1686921430",
+    height: { mobile: 14, desktop: 17 }
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/298b29fcddb8c2ddab1fd523daa5b75c.png?v=1687155091",
+    height: { mobile: 20, desktop: 38 }
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/Four.png?v=1687154869",
+    height: { mobile: 15, desktop: 25 }
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/olaf_c53cd18f-5a38-4941-b851-0a6c2c2be4da.png?v=1687176376",
+    height: { mobile: 15, desktop: 28 }
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/logo-rinopelle.svg?v=1686921431",
+    height: { mobile: 12, desktop: 17 }
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/blush-gold-jewels_juweliershuys-van-veen-simons_merk_logo.jpg?v=1687176473",
+    height: { mobile: 20, desktop: 50 }
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/logo-oqium.svg?v=1686921431",
+    height: { mobile: 12, desktop: 22 }
+  }
+]
+
 const ShopifyPlusSection = () => {
   const [isMobile, setIsMobile] = useState(false)
-  const [logoSources, setLogoSources] = useState<string[]>([
-    "https://www.notsellingliquid.com/cdn/shop/files/merrachi.png?v=1699440937",
-    "https://www.notsellingliquid.com/cdn/shop/files/logo-oqium.svg?v=1686921431", 
-    "https://www.notsellingliquid.com/cdn/shop/files/blush-gold-jewels_juweliershuys-van-veen-simons_merk_logo.jpg?v=1687176473",
-    "https://www.notsellingliquid.com/cdn/shop/files/logo-rinopelle.svg?v=1686921431",
-    "https://www.notsellingliquid.com/cdn/shop/files/298b29fcddb8c2ddab1fd523daa5b75c.png?v=1687155091",
-    "https://www.notsellingliquid.com/cdn/shop/files/Viktor_Rolf_Logo.png?v=1699440943",
-    "https://www.notsellingliquid.com/cdn/shop/files/logo-fabiennechapot.svg?v=1686921430",
-    "https://www.notsellingliquid.com/cdn/shop/files/Four.png?v=1687154869",
-    "https://www.notsellingliquid.com/cdn/shop/files/olaf_c53cd18f-5a38-4941-b851-0a6c2c2be4da.png?v=1687176376"
-  ])
-  const [logoOpacities, setLogoOpacities] = useState<number[]>([1, 1, 1, 1, 1, 0, 1, 1, 1])
+  const [logoSources, setLogoSources] = useState<string[]>(
+    LOGO_CONFIG.map(logo => logo.src)
+  )
+  const [logoOpacities, setLogoOpacities] = useState<number[]>(
+    LOGO_CONFIG.map(logo => logo.initialOpacity)
+  )
 
   useEffect(() => {
     // Handle window resize for responsive behavior
@@ -32,91 +137,6 @@ const ShopifyPlusSection = () => {
   }, [])
 
   useEffect(() => {
-    // Logo carousel data - exactly as in original HTML
-    const spAllData = isMobile ? [
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/Arte_249682ff-c069-4279-8305-be8ab8a41b9d.png?v=1687154871",
-        height: "16",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/merrachi.png?v=1699440937",
-        height: "17",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/Viktor_Rolf_Logo.png?v=1699440943",
-        height: "18",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/logo-fabiennechapot.svg?v=1686921430",
-        height: "14",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/298b29fcddb8c2ddab1fd523daa5b75c.png?v=1687155091",
-        height: "20",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/Four.png?v=1687154869",
-        height: "15",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/olaf_c53cd18f-5a38-4941-b851-0a6c2c2be4da.png?v=1687176376",
-        height: "15",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/logo-rinopelle.svg?v=1686921431",
-        height: "12",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/blush-gold-jewels_juweliershuys-van-veen-simons_merk_logo.jpg?v=1687176473",
-        height: "20",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/logo-oqium.svg?v=1686921431",
-        height: "12",
-      },
-    ] : [
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/Arte_249682ff-c069-4279-8305-be8ab8a41b9d.png?v=1687154871",
-        height: "28",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/merrachi.png?v=1699440937",
-        height: "18",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/Viktor_Rolf_Logo.png?v=1699440943",
-        height: "18",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/logo-fabiennechapot.svg?v=1686921430",
-        height: "17",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/298b29fcddb8c2ddab1fd523daa5b75c.png?v=1687155091",
-        height: "38",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/Four.png?v=1687154869",
-        height: "25",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/olaf_c53cd18f-5a38-4941-b851-0a6c2c2be4da.png?v=1687176376",
-        height: "28",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/logo-rinopelle.svg?v=1686921431",
-        height: "17",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/blush-gold-jewels_juweliershuys-van-veen-simons_merk_logo.jpg?v=1687176473",
-        height: "50",
-      },
-      {
-        src: "https://www.notsellingliquid.com/cdn/shop/files/logo-oqium.svg?v=1686921431",
-        height: "22",
-      },
-    ]
-
     const transitionDuration = 0.5
 
     function swapLogos() {
@@ -132,7 +152,7 @@ const ShopifyPlusSection = () => {
       setTimeout(() => {
         // Get available logos (not currently visible)
         const visibleSources = logoSources.filter((_, i) => logoOpacities[i] === 1)
-        const availableLogos = spAllData.filter(logo => !visibleSources.includes(logo.src) && logoSources[index] !== logo.src)
+        const availableLogos = ALL_LOGOS_DATA.filter(logo => !visibleSources.includes(logo.src) && logoSources[index] !== logo.src)
         
         if (availableLogos.length > 0) {
           const randomLogo = availableLogos[Math.floor(Math.random() * availableLogos.length)]
@@ -307,124 +327,25 @@ const ShopifyPlusSection = () => {
                     </span>
                   </a>
                 </div>
-                <div className="flex flex-wrap items-center justify-center gap-5">
-                  <div className="flex items-center justify-center">
-                    <Image 
-                      loading="lazy"
-                      src={logoSources[0]}
-                      id="sp_logo0" 
-                      alt="Shopify Plus Agency Case - Arte Antwerp" 
-                      width={100}
-                      height={18}
-                      className={`max-h-4 lg:max-h-7 w-auto h-auto transition-opacity duration-500 ease-in-out`}
-                      style={{ opacity: logoOpacities[0] }}
-                      unoptimized
-                    />
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <Image 
-                      loading="lazy"
-                      src={logoSources[1]}
-                      id="sp_logo1" 
-                      alt="Shopify Plus Agency Case - Merrachi" 
-                      width={100}
-                      height={22}
-                      className={`max-h-[17px] lg:max-h-[18px] w-auto h-auto transition-opacity duration-500 ease-in-out`}
-                      style={{ opacity: logoOpacities[1] }}
-                      unoptimized
-                    />
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <Image 
-                      loading="lazy"
-                      src={logoSources[2]}
-                      id="sp_logo2" 
-                      alt="Shopify Plus Agency Case - Viktor&amp;Rolf" 
-                      width={100}
-                      height={50}
-                      className={`max-h-[18px] lg:max-h-[18px] w-auto h-auto transition-opacity duration-500 ease-in-out`}
-                      style={{ opacity: logoOpacities[2] }}
-                      unoptimized
-                    />
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <Image 
-                      loading="lazy"
-                      src={logoSources[3]}
-                      id="sp_logo3" 
-                      alt="Shopify Plus Agency Case - Fabienne Chapot" 
-                      width={100}
-                      height={17}
-                      className={`max-h-[14px] lg:max-h-[17px] w-auto h-auto transition-opacity duration-500 ease-in-out`}
-                      style={{ opacity: logoOpacities[3] }}
-                      unoptimized
-                    />
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <Image 
-                      loading="lazy"
-                      src={logoSources[4]}
-                      id="sp_logo4" 
-                      alt="Shopify Plus Agency Case - Maha Amsterdam" 
-                      width={100}
-                      height={38}
-                      className={`max-h-5 lg:max-h-[38px] w-auto h-auto transition-opacity duration-500 ease-in-out`}
-                      style={{ opacity: logoOpacities[4] }}
-                      unoptimized
-                    />
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <Image 
-                      loading="lazy"
-                      src={logoSources[5]}
-                      id="sp_logo5" 
-                      alt="Shopify Plus Agency Case - Four Amsterdam" 
-                      width={100}
-                      height={18}
-                      className={`max-h-[15px] lg:max-h-[25px] w-auto h-auto transition-opacity duration-500 ease-in-out`}
-                      style={{ opacity: logoOpacities[5] }}
-                      unoptimized
-                    />
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <Image 
-                      loading="lazy"
-                      src={logoSources[6]}
-                      id="sp_logo6" 
-                      alt="Shopify Plus Agency Case - Olaf" 
-                      width={100}
-                      height={17}
-                      className={`max-h-[15px] lg:max-h-7 w-auto h-auto transition-opacity duration-500 ease-in-out`}
-                      style={{ opacity: logoOpacities[6] }}
-                      unoptimized
-                    />
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <Image 
-                      loading="lazy"
-                      src={logoSources[7]}
-                      id="sp_logo7" 
-                      alt="Shopify Plus Agency Case - Rino &amp; Pelle" 
-                      width={100}
-                      height={25}
-                      className={`max-h-3 lg:max-h-[17px] w-auto h-auto transition-opacity duration-500 ease-in-out`}
-                      style={{ opacity: logoOpacities[7] }}
-                      unoptimized
-                    />
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <Image 
-                      loading="lazy"
-                      src={logoSources[8]}
-                      id="sp_logo8" 
-                      alt="Shopify Plus Agency Case - Blush Jewels" 
-                      width={100}
-                      height={28}
-                      className={`max-h-5 lg:max-h-[50px] w-auto h-auto transition-opacity duration-500 ease-in-out`}
-                      style={{ opacity: logoOpacities[8] }}
-                      unoptimized
-                    />
-                  </div>
+                <div className="grid grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                  {LOGO_CONFIG.map((logo, index) => (
+                    <div 
+                      key={index} 
+                      className="flex items-center justify-center bg-[#d4d0c8] rounded-lg p-4 h-20 lg:h-34"
+                    >
+                      <Image 
+                        loading="lazy"
+                        src={logoSources[index]}
+                        id={`sp_logo${index}`} 
+                        alt={logo.alt} 
+                        width={100}
+                        height={isMobile ? logo.height.mobile : logo.height.desktop}
+                        className={`${isMobile ? logo.maxHeight.mobile : logo.maxHeight.desktop} w-auto h-auto transition-opacity duration-500 ease-in-out`}
+                        style={{ opacity: logoOpacities[index] }}
+                        unoptimized
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
