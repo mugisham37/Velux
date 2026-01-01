@@ -218,7 +218,7 @@ const CasesSection: React.FC = () => {
     <div>
       <section className="relative bg-[#e5e2de] text-[#262424]">
         <div className="max-w-[1480px] mx-auto px-2 sm:px-4 lg:px-0">
-          <div className="border-b border-[#262424] py-20 lg:py-24">
+          <div className="border-b border-[#262424] py-12 lg:py-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
               <div className="cases-hl">
                 <p className="text-xs font-normal mb-4 lg:mb-6 font-['Aeonik'] leading-relaxed uppercase">
@@ -243,7 +243,7 @@ const CasesSection: React.FC = () => {
                 </a>
               </div>
             </div>
-            <div className="border-b border-[#262424] mb-16 lg:mb-20 pt-4"></div>
+            <div className="border-b border-[#262424] mb-10 lg:mb-5 pt-4"></div>
 
             <div className="overflow-x-auto">
               <div className="flex gap-4 lg:gap-4 min-w-max lg:min-w-0 lg:grid lg:grid-cols-3">
@@ -254,18 +254,15 @@ const CasesSection: React.FC = () => {
             </div>
             
             {/* Mobile button */}
-            <div className="cases-mb-btn flex justify-start lg:hidden mt-8">
+            <div className="flex justify-start lg:hidden mt-8">
               <a 
                 href="/pages/case-studies" 
-                className="inline-flex items-center gap-3 bg-[#c0bbae] text-[#262424] px-6 py-3 rounded-full hover:opacity-90 transition-opacity duration-200 group"
+                className="inline-flex items-center gap-1 bg-[#c0bbae] text-[#262424] px-4 py-3 rounded-[9px] hover:opacity-90 transition-opacity duration-200 group"
               >
                 <span className="transform group-hover:translate-x-1 transition-transform duration-200">
                   <ArrowIcon />
                 </span>
                 <span className="text-xs font-normal font-['Aeonik'] uppercase">all case studies</span>
-                <span className="transform group-hover:translate-x-1 transition-transform duration-200">
-                  <ArrowIcon />
-                </span>
               </a>
             </div>
           </div>

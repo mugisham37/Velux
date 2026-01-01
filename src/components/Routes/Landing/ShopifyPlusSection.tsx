@@ -327,18 +327,18 @@ const ShopifyPlusSection = () => {
                     </span>
                   </a>
                 </div>
-                <div className="grid grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div className="grid grid-cols-3 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
                   {LOGO_CONFIG.map((logo, index) => (
                     <div 
                       key={index} 
-                      className="flex items-center justify-center bg-[#d4d0c8] rounded-lg p-4 h-20 lg:h-34"
+                      className="flex items-center justify-center bg-[#d4d0c8] rounded-lg p-6 h-24 lg:h-40"
                     >
                       <Image 
                         loading="lazy"
                         src={logoSources[index]}
                         id={`sp_logo${index}`} 
                         alt={logo.alt} 
-                        width={100}
+                        width={120}
                         height={isMobile ? logo.height.mobile : logo.height.desktop}
                         className={`${isMobile ? logo.maxHeight.mobile : logo.maxHeight.desktop} w-auto h-auto transition-opacity duration-500 ease-in-out`}
                         style={{ opacity: logoOpacities[index] }}
