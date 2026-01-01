@@ -6,7 +6,7 @@ const ServicesVideoSection = () => {
   return (
     <div 
       id="shopify-section-template--26430798102871__dfb5288c-b0d4-443d-887a-08ae4e4d8458"
-      className="shopify-section main_banner sticky top-0 w-full z-10"
+      className="shopify-section main_banner relative w-full"
     >
       <section className="section-banner section-id-template--26430798102871__dfb5288c-b0d4-443d-887a-08ae4e4d8458 pt-0 pb-0 lg:pt-0 lg:pb-0 rounded-none bg-[#e5e2de]">
         <div className="banner-wrap">
