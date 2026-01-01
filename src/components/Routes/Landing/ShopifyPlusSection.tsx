@@ -215,10 +215,9 @@ const ShopifyPlusSection = () => {
 
   return (
     <div 
-      id="shopify-section-template--26430796759383__b7c8b597-4f0c-454b-8ffd-e2c4d58acaa6"
       className="bg-[#e5e2de]"
     >
-      <section className="relative w-screen pt-10 pb-10 lg:pt-10 lg:pb-20 border-b border-[#262424] px-2 lg:px-0">
+      <section className="relative w-screen pt-10 pb-10 lg:pt-10 lg:pb-20 px-2 lg:px-4">
         <div className=" mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6">
             <div className="lg:col-span-4">
@@ -378,6 +377,7 @@ const ShopifyPlusSection = () => {
             </div>
           </div>
         </div>
+        <div className="border-b border-[#262424] pt-4 px-3"></div>
       </section>
     </div>
   )

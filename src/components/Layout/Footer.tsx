@@ -50,8 +50,7 @@ const Footer = () => {
       </ClientOnlyContent>
       
       <div 
-        id="shopify-section-footer" 
-        className="min-h-[766px]"
+        id="shopify-section-footer"
         style={{
           fontFamily: '"Aeonik", sans-serif'
         }}
@@ -253,14 +252,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </footer>
-        
-        <ul className="sr-only">
-          <li id="a11y-refresh-page-message">
-            Choosing a selection results in a full page refresh.
-          </li>
-        </ul>
-        
+        </footer> 
         <ClientOnlyContent>
           <div 
             suppressHydrationWarning
