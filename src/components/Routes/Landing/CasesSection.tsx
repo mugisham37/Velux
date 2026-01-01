@@ -107,8 +107,8 @@ interface CaseStudyCardProps {
 
 const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ data }) => {
   return (
-    <div className=" shrink-0 w-80 md:w-176 lg:w-auto relative group">
-      <div className="relative overflow-hidden rounded-lg lg:rounded-xl h-130 md:h-[900px] lg:h-[430px]">
+    <div className="shrink-0 w-80 md:w-96 lg:w-full relative group">
+      <div className="relative overflow-hidden rounded-lg lg:rounded-xl h-80 md:h-96 lg:h-[430px]">
         {/* Desktop Video */}
         <video 
           playsInline 
@@ -161,14 +161,14 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ data }) => {
             src={data.mobileMedia.image!}
             alt={data.mobileMedia.alt} 
             className="absolute inset-0 w-full h-full object-cover block lg:hidden" 
-            width={1689} 
-            height={2111} 
+            width={800} 
+            height={600} 
           />
         )}
         
-        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent">
           {/* Tags at top */}
-          <div className="absolute top-0 left-0 right-0 p-6 lg:p-8">
+          <div className="absolute top-0 left-0 right-0 p-4 md:p-6 lg:p-8">
             <div className="flex flex-wrap gap-2">
               {data.tags.map((tag, index) => (
                 <span key={index} className="text-xs font-normal border border-white px-2 py-1 rounded uppercase text-white">
@@ -179,13 +179,13 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ data }) => {
           </div>
           
           {/* Text at bottom */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 text-white">
+          <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8 text-white">
             <div className="hidden lg:block text-center mb-4">
               {/* Logo placeholder */}
             </div>
             
             <div className="flex justify-between items-end">
-              <div className="flex-1 max-w-xs">
+              <div className="flex-1 max-w-xs md:max-w-sm lg:max-w-xs">
                 <p className="text-sm font-medium mb-2 font-['Aeonik'] uppercase">{data.brandName}</p>
                 <div className="text-xs opacity-90 font-['Aeonik'] leading-relaxed uppercase">
                   <p>{data.description}</p>
@@ -254,9 +254,9 @@ const CasesSection: React.FC = () => {
   return (
     <div>
       <section className="relative bg-[#e5e2de] text-[#262424]">
-        <div className="max-w-[1480px] mx-auto px-2 sm:px-4 lg:px-0">
-          <div className="border-b border-[#262424] py-12 lg:py-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+        <div className="max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-0">
+          <div className="border-b border-[#262424] py-8 md:py-12 lg:py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16">
               <div className="cases-hl">
                 <p className="text-xs font-normal mb-4 lg:mb-6 font-['Aeonik'] leading-relaxed uppercase">
                   We&apos;re moved by the diverse stories of fashion
@@ -280,10 +280,10 @@ const CasesSection: React.FC = () => {
                 </a>
               </div>
             </div>
-            <div className="border-b border-[#262424] mb-10 lg:mb-5 pt-4"></div>
+            <div className="border-b border-[#262424] mb-6 md:mb-8 lg:mb-10 pt-4"></div>
 
             <div className="relative">
-              {/* Scroll buttons */}
+              {/* Scroll buttons - Mobile/Tablet only */}
               <button
                 onClick={() => scroll('left')}
                 disabled={!canScrollLeft}
@@ -300,8 +300,8 @@ const CasesSection: React.FC = () => {
                 </svg>
               </button>
 
-              <div className="overflow-x-auto scrollbar-hide" ref={scrollContainerRef}>
-                <div className="flex gap-4 lg:gap-4 min-w-max lg:min-w-0 lg:grid lg:grid-cols-3">
+              <div className="overflow-x-auto lg:overflow-visible scrollbar-hide" ref={scrollContainerRef}>
+                <div className="flex gap-4 lg:gap-6 lg:grid lg:grid-cols-3 lg:w-full">
                   {caseStudiesData.map((caseData) => (
                     <CaseStudyCard key={caseData.id} data={caseData} />
                   ))}
@@ -325,8 +325,8 @@ const CasesSection: React.FC = () => {
               </button>
             </div>
             
-            {/* Mobile button */}
-            <div className="flex justify-start lg:hidden mt-8">
+            {/* Mobile/Tablet button */}
+            <div className="flex justify-start lg:hidden mt-6 md:mt-8">
               <a 
                 href="/pages/case-studies" 
                 className="inline-flex items-center gap-1 bg-[#c0bbae] text-[#262424] px-4 py-3 rounded-[9px] hover:opacity-90 transition-opacity duration-200 group"
