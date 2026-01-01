@@ -2,21 +2,22 @@ import React from 'react'
 import Image from 'next/image'
 import { normalizeImageUrl } from '../../../utils/imageUtils'
 
+
 const TestimonialSection = () => {
   return (
     <div className="bg-[#e5e2de]">
       <section className="relative">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className='w-screen mx-auto px-4 sm:px-6 lg:px-8'>
           <div className="pt-10 pb-10 lg:pt-10 lg:pb-20 border-b border-[#262424]">
-            <div className="grid grid-cols-12 gap-6">
-              <div className="col-span-12 lg:col-span-4">
-                <div className="hidden lg:block">
-                  <p className="text-[12px] leading-[1.4] font-normal text-[#262424] font-['Aeonik']">
+            <div className="flex flex-col gap-8 lg:flex-row lg:justify-between">
+              <div className="w-full ">
+                <div className="">
+                  <p className="text-[18px] leading-[1.4] font-normal text-[#262424] font-['Aeonik'] uppercase">
                     Testimonial
                   </p>
                 </div>
               </div>
-              <div className="col-span-12 lg:col-span-8">
+              <div className="w-full lg:w-[1800px]">
                 <div className="space-y-6">
                   <div className="max-w-[60px] max-h-[60px]">
                     <Image 
@@ -29,7 +30,7 @@ const TestimonialSection = () => {
                       className="max-w-[60px] max-h-[60px] object-contain"
                     />
                   </div>
-                  <div className="text-[14px] leading-normal font-normal text-[#262424] font-['Aeonik']">
+                  <div className="text-[24px] leading-normal font-normal text-[#262424] font-['Aeonik']">
                     <p>
                       &ldquo;Our decision to partner up with the NSL team has really
                       brought our online perfomance to the next level. We are
@@ -39,10 +40,10 @@ const TestimonialSection = () => {
                     </p>
                   </div>
                   <div className="space-y-1">
-                    <p className="text-[12px] leading-[1.4] font-normal text-[#262424] font-['Aeonik']">
+                    <p className="text-[16px] leading-[1.4] font-normal text-[#262424] font-['Aeonik'] uppercase">
                       Bertony Da Silva
                     </p>
-                    <span className="text-[12px] leading-[1.4] font-normal text-[#262424] font-['Aeonik'] block">
+                    <span className="text-[16px] leading-[1.4] font-normal text-[#262424] font-['Aeonik'] block uppercase">
                       Founder at Arte Antwerp
                     </span>
                   </div>
