@@ -1,4 +1,6 @@
-import React from 'react';
+'use client'
+
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 
 // Helper function to convert protocol-relative URLs to absolute HTTPS URLs
@@ -106,7 +108,7 @@ interface CaseStudyCardProps {
 const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ data }) => {
   return (
     <div className=" shrink-0 w-80 md:w-176 lg:w-auto relative group">
-      <div className="relative overflow-hidden rounded-lg lg:rounded-xl h-130 md:h-[1100px] lg:h-[430px]">
+      <div className="relative overflow-hidden rounded-lg lg:rounded-xl h-130 md:h-[900px] lg:h-[430px]">
         {/* Desktop Video */}
         <video 
           playsInline 
@@ -214,6 +216,41 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ data }) => {
 };
 
 const CasesSection: React.FC = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 400; // pixels to scroll
+      const newScrollPosition = direction === 'left' 
+        ? scrollContainerRef.current.scrollLeft - scrollAmount
+        : scrollContainerRef.current.scrollLeft + scrollAmount;
+      
+      scrollContainerRef.current.scrollTo({
+        left: newScrollPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  React.useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScroll);
+      handleScroll(); // Check initial state
+      return () => container.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
+
   return (
     <div>
       <section className="relative bg-[#e5e2de] text-[#262424]">
@@ -245,12 +282,47 @@ const CasesSection: React.FC = () => {
             </div>
             <div className="border-b border-[#262424] mb-10 lg:mb-5 pt-4"></div>
 
-            <div className="overflow-x-auto">
-              <div className="flex gap-4 lg:gap-4 min-w-max lg:min-w-0 lg:grid lg:grid-cols-3">
-                {caseStudiesData.map((caseData) => (
-                  <CaseStudyCard key={caseData.id} data={caseData} />
-                ))}
+            <div className="relative">
+              {/* Scroll buttons */}
+              <button
+                onClick={() => scroll('left')}
+                disabled={!canScrollLeft}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#262424] hover:bg-[#3a3733] disabled:opacity-30 disabled:cursor-not-allowed text-white p-2 rounded-full transition-all duration-200 lg:hidden"
+                aria-label="Scroll left"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none">
+                  <path 
+                    fillRule="evenodd" 
+                    clipRule="evenodd"
+                    d="M7.625 2.79297L2.41789 8.00008L7.625 13.2072L8.33211 12.5001L4.33211 8.50008H13.375V7.50008H4.33211L8.33211 3.50008L7.625 2.79297Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+
+              <div className="overflow-x-auto scrollbar-hide" ref={scrollContainerRef}>
+                <div className="flex gap-4 lg:gap-4 min-w-max lg:min-w-0 lg:grid lg:grid-cols-3">
+                  {caseStudiesData.map((caseData) => (
+                    <CaseStudyCard key={caseData.id} data={caseData} />
+                  ))}
+                </div>
               </div>
+
+              <button
+                onClick={() => scroll('right')}
+                disabled={!canScrollRight}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#262424] hover:bg-[#3a3733] disabled:opacity-30 disabled:cursor-not-allowed text-white p-2 rounded-full transition-all duration-200 lg:hidden"
+                aria-label="Scroll right"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none">
+                  <path 
+                    fillRule="evenodd" 
+                    clipRule="evenodd"
+                    d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
             </div>
             
             {/* Mobile button */}

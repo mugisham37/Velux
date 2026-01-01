@@ -218,8 +218,8 @@ const ShopifyPlusSection = () => {
       id="shopify-section-template--26430796759383__b7c8b597-4f0c-454b-8ffd-e2c4d58acaa6"
       className="bg-[#e5e2de]"
     >
-      <section className="relative pt-10 pb-10 lg:pt-10 lg:pb-20 border-b border-[#262424]">
-        <div className="max-w-[1200px] mx-auto px-2 lg:px-0">
+      <section className="relative w-screen pt-10 pb-10 lg:pt-10 lg:pb-20 border-b border-[#262424] px-2 lg:px-0">
+        <div className=" mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6">
             <div className="lg:col-span-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="160" height="56" viewBox="0 0 160 56" fill="none">
@@ -323,7 +323,7 @@ const ShopifyPlusSection = () => {
                 </defs>
               </svg>
             </div>
-            <div className="lg:col-span-8">
+            <div className="w-[900px]">
               <div className="space-y-6">
                 <div className="space-y-5">
                   <div className="text-base leading-[24.8px]">
@@ -350,21 +350,20 @@ const ShopifyPlusSection = () => {
                     </span>
                     <span className='uppercase'>Our Services</span>
                   </a>
-                </div>
-                <div className="grid grid-cols-3 lg:grid-cols-4 gap-0.5 max-w-4xl mx-auto">
+                   <div className="grid grid-cols-3 lg:grid-cols-4 gap-1 max-w-4xl mx-auto">
                   {logoSources.map((src, index) => {
                     const logoConfig = LOGO_CONFIG[index % LOGO_CONFIG.length]
                     return (
                       <div 
                         key={index} 
-                        className="flex items-center justify-center bg-[#d4d0c8] rounded-lg p-1.5 lg:p-2 h-24 lg:h-40"
+                        className="flex items-center justify-center bg-[#d4d0c8] rounded-lg p-1.5 lg:p-2 h-24 lg:h-60"
                       >
                         <Image 
                           loading="lazy"
                           src={src}
                           id={`sp_logo${index}`} 
                           alt={logoConfig.alt} 
-                          width={120}
+                          width={100}
                           height={isMobile ? logoConfig.height.mobile : logoConfig.height.desktop}
                           className={`${isMobile ? logoConfig.maxHeight.mobile : logoConfig.maxHeight.desktop} w-auto h-auto transition-opacity duration-500 ease-in-out`}
                           style={{ opacity: logoOpacities[index] }}
@@ -373,6 +372,7 @@ const ShopifyPlusSection = () => {
                       </div>
                     )
                   })}
+                </div>
                 </div>
               </div>
             </div>
