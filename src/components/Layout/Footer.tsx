@@ -50,13 +50,12 @@ const Footer = () => {
       </ClientOnlyContent>
       
       <div 
-        id="shopify-section-footer"
         style={{
           fontFamily: '"Aeonik", sans-serif'
         }}
       >
         <footer className="bg-[#262424] text-white">
-          <div className="max-w-[1200px] mx-auto px-4">
+          <div className="w-screen mx-auto px-4">
             <div className="footer-main">
               {/* Footer Top Section */}
               <div className="pt-16 pb-12">
@@ -69,7 +68,7 @@ const Footer = () => {
                   </h2>
                   <a 
                     href="/pages/contact" 
-                    className="inline-flex items-center gap-4 bg-[#c0bbae] text-[#262424] px-8 py-4 text-xs uppercase font-medium tracking-wider hover:bg-opacity-90 transition-all duration-300"
+                    className="inline-flex items-center gap-4 bg-[#c0bbae] text-[#262424] px-8 py-4 text-xs uppercase font-medium tracking-wider hover:bg-opacity-90 transition-all duration-300 rounded-[10px]"
                   >
                     <span className="flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -82,45 +81,35 @@ const Footer = () => {
                       </svg>
                     </span>
                     <span>let&apos;s talk</span>
-                    <span className="flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path 
-                          fillRule="evenodd" 
-                          clipRule="evenodd"
-                          d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
                   </a>
                 </div>
               </div>
 
               {/* Mobile Menu */}
-              <div className="block lg:hidden text-center mb-12">
-                <ul className="space-y-4">
-                  <li><a href="/pages/services" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">Services</a></li>
-                  <li><a href="/pages/about-us" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">About us</a></li>
-                  <li>
+              <div className="border-t border-white-700 block lg:hidden mb-12 pt-10">
+                <ul className="grid grid-cols-3 gap-2">
+                  <li className="text-center"><a href="/pages/services" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">Services</a></li>
+                  <li className="text-center"><a href="/pages/about-us" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">About us</a></li>
+                  <li className="text-center">
                     <a href="/pages/shopify-plus-agency-amsterdam" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">Shopify Plus</a>
                   </li>
-                  <li><a href="/pages/case-studies" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">Cases</a></li>
-                  <li><a href="/pages/clients" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">Clients</a></li>
-                  <li>
+                  <li className="text-center"><a href="/pages/case-studies" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">Cases</a></li>
+                  <li className="text-center"><a href="/pages/clients" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">Clients</a></li>
+                  <li className="text-center">
                     <a href="/blogs/inside-the-industry" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">Articles</a>
                   </li>
-                  <li>
+                  <li className="text-center">
                     <a href="https://careers.notsellingliquid.com/" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">Careers</a>
                   </li>
-                  <li><a href="/pages/contact" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">Contact</a></li>
-                  <li>
+                  <li className="text-center"><a href="/pages/contact" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">Contact</a></li>
+                  <li className="text-center">
                     <a href="https://www.linkedin.com/company/not-selling-liquid" className="text-xs uppercase tracking-wider hover:text-[#c0bbae] transition-colors">LinkedIn</a>
                   </li>
                 </ul>
               </div>
 
               {/* Footer Center - Desktop Layout */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16 text-center lg:text-left">
+              <div className="border-t border-white-700 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16 text-center lg:text-left pt-10">
                 {/* Left Section - Logo & Description */}
                 <div className="lg:col-span-4">
                 <div className="mb-8">
@@ -140,7 +129,7 @@ const Footer = () => {
                     </Link>
                   </div>
                   <div className="hidden lg:block">
-                    <p className="text-xs leading-relaxed text-gray-300">
+                    <p className="text-[23px] leading-[27px] text-gray-300">
                       We build, manage and grow the presence of purpose-led
                       brands in the digital sphere.
                     </p>
@@ -154,16 +143,16 @@ const Footer = () => {
                       <p className="text-xs uppercase tracking-wider mb-4 text-gray-400">info</p>
                       <ul className="space-y-2">
                         <li>
-                          <a href="/pages/about-us" className="text-xs hover:text-[#c0bbae] transition-colors">About us</a>
+                          <a href="/pages/about-us" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">About us</a>
                         </li>
                         <li>
-                          <a href="/pages/services" className="text-xs hover:text-[#c0bbae] transition-colors">Services</a>
+                          <a href="/pages/services" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">Services</a>
                         </li>
                         <li>
-                          <a href="/pages/clients" className="text-xs hover:text-[#c0bbae] transition-colors">Clients</a>
+                          <a href="/pages/clients" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">Clients</a>
                         </li>
                         <li>
-                          <a href="/pages/case-studies" className="text-xs hover:text-[#c0bbae] transition-colors">Case studies</a>
+                          <a href="/pages/case-studies" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">Case studies</a>
                         </li>
                       </ul>
                     </div>
@@ -171,16 +160,16 @@ const Footer = () => {
                       <p className="text-xs uppercase tracking-wider mb-4 text-gray-400">Services</p>
                       <ul className="space-y-2">
                         <li>
-                          <a href="/pages/service-build" className="text-xs hover:text-[#c0bbae] transition-colors">Build</a>
+                          <a href="/pages/service-build" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">Build</a>
                         </li>
                         <li>
-                          <a href="/pages/service-manage" className="text-xs hover:text-[#c0bbae] transition-colors">Manage</a>
+                          <a href="/pages/service-manage" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">Manage</a>
                         </li>
                         <li>
-                          <a href="/pages/service-grow" className="text-xs hover:text-[#c0bbae] transition-colors">Grow</a>
+                          <a href="/pages/service-grow" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">Grow</a>
                         </li>
                         <li>
-                          <a href="/pages/shopify-plus-agency-amsterdam" className="text-xs hover:text-[#c0bbae] transition-colors">Shopify Plus</a>
+                          <a href="/pages/shopify-plus-agency-amsterdam" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">Shopify Plus</a>
                         </li>
                       </ul>
                     </div>
@@ -188,21 +177,21 @@ const Footer = () => {
                       <p className="text-xs uppercase tracking-wider mb-4 text-gray-400">Social</p>
                       <ul className="space-y-2">
                         <li>
-                          <a href="https://www.linkedin.com/company/not-selling-liquid" className="text-xs hover:text-[#c0bbae] transition-colors">Linkedin</a>
+                          <a href="https://www.linkedin.com/company/not-selling-liquid" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">Linkedin</a>
                         </li>
                         <li>
-                          <a href="https://www.instagram.com/notsellingliquid/" className="text-xs hover:text-[#c0bbae] transition-colors">Instagram</a>
+                          <a href="https://www.instagram.com/notsellingliquid/" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">Instagram</a>
                         </li>
                       </ul>
                     </div>
                     <div>
-                      <p className="text-xs uppercase tracking-wider mb-4 text-gray-400">Work with us</p>
+                      <p className="text-xs uppercase tracking-wider mb-4 text-gray-400 uppercase">Work with us</p>
                       <ul className="space-y-2">
                         <li>
-                          <a href="/pages/contact" className="text-xs hover:text-[#c0bbae] transition-colors">Contact</a>
+                          <a href="/pages/contact" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">Contact</a>
                         </li>
                         <li>
-                          <a href="https://careers.notsellingliquid.com/" className="text-xs hover:text-[#c0bbae] transition-colors">Careers</a>
+                          <a href="https://careers.notsellingliquid.com/" className="text-xs hover:text-[#c0bbae] transition-colors uppercase">Careers</a>
                         </li>
                       </ul>
                     </div>
@@ -239,7 +228,7 @@ const Footer = () => {
               </div>
 
               {/* Footer Bottom */}
-              <div className="border-t border-gray-700 pt-8 pb-8 text-center lg:text-left">
+              <div className="pt-1 pb-8 text-center lg:text-left">
                 <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center space-y-4 lg:space-y-0">
                   <p className="text-[10px] uppercase tracking-wider text-gray-400 hidden lg:block">
                     Official Shopify Premier Partner &amp; Klaviyo Gold Master

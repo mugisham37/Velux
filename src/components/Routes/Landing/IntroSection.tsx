@@ -4,7 +4,7 @@ const IntroSection = () => {
   return (
     <div>
       <section className="bg-[#262424] intro-section
-        pt-20 sm:pt-28 md:pt-36 lg:pt-42">
+        pt-34 sm:pt-28 md:pt-46 lg:pt-52">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-12 gap-4">
             {/* Left Column - Hidden on mobile, visible on lg+ */}
