@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-// Logo configuration with all data in one place
+// Logo configuration with all data in one place - Extended to 12 logos for mobile layout
 const LOGO_CONFIG = [
   {
     src: "https://www.notsellingliquid.com/cdn/shop/files/merrachi.png?v=1699440937",
@@ -45,7 +45,7 @@ const LOGO_CONFIG = [
     alt: "Shopify Plus Agency Case - Four Amsterdam",
     height: { mobile: 15, desktop: 25 },
     maxHeight: { mobile: "max-h-[15px]", desktop: "max-h-[25px]" },
-    initialOpacity: 0
+    initialOpacity: 1
   },
   {
     src: "https://www.notsellingliquid.com/cdn/shop/files/logo-fabiennechapot.svg?v=1686921430",
@@ -66,6 +66,27 @@ const LOGO_CONFIG = [
     alt: "Shopify Plus Agency Case - Blush Jewels",
     height: { mobile: 20, desktop: 50 },
     maxHeight: { mobile: "max-h-5", desktop: "max-h-[50px]" },
+    initialOpacity: 1
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/Arte_249682ff-c069-4279-8305-be8ab8a41b9d.png?v=1687154871",
+    alt: "Shopify Plus Agency Case - Arte",
+    height: { mobile: 16, desktop: 28 },
+    maxHeight: { mobile: "max-h-4", desktop: "max-h-7" },
+    initialOpacity: 1
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/logo-oqium.svg?v=1686921431",
+    alt: "Shopify Plus Agency Case - Oqium",
+    height: { mobile: 12, desktop: 22 },
+    maxHeight: { mobile: "max-h-3", desktop: "max-h-[22px]" },
+    initialOpacity: 1
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/merrachi.png?v=1699440937",
+    alt: "Shopify Plus Agency Case - Merrachi",
+    height: { mobile: 17, desktop: 18 },
+    maxHeight: { mobile: "max-h-[17px]", desktop: "max-h-[18px]" },
     initialOpacity: 1
   }
 ]
@@ -116,17 +137,30 @@ const ALL_LOGOS_DATA = [
 
 const ShopifyPlusSection = () => {
   const [isMobile, setIsMobile] = useState(false)
+  const [visibleLogoCount, setVisibleLogoCount] = useState(8) // Default to desktop count
   const [logoSources, setLogoSources] = useState<string[]>(
-    LOGO_CONFIG.map(logo => logo.src)
+    LOGO_CONFIG.slice(0, 8).map(logo => logo.src)
   )
   const [logoOpacities, setLogoOpacities] = useState<number[]>(
-    LOGO_CONFIG.map(logo => logo.initialOpacity)
+    LOGO_CONFIG.slice(0, 8).map(logo => logo.initialOpacity)
   )
 
   useEffect(() => {
     // Handle window resize for responsive behavior
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 992)
+      const mobile = window.innerWidth < 992
+      setIsMobile(mobile)
+      
+      // Set logo count based on screen size
+      const newCount = mobile ? 12 : 8
+      if (newCount !== visibleLogoCount) {
+        setVisibleLogoCount(newCount)
+        // Update logo sources and opacities to match new count
+        const newSources = LOGO_CONFIG.slice(0, newCount).map(logo => logo.src)
+        const newOpacities = LOGO_CONFIG.slice(0, newCount).map(logo => logo.initialOpacity)
+        setLogoSources(newSources)
+        setLogoOpacities(newOpacities)
+      }
     }
 
     // Set initial state
@@ -134,7 +168,7 @@ const ShopifyPlusSection = () => {
     window.addEventListener('resize', handleResize)
 
     return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  }, [visibleLogoCount])
 
   useEffect(() => {
     const transitionDuration = 0.5
@@ -185,8 +219,8 @@ const ShopifyPlusSection = () => {
       className="bg-[#e5e2de]"
     >
       <section className="relative pt-10 pb-10 lg:pt-10 lg:pb-20 border-b border-[#262424]">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <div className="max-w-[1200px] mx-auto px-2 lg:px-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6">
             <div className="lg:col-span-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="160" height="56" viewBox="0 0 160 56" fill="none">
                 <g clipPath="url(#clip0_2350_4544)">
@@ -292,8 +326,8 @@ const ShopifyPlusSection = () => {
             <div className="lg:col-span-8">
               <div className="space-y-6">
                 <div className="space-y-5">
-                  <div className="text-base leading-relaxed">
-                    <p>
+                  <div className="text-base leading-[24.8px]">
+                    <p className='text-[25px]'>
                       As a certified Shopify Premier partner, we&apos;re creating a
                       space where e-commerce expertise is combined with an
                       intrinsic fashion mindset to grow next-generation brands
@@ -302,7 +336,7 @@ const ShopifyPlusSection = () => {
                   </div>
                   <a 
                     href="/pages/services" 
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#8B7355] text-white rounded transition-colors duration-300 hover:bg-[#7A6348] no-underline"
+                    className="inline-flex items-center gap-1 px-4 py-2 bg-[#c0bbae] text-black rounded-[9px] transition-colors duration-300 hover:bg-[#7A6348] no-underline"
                   >
                     <span>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -314,38 +348,31 @@ const ShopifyPlusSection = () => {
                         />
                       </svg>
                     </span>
-                    <span>Our Services</span>
-                    <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path 
-                          fillRule="evenodd" 
-                          clipRule="evenodd"
-                          d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </span>
+                    <span className='uppercase'>Our Services</span>
                   </a>
                 </div>
-                <div className="grid grid-cols-3 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-                  {LOGO_CONFIG.map((logo, index) => (
-                    <div 
-                      key={index} 
-                      className="flex items-center justify-center bg-[#d4d0c8] rounded-lg p-6 h-24 lg:h-40"
-                    >
-                      <Image 
-                        loading="lazy"
-                        src={logoSources[index]}
-                        id={`sp_logo${index}`} 
-                        alt={logo.alt} 
-                        width={120}
-                        height={isMobile ? logo.height.mobile : logo.height.desktop}
-                        className={`${isMobile ? logo.maxHeight.mobile : logo.maxHeight.desktop} w-auto h-auto transition-opacity duration-500 ease-in-out`}
-                        style={{ opacity: logoOpacities[index] }}
-                        unoptimized
-                      />
-                    </div>
-                  ))}
+                <div className="grid grid-cols-3 lg:grid-cols-4 gap-0.5 max-w-4xl mx-auto">
+                  {logoSources.map((src, index) => {
+                    const logoConfig = LOGO_CONFIG[index % LOGO_CONFIG.length]
+                    return (
+                      <div 
+                        key={index} 
+                        className="flex items-center justify-center bg-[#d4d0c8] rounded-lg p-1.5 lg:p-2 h-24 lg:h-40"
+                      >
+                        <Image 
+                          loading="lazy"
+                          src={src}
+                          id={`sp_logo${index}`} 
+                          alt={logoConfig.alt} 
+                          width={120}
+                          height={isMobile ? logoConfig.height.mobile : logoConfig.height.desktop}
+                          className={`${isMobile ? logoConfig.maxHeight.mobile : logoConfig.maxHeight.desktop} w-auto h-auto transition-opacity duration-500 ease-in-out`}
+                          style={{ opacity: logoOpacities[index] }}
+                          unoptimized
+                        />
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             </div>
