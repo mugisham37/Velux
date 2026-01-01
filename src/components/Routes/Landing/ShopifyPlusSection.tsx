@@ -148,7 +148,8 @@ const ShopifyPlusSection = () => {
   useEffect(() => {
     // Handle window resize for responsive behavior
     const handleResize = () => {
-      const mobile = window.innerWidth < 992
+      // Match Tailwind's lg breakpoint (1024px)
+      const mobile = window.innerWidth < 1024
       setIsMobile(mobile)
       
       // Set logo count based on screen size
@@ -217,11 +218,12 @@ const ShopifyPlusSection = () => {
     <div 
       className="bg-[#e5e2de]"
     >
-      <section className="relative w-screen pt-10 pb-10 lg:pt-10 lg:pb-20 px-2 lg:px-4">
-        <div className=" mx-auto">
+      <section className="relative w-full pt-10 pb-10 lg:pt-10 lg:pb-20 px-2 lg:px-4">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6">
-            <div className="lg:col-span-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="160" height="56" viewBox="0 0 160 56" fill="none">
+            {/* Logo Section - Mobile: full width, Desktop: 4 columns */}
+            <div className="lg:col-span-4 flex justify-center lg:justify-start">
+              <svg xmlns="http://www.w3.org/2000/svg" width="160" height="56" viewBox="0 0 160 56" fill="none" className="w-32 h-auto sm:w-40 lg:w-[160px]">
                 <g clipPath="url(#clip0_2350_4544)">
                   <path
                     d="M69.4823 11.0363C70.2196 11.499 71.3255 11.8652 72.4709 11.8652C74.1794 11.8652 75.1888 10.9785 75.1888 9.68695C75.1888 8.49177 74.4896 7.79779 72.7429 7.14238C70.627 6.39058 69.3266 5.29186 69.3266 3.49909C69.3266 1.49429 70.9956 0.0100098 73.519 0.0100098C74.8392 0.0100098 75.8097 0.318429 76.3722 0.626849L75.907 1.99549C75.4989 1.74489 74.6256 1.37865 73.4612 1.37865C71.6751 1.37865 71.0154 2.41955 71.0154 3.30631C71.0154 4.50149 71.8111 5.07976 73.5972 5.77374C75.79 6.62193 76.8966 7.68215 76.8966 9.55199C76.8966 11.4218 75.4411 13.2532 72.3743 13.2532C71.1317 13.2532 69.7537 12.8869 69.0742 12.4242L69.5211 11.0363H69.4823Z"
@@ -322,20 +324,23 @@ const ShopifyPlusSection = () => {
                 </defs>
               </svg>
             </div>
-            <div className="w-[900px]">
+            {/* Content Section - Mobile: full width, Desktop: 8 columns */}
+            <div className="lg:col-span-8 w-full">
               <div className="space-y-6">
                 <div className="space-y-5">
+                  {/* Text Content - Responsive sizing */}
                   <div className="text-base leading-[24.8px]">
-                    <p className='text-[25px]'>
+                    <p className="text-lg sm:text-xl lg:text-[25px] leading-relaxed">
                       As a certified Shopify Premier partner, we&apos;re creating a
                       space where e-commerce expertise is combined with an
                       intrinsic fashion mindset to grow next-generation brands
                       in the digital landscape.<br />
                     </p>
                   </div>
+                  {/* Button - Responsive sizing */}
                   <a 
                     href="/pages/services" 
-                    className="inline-flex items-center gap-1 px-4 py-2 bg-[#c0bbae] text-black rounded-[9px] transition-colors duration-300 hover:bg-[#7A6348] no-underline"
+                    className="inline-flex items-center gap-1 px-3 py-2 sm:px-4 sm:py-2 bg-[#c0bbae] text-black rounded-[9px] transition-colors duration-300 hover:bg-[#7A6348] no-underline text-sm sm:text-base"
                   >
                     <span>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -347,15 +352,16 @@ const ShopifyPlusSection = () => {
                         />
                       </svg>
                     </span>
-                    <span className='uppercase'>Our Services</span>
+                    <span className="uppercase text-xs sm:text-sm">Our Services</span>
                   </a>
-                   <div className="grid grid-cols-3 lg:grid-cols-4 gap-1 max-w-4xl mx-auto">
+                  {/* Logo Grid - Responsive: 3 cols mobile, 4 cols desktop */}
+                  <div className="grid grid-cols-3 lg:grid-cols-4 gap-1 w-full max-w-4xl mx-auto lg:mx-0">
                   {logoSources.map((src, index) => {
                     const logoConfig = LOGO_CONFIG[index % LOGO_CONFIG.length]
                     return (
                       <div 
                         key={index} 
-                        className="flex items-center justify-center bg-[#d4d0c8] rounded-lg p-1.5 lg:p-2 h-24 lg:h-60"
+                        className="flex items-center justify-center bg-[#d4d0c8] rounded-lg p-1.5 lg:p-2 h-20 sm:h-24 lg:h-60"
                       >
                         <Image 
                           loading="lazy"
@@ -377,7 +383,7 @@ const ShopifyPlusSection = () => {
             </div>
           </div>
         </div>
-        <div className="border-b border-[#262424] pt-4 px-3"></div>
+        <div className="border-b border-[#262424] pt-4 px-3 max-w-7xl mx-auto"></div>
       </section>
     </div>
   )

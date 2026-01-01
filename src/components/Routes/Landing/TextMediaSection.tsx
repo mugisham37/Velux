@@ -3,19 +3,25 @@ import Image from 'next/image'
 
 const TextMediaSection = () => {
   return (
-    <div 
-      className="bg-[#e5e2de] relative w-screen"
-    >
+    <div className="bg-[#e5e2de] relative w-full overflow-hidden">
       <section className="relative">
+        {/* Section Padding - Mobile: py-16, Tablet: py-20, Desktop: py-18 */}
         <div className="py-16 md:py-20 lg:py-18">
-          <div className="mx-auto px-4 sm:px-6 lg:px-[20px] ">
-            <div className="bg-[#c0bbae] rounded-[20px] grid grid-cols-1 lg:grid-cols-2 gap-0 lg:h-[700px]">
-              <div className="flex items-center ">
-                <div className="flex flex-col justify-between items-stretch h-full p-8 md:p-12 lg:py-12 ">
-                  <h2 className="font-['PP_Editorial_Old'] text-2xl md:text-3xl lg:text-[56px] leading-tight text-black mb-8">
+          {/* Content Container - Responsive Padding */}
+          <div className="mx-auto px-4 sm:px-6 lg:px-[20px]">
+            {/* Main Grid - Mobile: 1 col, Desktop: 2 cols with consistent height */}
+            <div className="bg-[#c0bbae] rounded-[20px] grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[500px] md:min-h-[600px] lg:h-[700px]">
+              
+              {/* Text Content Column */}
+              <div className="flex items-center">
+                <div className="flex flex-col justify-between items-stretch h-full w-full p-8 md:p-12 lg:p-12">
+                  {/* Heading - Progressive Typography Scaling */}
+                  <h2 className="font-['PP_Editorial_Old'] text-2xl md:text-3xl lg:text-4xl xl:text-[56px] leading-tight text-black mb-8">
                     A story-led digital agency that leads next generation
                     brands to define the fashion e-commerce landscape.
                   </h2>
+                  
+                  {/* CTA Button */}
                   <div className="mt-8">
                     <a 
                       href="/pages/about-us" 
@@ -36,23 +42,29 @@ const TextMediaSection = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Image Column */}
               <div className="relative">
-                <div className="relative h-full min-h-[400px] ">
+                <div className="relative h-full min-h-[400px] md:min-h-[500px] lg:min-h-full">
+                  {/* Image - Responsive Padding and Sizing */}
                   <Image 
                     src="https://www.notsellingliquid.com/cdn/shop/files/Mask_group2.webp?v=1744187290"
                     alt="" 
-                    className="w-full h-full object-cover block p-2 rounded-[22px] lg:p-3 lg:h-full"
+                    className="w-full h-full object-cover block p-2 md:p-3 lg:p-3 rounded-[22px]"
                     width={1401}
                     height={800}
                     priority
                   />
-                  <div className="absolute bottom-6 left-6 lg:bottom-8 lg:right-[2px]">
-                    <p className="text-sm font-normal uppercase text-white/80 px-3 py-2 ">
+                  
+                  {/* Image Caption - Responsive Positioning */}
+                  <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 lg:bottom-8 lg:right-[2px]">
+                    <p className="text-sm font-normal uppercase text-white/80 px-3 py-2">
                       Fabienne Chapot
                     </p>
                   </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>
