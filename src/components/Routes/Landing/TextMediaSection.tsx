@@ -13,19 +13,19 @@ const TextMediaSection = () => {
             <div className="bg-[#c0bbae] rounded-[20px] grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[500px] md:min-h-[600px] lg:h-[700px]">
               
               {/* Text Content Column */}
-              <div className="flex items-center">
-                <div className="flex flex-col justify-between items-stretch h-full w-full p-8 md:p-12 lg:p-12">
+              <div className="flex items-start order-2 md:order-2 lg:order-none">
+                <div className="flex flex-col justify-start items-stretch h-full w-full p-2 md:p-12 lg:p-12">
                   {/* Heading - Progressive Typography Scaling */}
-                  <h2 className="font-['PP_Editorial_Old'] text-2xl md:text-3xl lg:text-4xl xl:text-[56px] leading-tight text-black mb-8">
+                  <h2 className="font-['PP_Editorial_Old'] text-2xl md:text-3xl lg:text-4xl xl:text-[56px] leading-tight text-black mb-2">
                     A story-led digital agency that leads next generation
                     brands to define the fashion e-commerce landscape.
                   </h2>
                   
                   {/* CTA Button */}
-                  <div className="mt-8">
+                  <div className="mt-2">
                     <a 
                       href="/pages/about-us" 
-                      className="inline-flex items-center gap-1 px-6 py-4 rounded-[10px] text-black bg-gray-500 hover:bg-black transition-all duration-300 text-sm font-medium uppercase tracking-wider"
+                      className="inline-flex items-center gap-1 px-6 py-4 rounded-[10px] text-black bg-gray-500 text-sm font-medium uppercase tracking-wider"
                     >
                       <span className="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -44,7 +44,7 @@ const TextMediaSection = () => {
               </div>
               
               {/* Image Column */}
-              <div className="relative">
+              <div className="relative order-1 md:order-1 lg:order-none">
                 <div className="relative h-full min-h-[400px] md:min-h-[500px] lg:min-h-full">
                   {/* Image - Responsive Padding and Sizing */}
                   <Image 

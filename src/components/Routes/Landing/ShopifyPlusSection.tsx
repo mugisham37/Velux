@@ -216,13 +216,13 @@ const ShopifyPlusSection = () => {
 
   return (
     <div 
-      className="bg-[#e5e2de]"
+      className="bg-[#e5e2de] w-screen"
     >
-      <section className="relative w-full pt-10 pb-10 lg:pt-10 lg:pb-20 px-2 lg:px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className=" relative w-full pt-10 pb-10 lg:pt-10 lg:pb-20 px-2 lg:px-6">
+        <div className="mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6">
             {/* Logo Section - Mobile: full width, Desktop: 4 columns */}
-            <div className="lg:col-span-4 flex justify-center lg:justify-start">
+            <div className="lg:col-span-4 flex justify-start items-start">
               <svg xmlns="http://www.w3.org/2000/svg" width="160" height="56" viewBox="0 0 160 56" fill="none" className="w-32 h-auto sm:w-40 lg:w-[160px]">
                 <g clipPath="url(#clip0_2350_4544)">
                   <path
@@ -330,7 +330,7 @@ const ShopifyPlusSection = () => {
                 <div className="space-y-5">
                   {/* Text Content - Responsive sizing */}
                   <div className="text-base leading-[24.8px]">
-                    <p className="text-lg sm:text-xl lg:text-[25px] leading-relaxed">
+                    <p className="text-lg sm:text-xl lg:text-[25px] leading-[28px]">
                       As a certified Shopify Premier partner, we&apos;re creating a
                       space where e-commerce expertise is combined with an
                       intrinsic fashion mindset to grow next-generation brands
@@ -355,7 +355,7 @@ const ShopifyPlusSection = () => {
                     <span className="uppercase text-xs sm:text-sm">Our Services</span>
                   </a>
                   {/* Logo Grid - Responsive: 3 cols mobile, 4 cols desktop */}
-                  <div className="grid grid-cols-3 lg:grid-cols-4 gap-1 w-full max-w-4xl mx-auto lg:mx-0">
+                  <div className="grid grid-cols-3 lg:grid-cols-4 gap-1 w-full mx-auto lg:mx-0">
                   {logoSources.map((src, index) => {
                     const logoConfig = LOGO_CONFIG[index % LOGO_CONFIG.length]
                     return (
@@ -383,7 +383,7 @@ const ShopifyPlusSection = () => {
             </div>
           </div>
         </div>
-        <div className="border-b border-[#262424] pt-4 px-3 max-w-7xl mx-auto"></div>
+        <div className="border-b border-[#262424] pt-4  mx-auto"></div>
       </section>
     </div>
   )

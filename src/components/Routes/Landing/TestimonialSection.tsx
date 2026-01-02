@@ -5,10 +5,10 @@ import { normalizeImageUrl } from '../../../utils/imageUtils'
 
 const TestimonialSection = () => {
   return (
-    <div className="bg-[#e5e2de]">
+    <div className="bg-[#e5e2de] w-screen">
       <section className="relative">
         {/* Container: Mobile first approach with proper max-width constraints */}
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full mx-auto px-2 sm:px-6 lg:px-6">
           {/* Padding: Responsive vertical spacing */}
           <div className="pt-10 pb-10 md:pt-12 md:pb-16 lg:pt-10 lg:pb-20 border-b border-[#262424]">
             {/* Layout: Stack on mobile, side-by-side on large screens */}
