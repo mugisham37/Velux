@@ -2,48 +2,187 @@
 
 import { useEffect, useRef } from 'react'
 
+// Constants for repetitive data
+const FONTS = [
+  {
+    href: "https://www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff2?v=11777328378613522966",
+    family: 'Aeonik',
+    weight: 'normal',
+    woffUrl: "https://www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff?v=14984412462167582789"
+  },
+  {
+    href: "https://www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff2?v=13586537134979268968",
+    family: 'PP Editorial Old',
+    weight: '300',
+    woffUrl: "https://www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff?v=12339577768757059424"
+  }
+];
+
+const CONTACT_INFO = [
+  {
+    title: "General",
+    email: "hello@notsellingliquid.com",
+    phone: "+31 (0) 20 21 01 913",
+    phoneHref: "0202101913"
+  },
+  {
+    title: "new business",
+    email: "new@notsellingliquid.com",
+    phone: "+31 (0) 20 21 01 913",
+    phoneHref: "0202101913"
+  },
+  {
+    title: "Visit",
+    content: "Danzigerkade 15 A5<br />1013 AP Amsterdam<br />Netherlands",
+    isAddress: true
+  }
+];
+
+const FORM_FIELDS = [
+  {
+    id: "ContactForm-name",
+    name: "contact[name]",
+    type: "text",
+    placeholder: "Name",
+    label: "Name",
+    autoComplete: "name",
+    required: true,
+    fullWidth: true
+  },
+  {
+    id: "ContactForm-email",
+    name: "contact[email]",
+    type: "email",
+    placeholder: "Email",
+    label: "Email",
+    autoComplete: "email",
+    required: true,
+    ariaRequired: true,
+    spellCheck: false,
+    autoCapitalize: "off"
+  },
+  {
+    id: "ContactForm-phone",
+    name: "contact[phone]",
+    type: "tel",
+    placeholder: "Phone",
+    label: "Phone",
+    autoComplete: "tel",
+    pattern: "^\\+?[0-9\\s\\-()]*$"
+  },
+  {
+    id: "ContactForm-company",
+    name: "contact[company]",
+    type: "text",
+    placeholder: "Company",
+    label: "Company",
+    autoComplete: "company",
+    required: true,
+    fullWidth: true
+  },
+  {
+    id: "ContactForm-project-description",
+    name: "contact[projectdescription]",
+    type: "textarea",
+    placeholder: "Project description",
+    label: "Project description",
+    rows: 4,
+    fullWidth: true
+  }
+];
+
+const SERVICE_CATEGORIES = [
+  {
+    title: "Build",
+    name: "Build",
+    defaultValue: "UX & UI Design",
+    services: [
+      { name: "UX & UI Design", active: true },
+      { name: "Development" },
+      { name: "Klaviyo email automation" },
+      { name: "Shopify Plus migration" }
+    ]
+  },
+  {
+    title: "Manage",
+    name: "Manage",
+    defaultValue: "",
+    services: [
+      { name: "Paid advertising" },
+      { name: "Retention & CDP" },
+      { name: "Project management" },
+      { name: "Website operations" }
+    ]
+  },
+  {
+    title: "Grow",
+    name: "Grow",
+    defaultValue: "",
+    services: [
+      { name: "Analytics & reporting" },
+      { name: "Data & intelligence" },
+      { name: "Growth strategy" },
+      { name: "Conversion optimization" }
+    ]
+  }
+];
+
+const COLORS = {
+  primary: '#262424',
+  secondary: '#9B978B',
+  background: '#e5e2de',
+  white: 'white',
+  button: '#c0bbae',
+  placeholder: '#9B978B',
+  hover: '#f7f7f6'
+};
+
+const FONTS_FAMILIES = {
+  aeonik: 'Aeonik, sans-serif',
+  editorial: 'PP Editorial Old, serif'
+};
+
+const ARROW_SVG = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path fillRule="evenodd" clipRule="evenodd"
+          d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z"
+          fill="currentColor"></path>
+  </svg>
+);
+
 const ContactMainSection = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    // Load custom fonts
-    const fontLink1 = document.createElement('link');
-    fontLink1.href = "https://www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff2?v=11777328378613522966";
-    fontLink1.rel = "preload";
-    fontLink1.as = "font";
-    fontLink1.type = "font/woff2";
-    fontLink1.crossOrigin = "anonymous";
-    document.head.appendChild(fontLink1);
-
-    const fontLink2 = document.createElement('link');
-    fontLink2.href = "https://www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff2?v=13586537134979268968";
-    fontLink2.rel = "preload";
-    fontLink2.as = "font";
-    fontLink2.type = "font/woff2";
-    fontLink2.crossOrigin = "anonymous";
-    document.head.appendChild(fontLink2);
+    // Load custom fonts using data array
+    const fontElements: HTMLElement[] = [];
+    
+    FONTS.forEach(font => {
+      // Create preload link
+      const fontLink = document.createElement('link');
+      fontLink.href = font.href;
+      fontLink.rel = "preload";
+      fontLink.as = "font";
+      fontLink.type = "font/woff2";
+      fontLink.crossOrigin = "anonymous";
+      document.head.appendChild(fontLink);
+      fontElements.push(fontLink);
+    });
 
     // Add font face styles
     const fontStyle = document.createElement('style');
-    fontStyle.textContent = `
+    fontStyle.textContent = FONTS.map(font => `
       @font-face {
-        font-family: 'Aeonik';
-        src: url("https://www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff2?v=11777328378613522966") format('woff2'),
-             url("https://www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff?v=14984412462167582789") format('woff');
-        font-weight: normal;
+        font-family: '${font.family}';
+        src: url("${font.href}") format('woff2'),
+             url("${font.woffUrl}") format('woff');
+        font-weight: ${font.weight};
         font-style: normal;
         font-display: swap;
       }
-      @font-face {
-        font-family: 'PP Editorial Old';
-        src: url("https://www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff2?v=13586537134979268968") format('woff2'),
-             url("https://www.notsellingliquid.com/cdn/shop/files/PPEditorialOld-Light.woff?v=12339577768757059424") format('woff');
-        font-weight: 300;
-        font-style: normal;
-        font-display: swap;
-      }
-    `;
+    `).join('');
     document.head.appendChild(fontStyle);
+    fontElements.push(fontStyle);
 
     // Initialize form functionality after scripts load
     const initializeForm = () => {
@@ -176,18 +315,110 @@ const ContactMainSection = () => {
     setTimeout(initializeForm, 100);
 
     return () => {
-      // Cleanup
-      if (document.head.contains(fontLink1)) {
-        document.head.removeChild(fontLink1);
-      }
-      if (document.head.contains(fontLink2)) {
-        document.head.removeChild(fontLink2);
-      }
-      if (document.head.contains(fontStyle)) {
-        document.head.removeChild(fontStyle);
-      }
+      // Cleanup using the stored elements array
+      fontElements.forEach(element => {
+        if (document.head.contains(element)) {
+          document.head.removeChild(element);
+        }
+      });
     };
   }, []);
+
+  // Helper function to render contact info sections
+  const renderContactInfo = (info: typeof CONTACT_INFO[0]) => (
+    <div key={info.title} className="space-y-2">
+      <p className="text-xs font-normal text-[#262424]" style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
+        {info.title}
+      </p>
+      <div className="text-sm font-light text-[#262424] cursor-pointer" style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
+        {info.isAddress ? (
+          <p dangerouslySetInnerHTML={{ __html: info.content || '' }} />
+        ) : (
+          <p>
+            <a href={`mailto:${info.email}`} 
+               title={`mailto:${info.email}`}
+               className="hover:underline">
+              {info.email}
+            </a>
+            <br />
+            <a href={`tel:${info.phoneHref}`} 
+               target="_blank" 
+               title={`tel:${info.phoneHref}`}
+               className="hover:underline">
+              {info.phone}
+            </a>
+          </p>
+        )}
+      </div>
+    </div>
+  );
+
+  // Helper function to render form fields
+  const renderFormField = (field: typeof FORM_FIELDS[0]) => {
+    const baseClasses = "w-full px-0 py-3 text-xs bg-transparent border-0 border-b border-[#262424] focus:border-[#262424] focus:ring-0 focus:outline-none placeholder-[#9B978B]";
+    const containerClasses = field.fullWidth ? "relative" : "relative";
+    
+    return (
+      <div key={field.id} className={containerClasses}>
+        {field.type === 'textarea' ? (
+          <textarea 
+            rows={field.rows} 
+            id={field.id}
+            name={field.name}
+            placeholder={field.placeholder}
+            className={`${baseClasses} resize-none`}
+            style={{ fontFamily: FONTS_FAMILIES.aeonik }}
+          />
+        ) : (
+          <input 
+            autoComplete={field.autoComplete} 
+            type={field.type} 
+            id={field.id}
+            required={field.required}
+            name={field.name} 
+            placeholder={field.placeholder}
+            spellCheck={field.spellCheck}
+            autoCapitalize={field.autoCapitalize}
+            defaultValue=""
+            aria-required={field.ariaRequired}
+            pattern={field.pattern}
+            className={baseClasses}
+            style={{ fontFamily: FONTS_FAMILIES.aeonik }}
+          />
+        )}
+        <label htmlFor={field.id} 
+               className="absolute -top-4 left-0 text-xs text-[#9B978B]"
+               style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
+          {field.label}
+        </label>
+      </div>
+    );
+  };
+
+  // Helper function to render service categories
+  const renderServiceCategory = (category: typeof SERVICE_CATEGORIES[0]) => (
+    <div key={category.name} className="space-y-4">
+      <label className="text-xs font-normal text-[#262424] block" 
+             style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
+        {category.title}
+      </label>
+      <div>
+        <input type="hidden" id={category.name} name={`contact[${category.name}]`} defaultValue={category.defaultValue} />
+        <ul className="space-y-2">
+          {category.services.map((service) => (
+            <li key={service.name}>
+              <a href="#" 
+                 className={`block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6] ${service.active ? 'active-service' : ''}`}
+                 data-name={category.name}
+                 style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
+                {service.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 
   return (
     <div id="shopify-section-template--26430797840727__4ce05ced-bd60-493d-aa74-6bb0a1b6e4ad"
@@ -199,72 +430,17 @@ const ContactMainSection = () => {
             <div className="lg:col-span-2 w-full">
               <div className="py-8 lg:py-16">
                 <div className="space-y-8">
-                  <div className="space-y-2">
-                    <p className="text-xs font-normal text-[#262424]" style={{ fontFamily: 'Aeonik, sans-serif' }}>General</p>
-                    <div className="text-sm font-light text-[#262424] cursor-pointer" style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                      <p>
-                        <a href="mailto:hello@notsellingliquid.com" 
-                           title="mailto:hello@notsellingliquid.com"
-                           className="hover:underline">
-                          hello@notsellingliquid.com
-                        </a>
-                        <br />
-                        <a href="tel:0202101913" 
-                           target="_blank" 
-                           title="tel:0202101913"
-                           className="hover:underline">
-                          +31 (0) 20 21 01 913
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-xs font-normal text-[#262424]" style={{ fontFamily: 'Aeonik, sans-serif' }}>new business</p>
-                    <div className="text-sm font-light text-[#262424] cursor-pointer" style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                      <p>
-                        <a href="mailto:new@notsellingliquid.com" 
-                           title="mailto:new@notsellingliquid.com"
-                           className="hover:underline">
-                          new@notsellingliquid.com
-                        </a>
-                        <br />
-                        <a href="tel:0202101913" 
-                           target="_blank" 
-                           title="tel:0202101913"
-                           className="hover:underline">
-                          +31 (0) 20 21 01 913
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-xs font-normal text-[#262424]" style={{ fontFamily: 'Aeonik, sans-serif' }}>Visit</p>
-                    <div className="text-sm font-light text-[#262424] cursor-pointer" style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                      <p>
-                        Danzigerkade 15 A5<br />
-                        1013 AP Amsterdam<br />
-                        Netherlands
-                      </p>
-                    </div>
-                  </div>
+                  {CONTACT_INFO.map(renderContactInfo)}
                 </div>
                 <a href="https://goo.gl/maps/bdqCyzGfuAmWBenb8" 
                    target="_blank"
                    className="inline-flex items-center space-x-2 mt-8 text-[#262424] hover:opacity-80 transition-opacity group">
                   <span className="transform transition-transform group-hover:translate-x-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path fillRule="evenodd" clipRule="evenodd"
-                            d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z"
-                            fill="currentColor"></path>
-                    </svg>
+                    {ARROW_SVG}
                   </span>
-                  <span className="text-sm font-light" style={{ fontFamily: 'Aeonik, sans-serif' }}>Google maps</span>
+                  <span className="text-sm font-light" style={{ fontFamily: FONTS_FAMILIES.aeonik }}>Google maps</span>
                   <span className="transform transition-transform group-hover:translate-x-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path fillRule="evenodd" clipRule="evenodd"
-                            d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z"
-                            fill="currentColor"></path>
-                    </svg>
+                    {ARROW_SVG}
                   </span>
                 </a>
               </div>
@@ -274,11 +450,11 @@ const ContactMainSection = () => {
             <div className="lg:col-span-8 w-full">
               <div className="bg-white p-8 lg:p-16">
                 <h2 className="text-[40px] lg:text-[60px] leading-tight font-light text-[#262424] mb-4" 
-                    style={{ fontFamily: 'PP Editorial Old, serif' }}>
+                    style={{ fontFamily: FONTS_FAMILIES.editorial }}>
                   Let&apos;s grow together.
                 </h2>
                 <p className="text-xs font-normal text-[#262424] mb-8 block lg:hidden" 
-                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
+                   style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
                   Details
                 </p>
                 <div className="w-full">
@@ -294,234 +470,29 @@ const ContactMainSection = () => {
                     
                     <div className="space-y-6">
                       {/* Name Field */}
-                      <div className="relative">
-                        <input autoComplete="name" 
-                               type="text" 
-                               id="ContactForm-name"
-                               required 
-                               name="contact[name]" 
-                               placeholder="Name"
-                               className="w-full px-0 py-3 text-xs bg-transparent border-0 border-b border-[#262424] focus:border-[#262424] focus:ring-0 focus:outline-none placeholder-[#9B978B]"
-                               style={{ fontFamily: 'Aeonik, sans-serif' }} />
-                        <label htmlFor="ContactForm-name" 
-                               className="absolute -top-4 left-0 text-xs text-[#9B978B]"
-                               style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                          Name
-                        </label>
-                      </div>
+                      {renderFormField(FORM_FIELDS[0])}
 
                       {/* Email and Phone Row */}
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <div className="relative">
-                          <input autoComplete="email" 
-                                 type="email" 
-                                 id="ContactForm-email"
-                                 name="contact[email]" 
-                                 spellCheck="false"
-                                 autoCapitalize="off" 
-                                 defaultValue="" 
-                                 aria-required="true"
-                                 placeholder="Email"
-                                 className="w-full px-0 py-3 text-xs bg-transparent border-0 border-b border-[#262424] focus:border-[#262424] focus:ring-0 focus:outline-none placeholder-[#9B978B]"
-                                 style={{ fontFamily: 'Aeonik, sans-serif' }} />
-                          <label htmlFor="ContactForm-email" 
-                                 className="absolute -top-4 left-0 text-xs text-[#9B978B]"
-                                 style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                            Email
-                          </label>
-                        </div>
-                        <div className="relative">
-                          <input type="tel" 
-                                 id="ContactForm-phone" 
-                                 autoComplete="tel"
-                                 name="contact[phone]" 
-                                 pattern="^\+?[0-9\s\-()]*$" 
-                                 defaultValue=""
-                                 placeholder="Phone"
-                                 className="w-full px-0 py-3 text-xs bg-transparent border-0 border-b border-[#262424] focus:border-[#262424] focus:ring-0 focus:outline-none placeholder-[#9B978B]"
-                                 style={{ fontFamily: 'Aeonik, sans-serif' }} />
-                          <label htmlFor="ContactForm-phone" 
-                                 className="absolute -top-4 left-0 text-xs text-[#9B978B]"
-                                 style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                            Phone
-                          </label>
-                        </div>
+                        {renderFormField(FORM_FIELDS[1])}
+                        {renderFormField(FORM_FIELDS[2])}
                       </div>
 
                       {/* Company Field */}
-                      <div className="relative">
-                        <input autoComplete="company" 
-                               type="text" 
-                               id="ContactForm-company"
-                               required 
-                               name="contact[company]" 
-                               placeholder="Company"
-                               className="w-full px-0 py-3 text-xs bg-transparent border-0 border-b border-[#262424] focus:border-[#262424] focus:ring-0 focus:outline-none placeholder-[#9B978B]"
-                               style={{ fontFamily: 'Aeonik, sans-serif' }} />
-                        <label htmlFor="ContactForm-company" 
-                               className="absolute -top-4 left-0 text-xs text-[#9B978B]"
-                               style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                          Company
-                        </label>
-                      </div>
+                      {renderFormField(FORM_FIELDS[3])}
 
                       {/* Project Description */}
-                      <div className="relative">
-                        <textarea rows={4} 
-                                  id="ContactForm-project-description"
-                                  name="contact[projectdescription]"
-                                  placeholder="Project description"
-                                  className="w-full px-0 py-3 text-xs bg-transparent border-0 border-b border-[#262424] focus:border-[#262424] focus:ring-0 focus:outline-none placeholder-[#9B978B] resize-none"
-                                  style={{ fontFamily: 'Aeonik, sans-serif' }}></textarea>
-                        <label htmlFor="ContactForm-project-description"
-                               className="absolute -top-4 left-0 text-xs text-[#9B978B]"
-                               style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                          Project description
-                        </label>
-                      </div>
+                      {renderFormField(FORM_FIELDS[4])}
                     </div>
 
                     {/* Interest Selection */}
                     <div className="mt-12 space-y-8">
                       <p className="text-sm font-normal text-[#262424]" 
-                         style={{ fontFamily: 'Aeonik, sans-serif' }}>
+                         style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
                         I&apos;m interested in
                       </p>
                       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        {/* Build Section */}
-                        <div className="space-y-4">
-                          <label className="text-xs font-normal text-[#262424] block" 
-                                 style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                            Build
-                          </label>
-                          <div>
-                            <input type="hidden" id="Build" name="contact[Build]" defaultValue="UX & UI Design" />
-                            <ul className="space-y-2">
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6] active-service"
-                                   data-name="Build"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  UX & UI Design
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6]"
-                                   data-name="Build"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  Development
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6]"
-                                   data-name="Build"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  Klaviyo email automation
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6]"
-                                   data-name="Build"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  Shopify Plus migration
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-
-                        {/* Manage Section */}
-                        <div className="space-y-4">
-                          <label className="text-xs font-normal text-[#262424] block" 
-                                 style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                            Manage
-                          </label>
-                          <div>
-                            <input type="hidden" id="Manage" name="contact[Manage]" defaultValue="" />
-                            <ul className="space-y-2">
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6]"
-                                   data-name="Manage"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  Paid advertising
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6]"
-                                   data-name="Manage"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  Retention & CDP
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6]"
-                                   data-name="Manage"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  Project management
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6]"
-                                   data-name="Manage"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  Website operations
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-
-                        {/* Grow Section */}
-                        <div className="space-y-4">
-                          <label className="text-xs font-normal text-[#262424] block" 
-                                 style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                            Grow
-                          </label>
-                          <div>
-                            <input type="hidden" id="Grow" name="contact[Grow]" defaultValue="" />
-                            <ul className="space-y-2">
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6]"
-                                   data-name="Grow"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  Analytics & reporting
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6]"
-                                   data-name="Grow"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  Data &amp; intelligence
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6]"
-                                   data-name="Grow"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  Growth strategy
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" 
-                                   className="block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6]"
-                                   data-name="Grow"
-                                   style={{ fontFamily: 'Aeonik, sans-serif' }}>
-                                  Conversion optimization
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
+                        {SERVICE_CATEGORIES.map(renderServiceCategory)}
                       </div>
 
                       {/* All of the above checkbox */}
@@ -533,7 +504,7 @@ const ContactMainSection = () => {
                                className="w-4 h-4 text-[#262424] bg-transparent border-[#262424] rounded focus:ring-[#262424] focus:ring-2" />
                         <label htmlFor="ContactForm-All of the above" 
                                className="text-xs text-[#262424]"
-                               style={{ fontFamily: 'Aeonik, sans-serif' }}>
+                               style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
                           All of the above
                         </label>
                       </div>
@@ -543,21 +514,13 @@ const ContactMainSection = () => {
                     <button type="submit" 
                             className="w-full mt-12 bg-[#c0bbae] hover:bg-[#9B978B] text-[#262424] py-4 px-8 transition-colors duration-200 group flex items-center justify-center space-x-4">
                       <span className="transform transition-transform group-hover:translate-x-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                          <path fillRule="evenodd" clipRule="evenodd"
-                                d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z"
-                                fill="currentColor"></path>
-                        </svg>
+                        {ARROW_SVG}
                       </span>
-                      <span className="text-xs font-normal" style={{ fontFamily: 'Aeonik, sans-serif' }}>
+                      <span className="text-xs font-normal" style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
                         Submit enquiry
                       </span>
                       <span className="transform transition-transform group-hover:translate-x-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                          <path fillRule="evenodd" clipRule="evenodd"
-                                d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z"
-                                fill="currentColor"></path>
-                        </svg>
+                        {ARROW_SVG}
                       </span>
                     </button>
                   </form>
