@@ -220,13 +220,16 @@ const ContactMainSection = () => {
         const target = event.target as HTMLElement;
         target.classList.toggle('active');
         
-        const helpList = target.closest('.help_listcls');
-        if (helpList) {
-          const activeLinks = helpList.querySelectorAll('a.active');
-          const text = Array.from(activeLinks).map(link => link.textContent).join(', ');
-          const hiddenInput = helpList.previousElementSibling as HTMLInputElement;
-          if (hiddenInput && hiddenInput.type === 'hidden') {
-            hiddenInput.value = text;
+        const categoryDiv = target.closest('div[class*="border"]');
+        if (categoryDiv) {
+          const ul = categoryDiv.querySelector('ul');
+          if (ul) {
+            const activeLinks = ul.querySelectorAll('a.active');
+            const text = Array.from(activeLinks).map(link => link.textContent?.trim()).join(', ');
+            const hiddenInput = categoryDiv.querySelector('input[type="hidden"]') as HTMLInputElement;
+            if (hiddenInput) {
+              hiddenInput.value = text;
+            }
           }
         }
       };
@@ -355,7 +358,7 @@ const ContactMainSection = () => {
 
   // Helper function to render form fields
   const renderFormField = (field: typeof FORM_FIELDS[0]) => {
-    const baseClasses = "w-full px-0 py-3 text-xs bg-transparent border-0 border-b border-[#262424] focus:border-[#262424] focus:ring-0 focus:outline-none placeholder-[#9B978B]";
+    const baseClasses = "w-full px-4 py-3 text-xs bg-transparent border border-[#262424] rounded-[5px] focus:border-[#262424] focus:ring-0 focus:outline-none placeholder-[#9B978B]";
     const containerClasses = field.fullWidth ? "relative" : "relative";
     
     return (
@@ -398,7 +401,7 @@ const ContactMainSection = () => {
   // Helper function to render service categories
   const renderServiceCategory = (category: typeof SERVICE_CATEGORIES[0]) => (
     <div key={category.name} className="space-y-4">
-      <label className="text-xs font-normal text-[#262424] block" 
+      <label className="text-xs font-normal text-[#262424] block bg-[#e8e8e8] px-3 py-2 rounded-[6px]" 
              style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
         {category.title}
       </label>
@@ -408,7 +411,7 @@ const ContactMainSection = () => {
           {category.services.map((service) => (
             <li key={service.name}>
               <a href="#" 
-                 className={`block text-xs text-[#262424] hover:text-[#9B978B] transition-colors py-1 px-2 rounded hover:bg-[#f7f7f6] ${service.active ? 'active-service' : ''}`}
+                 className={`block text-xs text-[#262424] transition-all py-2 px-3 rounded-[6px] border border-[#262424] ${service.active ? 'active bg-[#262424] text-white' : 'hover:bg-[#f0f0f0] hover:text-[#262424]'}`}
                  data-name={category.name}
                  style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
                 {service.name}
@@ -421,24 +424,20 @@ const ContactMainSection = () => {
   );
 
   return (
-    <div id="shopify-section-template--26430797840727__4ce05ced-bd60-493d-aa74-6bb0a1b6e4ad"
-         className="w-full">
-      <section className="relative bg-[#e5e2de] w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
+    <div className="max-w-screen bg-[#262424]">
+      <section className="relative bg-[#e5e2de] w-full rounded-b-[18px]">
+        <div className="mx-auto px-2.5 pt-40 pb-6 lg:py-6 lg:px-6">
+          <div className="flex flex-col lg:flex-row gap-0">
             {/* Left Column - Contact Info */}
-            <div className="lg:col-span-2 w-full">
+            <div className="w-full h-full order-2 lg:order-1 ">
               <div className="py-8 lg:py-16">
-                <div className="space-y-8">
+                <div className="space-y-8 lg:uppercase">
                   {CONTACT_INFO.map(renderContactInfo)}
                 </div>
                 <a href="https://goo.gl/maps/bdqCyzGfuAmWBenb8" 
                    target="_blank"
                    className="inline-flex items-center space-x-2 mt-8 text-[#262424] hover:opacity-80 transition-opacity group">
-                  <span className="transform transition-transform group-hover:translate-x-1">
-                    {ARROW_SVG}
-                  </span>
-                  <span className="text-sm font-light" style={{ fontFamily: FONTS_FAMILIES.aeonik }}>Google maps</span>
+                  <span className="text-sm font-light uppercase" style={{ fontFamily: FONTS_FAMILIES.aeonik }}>Google maps</span>
                   <span className="transform transition-transform group-hover:translate-x-1">
                     {ARROW_SVG}
                   </span>
@@ -447,23 +446,18 @@ const ContactMainSection = () => {
             </div>
 
             {/* Right Column - Form */}
-            <div className="lg:col-span-8 w-full">
-              <div className="bg-white p-8 lg:p-16">
-                <h2 className="text-[40px] lg:text-[60px] leading-tight font-light text-[#262424] mb-4" 
+            <div className="w-full  order-1 lg:order-2">
+              <div className="bg-white rounded-[18px] p-8 lg:p-16">
+                <h2 className="text-[37px] lg:text-[60px] leading-tight font-light text-[#262424] mb-4" 
                     style={{ fontFamily: FONTS_FAMILIES.editorial }}>
                   Let&apos;s grow together.
                 </h2>
-                <p className="text-xs font-normal text-[#262424] mb-8 block lg:hidden" 
+                <p className="uppercase text-sm font-normal text-[#262424] mb-8 block lg:hidden" 
                    style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
                   Details
                 </p>
                 <div className="w-full">
-                  <form ref={formRef} 
-                        method="post" 
-                        action="/contact#ContactForm" 
-                        id="ContactForm"
-                        acceptCharset="UTF-8" 
-                        className="w-full space-y-6">
+                  <form ref={formRef} method="post" action="/contact#ContactForm" id="ContactForm" acceptCharset="UTF-8" className="w-full space-y-6">
                     <input type="hidden" name="form_type" value="contact" />
                     <input type="hidden" name="utf8" value="✓" />
                     <input type="hidden" name="datetime" value="2025-12-23 15:06" />
@@ -486,7 +480,7 @@ const ContactMainSection = () => {
                     </div>
 
                     {/* Interest Selection */}
-                    <div className="mt-12 space-y-8">
+                    <div className="mt-12 space-y-8 uppercase">
                       <p className="text-sm font-normal text-[#262424]" 
                          style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
                         I&apos;m interested in
@@ -512,11 +506,11 @@ const ContactMainSection = () => {
 
                     {/* Submit Button */}
                     <button type="submit" 
-                            className="w-full mt-12 bg-[#c0bbae] hover:bg-[#9B978B] text-[#262424] py-4 px-8 transition-colors duration-200 group flex items-center justify-center space-x-4">
+                            className="w-full rounded-[8px] mt-12 bg-[#c0bbae] hover:bg-[#9B978B] text-[#262424] py-4 px-8 transition-colors duration-200 group flex items-center justify-center space-x-4">
                       <span className="transform transition-transform group-hover:translate-x-1">
                         {ARROW_SVG}
                       </span>
-                      <span className="text-xs font-normal" style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
+                      <span className="text-xs font-normal uppercase " style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
                         Submit enquiry
                       </span>
                       <span className="transform transition-transform group-hover:translate-x-1">

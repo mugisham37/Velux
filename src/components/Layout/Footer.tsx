@@ -54,8 +54,8 @@ const Footer = () => {
           fontFamily: '"Aeonik", sans-serif'
         }}
       >
-        <footer className="bg-[#262424] text-white">
-          <div className="w-screen mx-auto px-4">
+        <footer className="max-w-screen bg-[#262424] text-white">
+          <div className=" mx-auto px-4">
             <div className="footer-main">
               {/* Footer Top Section */}
               <div className="pt-16 pb-12">

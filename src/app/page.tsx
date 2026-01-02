@@ -8,7 +8,7 @@ import TextMediaSection from '../components/Routes/Landing/TextMediaSection'
 export default function Home() {
   return (
     <>
-      <main className="">
+      <main>
         <IntroSection />   
         <BannerSection />
         <CasesSection />
