@@ -28,8 +28,7 @@ const ArrowIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 
 const ClientsMainSection = () => {
     return (
-        <div id="shopify-section-template--26430797775191__ea0d4fcc-1e38-4b06-baa8-67fe3cb132ad"
-            className="relative">
+        <div className="relative max-w-screen">
             <section className="relative bg-[#262424]">
                 <div className="relative">
                     <div className="relative">

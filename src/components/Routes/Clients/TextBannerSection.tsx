@@ -19,8 +19,8 @@ const TextBannerSection = () => {
 
   const paragraphStyles = {
     fontFamily: 'Aeonik, sans-serif',
-    fontSize: '12px',
-    lineHeight: '1.6',
+    fontSize: '14px',
+    lineHeight: '1.3',
     fontWeight: 'normal',
     ...commonStyles
   };
@@ -45,31 +45,28 @@ const TextBannerSection = () => {
 
   return (
     <div 
-      id="shopify-section-template--26430797775191__f32a1c2e-c486-4763-9d59-ecf248ea3345"
-      className="relative"
-      style={{ marginTop: '-61.1px' }}
+      className="relative max-w-screen bg-warm-beige"
     >
-      <section className="relative" style={{ background: '#c0bbae' }}>
-        <div className="w-full" style={{ padding: '0 15px' }}>
+      <section className="relative">
+        <div className="w-full px-4" style={{backgroundColor: '#c0bbae' }}>
           <div 
-            className="responsive-padding-section"
+          className='lg:pt-10'
             style={{ 
-              paddingTop: '144px', 
-              paddingBottom: '0px',
-              maxWidth: '1200px',
-              margin: '0 auto'
+              paddingTop: '84px', 
+              paddingBottom: '17px',
+              borderBottom: '1px solid #000',
             }}
           >
             <div 
-              className="grid grid-cols-1 lg:grid-cols-10 gap-6"
+              className="flex flex-col lg:flex-row lg:justify-between gap-40"
               style={{ marginBottom: '0' }}
             >
-              <div className="lg:col-span-6">
-                <h3 style={headingStyles}>
+              <div>
+                <h3 className='text-[30px]' style={headingStyles}>
                   Together with our clients, we&apos;re changing the way to do e-commerce.
                 </h3>
               </div>
-              <div className="lg:col-span-4">
+              <div>
                 <p style={paragraphStyles}>
                   Enhancing each other, positively influencing one another,
                   uncovering new possible territories in the digital space and in the minds of

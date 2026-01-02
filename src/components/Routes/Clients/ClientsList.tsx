@@ -296,7 +296,7 @@ const ClientsList = () => {
   }, []);
 
   return (
-    <div className="relative" style={{ backgroundColor: CONSTANTS.colors.background }}>
+    <div className="relative max-w-screen" style={{ backgroundColor: CONSTANTS.colors.background }}>
       <div className="pt-5 pb-[100px] lg:pt-5 lg:pb-[100px] md:pt-0 md:pb-[60px]">
         <div className="container mx-auto px-4">
           <div className="main_client flex flex-col lg:flex-row">
