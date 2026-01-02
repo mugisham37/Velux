@@ -43,7 +43,7 @@ const FORM_FIELDS = [
     id: "ContactForm-name",
     name: "contact[name]",
     type: "text",
-    placeholder: "Name",
+    placeholder: "John Doe",
     label: "Name",
     autoComplete: "name",
     required: true,
@@ -53,7 +53,7 @@ const FORM_FIELDS = [
     id: "ContactForm-email",
     name: "contact[email]",
     type: "email",
-    placeholder: "Email",
+    placeholder: "john@example.com",
     label: "Email",
     autoComplete: "email",
     required: true,
@@ -65,7 +65,7 @@ const FORM_FIELDS = [
     id: "ContactForm-phone",
     name: "contact[phone]",
     type: "tel",
-    placeholder: "Phone",
+    placeholder: "+31 (0) 20 21 01 913",
     label: "Phone",
     autoComplete: "tel",
     pattern: "^\\+?[0-9\\s\\-()]*$"
@@ -74,7 +74,7 @@ const FORM_FIELDS = [
     id: "ContactForm-company",
     name: "contact[company]",
     type: "text",
-    placeholder: "Company",
+    placeholder: "Acme Corporation",
     label: "Company",
     autoComplete: "company",
     required: true,
@@ -84,7 +84,7 @@ const FORM_FIELDS = [
     id: "ContactForm-project-description",
     name: "contact[projectdescription]",
     type: "textarea",
-    placeholder: "Project description",
+    placeholder: "Tell us about your project, goals, and how we can help...",
     label: "Project description",
     rows: 4,
     fullWidth: true
@@ -97,10 +97,10 @@ const SERVICE_CATEGORIES = [
     name: "Build",
     defaultValue: "UX & UI Design",
     services: [
-      { name: "UX & UI Design", active: true },
+      { name: "Ux & ui design", active: true },
       { name: "Development" },
       { name: "Klaviyo email automation" },
-      { name: "Shopify Plus migration" }
+      { name: "Shopify plus migration" }
     ]
   },
   {
@@ -109,7 +109,7 @@ const SERVICE_CATEGORIES = [
     defaultValue: "",
     services: [
       { name: "Paid advertising" },
-      { name: "Retention & CDP" },
+      { name: "Retention & cdp" },
       { name: "Project management" },
       { name: "Website operations" }
     ]
@@ -180,7 +180,18 @@ const ContactMainSection = () => {
         font-style: normal;
         font-display: swap;
       }
-    `).join('');
+    `).join('') + `
+      /* Service selection active state styling */
+      .cf-interinfo li.active,
+      .cf-interinfo li.active a {
+        color: #262424 !important;
+        border-color: #262424 !important;
+      }
+      
+      .cf-interinfo li.active {
+        border-color: #262424 !important;
+      }
+    `;
     document.head.appendChild(fontStyle);
     fontElements.push(fontStyle);
 
@@ -218,15 +229,16 @@ const ContactMainSection = () => {
       const handleServiceClick = (event: Event) => {
         event.preventDefault();
         const target = event.target as HTMLElement;
-        target.classList.toggle('active');
+        const liElement = target.closest('li');
         
-        const categoryDiv = target.closest('div[class*="border"]');
-        if (categoryDiv) {
-          const ul = categoryDiv.querySelector('ul');
+        if (liElement) {
+          liElement.classList.toggle('active');
+          
+          const ul = liElement.closest('ul');
           if (ul) {
-            const activeLinks = ul.querySelectorAll('a.active');
-            const text = Array.from(activeLinks).map(link => link.textContent?.trim()).join(', ');
-            const hiddenInput = categoryDiv.querySelector('input[type="hidden"]') as HTMLInputElement;
+            const activeItems = ul.querySelectorAll('li.active');
+            const text = Array.from(activeItems).map(item => item.textContent?.trim()).join(', ');
+            const hiddenInput = ul.closest('.cf-interinfo')?.querySelector('input[type="hidden"]') as HTMLInputElement;
             if (hiddenInput) {
               hiddenInput.value = text;
             }
@@ -400,22 +412,21 @@ const ContactMainSection = () => {
 
   // Helper function to render service categories
   const renderServiceCategory = (category: typeof SERVICE_CATEGORIES[0]) => (
-    <div key={category.name} className="space-y-4">
-      <label className="text-xs font-normal text-[#262424] block bg-[#e8e8e8] px-3 py-2 rounded-[6px]" 
+    <div key={category.name} className="space-y-4 cf-interinfo">
+      <label className="text-xs font-normal text-[#262424] px-1 mb-6 " 
              style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
         {category.title}
       </label>
       <div>
         <input type="hidden" id={category.name} name={`contact[${category.name}]`} defaultValue={category.defaultValue} />
-        <ul className="space-y-2">
+        <ul className="space-y-2 help_listcls">
           {category.services.map((service) => (
-            <li key={service.name}>
-              <a href="#" 
-                 className={`block text-xs text-[#262424] transition-all py-2 px-3 rounded-[6px] border border-[#262424] ${service.active ? 'active bg-[#262424] text-white' : 'hover:bg-[#f0f0f0] hover:text-[#262424]'}`}
+            <li key={service.name} className='block text-xs text-[#9B978B] lowercase transition-all py-2 px-3 rounded-[6px] border border-[#D5D0CA] cursor-pointer hover:border-[#9B978B]'
                  data-name={category.name}
                  style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
-                {service.name}
-              </a>
+                <a href="#" className="block w-full h-full">
+                  {service.name}
+                </a>
             </li>
           ))}
         </ul>
@@ -495,9 +506,15 @@ const ContactMainSection = () => {
                                name="All of the above" 
                                defaultValue=""
                                id="ContactForm-All of the above"
-                               className="w-4 h-4 text-[#262424] bg-transparent border-[#262424] rounded focus:ring-[#262424] focus:ring-2" />
+                               className="w-4 h-4 appearance-none border-2 border-[#262424] rounded cursor-pointer bg-white checked:bg-[#262424] checked:border-[#262424] focus:outline-none focus:border-[#262424] focus:ring-0 transition-all duration-200"
+                               style={{
+                                 backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E")`,
+                                 backgroundPosition: 'center',
+                                 backgroundRepeat: 'no-repeat',
+                                 backgroundSize: '100%'
+                               }} />
                         <label htmlFor="ContactForm-All of the above" 
-                               className="text-xs text-[#262424]"
+                               className="text-xs text-[#262424] cursor-pointer"
                                style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
                           All of the above
                         </label>
@@ -506,14 +523,14 @@ const ContactMainSection = () => {
 
                     {/* Submit Button */}
                     <button type="submit" 
-                            className="w-full rounded-[8px] mt-12 bg-[#c0bbae] hover:bg-[#9B978B] text-[#262424] py-4 px-8 transition-colors duration-200 group flex items-center justify-center space-x-4">
-                      <span className="transform transition-transform group-hover:translate-x-1">
+                            className="w-full rounded-[8px] mt-12 bg-[#c0bbae] hover:bg-[#90EE90] text-[#262424] py-4 px-8 transition-colors duration-300 group flex items-center justify-center space-x-4">
+                      <span className="opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                         {ARROW_SVG}
                       </span>
                       <span className="text-xs font-normal uppercase " style={{ fontFamily: FONTS_FAMILIES.aeonik }}>
                         Submit enquiry
                       </span>
-                      <span className="transform transition-transform group-hover:translate-x-1">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         {ARROW_SVG}
                       </span>
                     </button>
