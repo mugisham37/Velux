@@ -3,6 +3,28 @@
 import React, { useEffect } from 'react'
 
 const TextBannerSection = () => {
+  // Extract repetitive style values
+  const commonStyles = {
+    color: '#262424',
+    margin: '0'
+  };
+
+  const headingStyles = {
+    fontFamily: 'PP Editorial Old, serif',
+    fontSize: 'clamp(30px, 4vw, 48px)',
+    fontWeight: '300',
+    lineHeight: '1.2',
+    ...commonStyles
+  };
+
+  const paragraphStyles = {
+    fontFamily: 'Aeonik, sans-serif',
+    fontSize: '12px',
+    lineHeight: '1.6',
+    fontWeight: 'normal',
+    ...commonStyles
+  };
+
   useEffect(() => {
     // Add responsive styles
     const style = document.createElement('style');
@@ -43,30 +65,12 @@ const TextBannerSection = () => {
               style={{ marginBottom: '0' }}
             >
               <div className="lg:col-span-6">
-                <h3 
-                  style={{
-                    fontFamily: 'PP Editorial Old, serif',
-                    fontSize: 'clamp(30px, 4vw, 48px)',
-                    fontWeight: '300',
-                    lineHeight: '1.2',
-                    color: '#262424',
-                    margin: '0'
-                  }}
-                >
+                <h3 style={headingStyles}>
                   Together with our clients, we&apos;re changing the way to do e-commerce.
                 </h3>
               </div>
               <div className="lg:col-span-4">
-                <p 
-                  style={{
-                    fontFamily: 'Aeonik, sans-serif',
-                    fontSize: '12px',
-                    lineHeight: '1.6',
-                    fontWeight: 'normal',
-                    color: '#262424',
-                    margin: '0'
-                  }}
-                >
+                <p style={paragraphStyles}>
                   Enhancing each other, positively influencing one another,
                   uncovering new possible territories in the digital space and in the minds of
                   their communities.

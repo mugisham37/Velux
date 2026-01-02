@@ -430,9 +430,9 @@ const CaseCard = ({ caseData }: { caseData: CaseData }) => {
 
 const CasesMainSection = () => {
   return (
-   <div className="relative -mt-[65.55px]">
+   <div className="w-screen -mt-[65.55px]">
                 <section className="relative" style={{ backgroundColor: COLORS.background }}>
-                    <div className="max-w-[1200px] mx-auto px-4">
+                    <div className="mx-auto px-4">
                         <div className="pt-[180px] pb-10 lg:pt-[200px] lg:pb-10">
                             <div className="grid grid-cols-10 gap-4 mb-8">
                                 <div className="col-span-10 lg:col-span-6">

@@ -4,6 +4,26 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { normalizeImageUrl } from '../../../utils/urlUtils'
 
+// Constants to eliminate repetition
+const CONSTANTS = {
+  colors: {
+    primary: '#262424',
+    background: '#c0bbae'
+  },
+  selectors: {
+    clientLink: '.client-link',
+    clientsList: '.clients-list'
+  },
+  attributes: {
+    dataImage: 'data-image'
+  },
+  classes: {
+    baseClient: 'client-link flex items-center cursor-pointer hover:opacity-70 transition-opacity duration-200',
+    textStyle: "text-[#262424] font-['Aeonik'] text-[12px] leading-[1.2]",
+    noUnderline: 'no-underline'
+  }
+} as const;
+
 // Client data structure - centralized and maintainable
 interface Client {
   name: string;
@@ -192,35 +212,45 @@ const ArrowIcon = () => (
   <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 shrink-0">
     <path fillRule="evenodd" clipRule="evenodd"
       d="M15.7031 5.23669L25.4664 15L15.7031 24.7633L14.3773 23.4375L21.8773 15.9375H4.92188V14.0625H21.8773L14.3773 6.56252L15.7031 5.23669Z"
-      fill="#262424"></path>
+      fill={CONSTANTS.colors.primary}></path>
   </svg>
 );
 
+// Helper function to get client link element from event target
+const getClientLinkElement = (target: HTMLElement): HTMLElement | null => 
+  target.closest(CONSTANTS.selectors.clientLink) as HTMLElement;
+
 // Reusable Client Item Component
 const ClientItem = ({ client }: { client: Client }) => {
-  const baseClasses = "client-link flex items-center text-[#262424] font-['Aeonik'] text-[12px] leading-[1.2] cursor-pointer hover:opacity-70 transition-opacity duration-200";
+  const baseClasses = `${CONSTANTS.classes.baseClient} ${CONSTANTS.classes.textStyle}`;
+  const commonProps = {
+    className: baseClasses,
+    [CONSTANTS.attributes.dataImage]: normalizeImageUrl(client.image)
+  };
+  
+  const content = (
+    <>
+      <ArrowIcon />
+      <span>{client.name}</span>
+    </>
+  );
   
   if (client.href) {
     return (
       <a 
-        className={`${baseClasses} no-underline`}
+        {...commonProps}
+        className={`${baseClasses} ${CONSTANTS.classes.noUnderline}`}
         target={client.isExternal ? "_blank" : undefined}
         href={client.href}
-        data-image={normalizeImageUrl(client.image)}
       >
-        <ArrowIcon />
-        <span>{client.name}</span>
+        {content}
       </a>
     );
   }
   
   return (
-    <p 
-      className={baseClasses}
-      data-image={normalizeImageUrl(client.image)}
-    >
-      <ArrowIcon />
-      <span>{client.name}</span>
+    <p {...commonProps}>
+      {content}
     </p>
   );
 };
@@ -230,28 +260,27 @@ const ClientsList = () => {
   const [currentImageSrc, setCurrentImageSrc] = useState<string>('');
 
   useEffect(() => {
-    // Convert jQuery functionality to vanilla JavaScript
-    const handleMouseOver = (e: Event) => {
+    // Helper function to handle image URL extraction
+    const handleImageInteraction = (e: Event, shouldShow: boolean) => {
       const target = e.target as HTMLElement;
-      const linkElement = target.closest('.client-link') as HTMLElement;
+      const linkElement = getClientLinkElement(target);
       if (linkElement) {
-        const imageUrl = linkElement.getAttribute('data-image');
-        if (imageUrl) {
-          setCurrentImageSrc(imageUrl);
+        if (shouldShow) {
+          const imageUrl = linkElement.getAttribute(CONSTANTS.attributes.dataImage);
+          if (imageUrl) {
+            setCurrentImageSrc(imageUrl);
+          }
+        } else {
+          setCurrentImageSrc('');
         }
       }
     };
 
-    const handleMouseOut = (e: Event) => {
-      const target = e.target as HTMLElement;
-      const linkElement = target.closest('.client-link') as HTMLElement;
-      if (linkElement) {
-        setCurrentImageSrc('');
-      }
-    };
+    const handleMouseOver = (e: Event) => handleImageInteraction(e, true);
+    const handleMouseOut = (e: Event) => handleImageInteraction(e, false);
 
     // Add event listeners
-    const clientSection = document.querySelector('.clients-list');
+    const clientSection = document.querySelector(CONSTANTS.selectors.clientsList);
     if (clientSection) {
       clientSection.addEventListener('mouseover', handleMouseOver);
       clientSection.addEventListener('mouseout', handleMouseOut);
@@ -267,7 +296,7 @@ const ClientsList = () => {
   }, []);
 
   return (
-    <div className="relative bg-[#c0bbae]">
+    <div className="relative" style={{ backgroundColor: CONSTANTS.colors.background }}>
       <div className="pt-5 pb-[100px] lg:pt-5 lg:pb-[100px] md:pt-0 md:pb-[60px]">
         <div className="container mx-auto px-4">
           <div className="main_client flex flex-col lg:flex-row">
@@ -289,7 +318,7 @@ const ClientsList = () => {
             
             {/* Right side - Client list */}
             <div className="right_client w-full lg:w-1/2">
-              <ul className="clients-list">
+              <ul className={CONSTANTS.selectors.clientsList.replace('.', '')}>
                 {clientsData.map((client, index) => (
                   <li key={index} className="mb-0">
                     <ClientItem client={client} />
