@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function AboutUsPage() {
   return (
-    <main id="MainContent" role="main" tabIndex={-1} className="pt-[67.775px]">
+    <main>
       <div className="">
         <AboutIntroSection />
         <AboutBannerSection />

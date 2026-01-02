@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CasesPage() {
   return (
-    <main className="">
+    <main>
       <div className="">
         <CasesMainSection />
         <WhyShopifySection />

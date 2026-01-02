@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function ClientsPage() {
   return (
-    <main id="MainContent" role="main" tabIndex={-1} className="pt-[61.1px]">
+    <main>
       <div className="">
         <TextBannerSection/>
         <ClientsList/>

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <main id="MainContent" role="main" tabIndex={-1} className="pt-[65px]">
+      <main>
         <div className="">
           <ServicesTextBannerSection/>
           <ServicesVideoSection/>
