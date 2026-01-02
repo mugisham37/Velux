@@ -18,8 +18,8 @@ const CONSTANTS = {
     dataImage: 'data-image'
   },
   classes: {
-    baseClient: 'client-link flex items-center cursor-pointer hover:opacity-70 transition-opacity duration-200',
-    textStyle: "text-[#262424] font-['Aeonik'] text-[12px] leading-[1.2]",
+    baseClient: 'client-link flex items-center cursor-pointer hover:opacity-70 transition-opacity duration-200 border-b border-[#262424] py-[17px]',
+    textStyle: "text-[#262424] font-['Aeonik'] text-[30px]  lg:text-[37px] leading-[1.2] uppercase",
     noUnderline: 'no-underline'
   }
 } as const;
@@ -209,7 +209,7 @@ const clientsData: Client[] = [
 
 // Reusable SVG Arrow Icon Component
 const ArrowIcon = () => (
-  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 shrink-0">
+  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
     <path fillRule="evenodd" clipRule="evenodd"
       d="M15.7031 5.23669L25.4664 15L15.7031 24.7633L14.3773 23.4375L21.8773 15.9375H4.92188V14.0625H21.8773L14.3773 6.56252L15.7031 5.23669Z"
       fill={CONSTANTS.colors.primary}></path>
@@ -222,7 +222,7 @@ const getClientLinkElement = (target: HTMLElement): HTMLElement | null =>
 
 // Reusable Client Item Component
 const ClientItem = ({ client }: { client: Client }) => {
-  const baseClasses = `${CONSTANTS.classes.baseClient} ${CONSTANTS.classes.textStyle}`;
+  const baseClasses = `group ${CONSTANTS.classes.baseClient} ${CONSTANTS.classes.textStyle}`;
   const commonProps = {
     className: baseClasses,
     [CONSTANTS.attributes.dataImage]: normalizeImageUrl(client.image)
@@ -297,12 +297,12 @@ const ClientsList = () => {
 
   return (
     <div className="relative max-w-screen" style={{ backgroundColor: CONSTANTS.colors.background }}>
-      <div className="pt-5 pb-[100px] lg:pt-5 lg:pb-[100px] md:pt-0 md:pb-[60px]">
-        <div className="container mx-auto px-4">
+      <div className="pt-5 pb-[100px] md:pt-0 md:pb-[60px]">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="main_client flex flex-col lg:flex-row">
             {/* Left side - Image display */}
-            <div className="left_client w-full lg:w-1/2 flex justify-center lg:justify-start">
-              <figure className="w-full">
+            <div className="left_client w-full lg:w-1/2 flex justify-center items-center lg:sticky lg:top-0 lg:h-screen lg:pr-8">
+              <figure className="w-full hidden lg:block">
                 {currentImageSrc && (
                   <Image 
                     ref={imageRef} 
@@ -310,7 +310,7 @@ const ClientsList = () => {
                     alt="Client showcase" 
                     width={800}
                     height={600}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cove rounded-lg"
                   />
                 )}
               </figure>

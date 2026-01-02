@@ -66,21 +66,21 @@ const ClientsMainSection = () => {
                         />
                         
                         {/* Content overlay */}
-                        <div className="absolute inset-0 flex items-end text-white">
+                        <div className="absolute inset-0 flex items-start text-white">
                             <div className="w-full p-6 lg:p-12">
                                 <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end">
                                     <div className="mb-6 lg:mb-0">
                                         <p className="flex items-center gap-2 text-xs lg:text-sm mb-2">
-                                            <span>Case</span>
+                                            <span className='uppercase'>Case</span>
                                             <ArrowIcon />
-                                            <span>Arte Antwerp</span>
+                                            <span className='uppercase'>Arte Antwerp</span>
                                         </p>
                                         <p className="text-sm lg:text-base mb-4 max-w-md">
                                             The 360 approach that took Arte Antwerp into a whole new online playing field
                                         </p>
                                         <div className="flex gap-2">
                                             {SERVICES.map((service) => (
-                                                <span key={service} className="text-xs px-2 py-1 bg-white/10 rounded">
+                                                <span key={service} className="text-xs px-2 py-1 border border-white rounded uppercase">
                                                     {service}
                                                 </span>
                                             ))}
@@ -89,7 +89,7 @@ const ClientsMainSection = () => {
                                     <div className="text-right">
                                         <a href={URLS.caseStudy} className="inline-flex items-center gap-2 text-sm lg:text-base hover:opacity-80 transition-opacity">
                                             <ArrowIcon />
-                                            <span>View full case</span>
+                                            <span className='uppercase'>View full case</span>
                                             <ArrowIcon />
                                         </a>
                                     </div>

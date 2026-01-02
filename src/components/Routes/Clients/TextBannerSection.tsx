@@ -58,7 +58,7 @@ const TextBannerSection = () => {
             }}
           >
             <div 
-              className="flex flex-col lg:flex-row lg:justify-between gap-40"
+              className="flex flex-col gap-6 md:gap-8 lg:flex-row lg:justify-between lg:gap-40"
               style={{ marginBottom: '0' }}
             >
               <div>
