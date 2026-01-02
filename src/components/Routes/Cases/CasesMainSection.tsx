@@ -55,21 +55,7 @@ interface CaseData {
   media: MediaData;
 }
 
-// Constants
-const COLORS = {
-  background: '#c0bbae',
-  text: '#262424'
-}
-
-const RESPONSIVE_CLASSES = {
-  desktopOnly: 'hidden lg:block',
-  mobileOnly: 'block lg:hidden'
-}
-
-const COMMON_CLASSES = {
-  mediaBase: 'absolute inset-0 w-full h-full object-cover',
-  overlay: 'absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-end'
-}
+// Shared styles
 
 // Shared styles
 const FONT_STYLES = {
@@ -261,184 +247,205 @@ const CASES_DATA: CaseData[] = [
   }
 ]
 
-// Service tag component
-const ServiceTag = ({ service }: { service: string }) => (
-  <span className="text-[10px] px-2 py-1 bg-white bg-opacity-20 rounded text-white" style={FONT_STYLES.aeonik}>
-    {service}
-  </span>
-)
-
-// CTA Link component
-const CTALink = ({ href }: { href: string }) => (
-  <div className="hidden lg:flex">
-    <a href={href} className="flex items-center gap-2 text-white hover:opacity-80 transition-opacity">
-      <div className="flex items-center gap-2">
-        <span className="w-4 h-4"><ArrowIcon /></span>
-        <span className="text-[12px]" style={FONT_STYLES.aeonik}>view full case</span>
-        <span className="w-4 h-4"><ArrowIcon /></span>
-      </div>
-    </a>
-  </div>
-)
-
-// Reusable media element component
-const MediaElement = ({ 
-  type, 
-  src, 
-  poster, 
-  alt, 
-  width, 
-  height, 
-  responsiveClass 
-}: {
-  type: 'video' | 'image';
-  src: string;
-  poster?: string;
-  alt?: string;
-  width: number;
-  height: number;
-  responsiveClass: string;
-}) => {
-  const className = `${COMMON_CLASSES.mediaBase} ${responsiveClass}`;
-  
-  if (type === 'video') {
-    return (
-      <video 
-        playsInline 
-        autoPlay
-        muted 
-        loop 
-        preload="metadata"
-        className={className}
-        poster={normalizeImageUrl(poster!)}>
-        <source src={normalizeImageUrl(src)} type="video/mp4" />
-        <Image
-          src={normalizeImageUrl(poster!)} 
-          alt={alt || ""} 
-          width={width}
-          height={height}
-          className="w-full h-full object-cover"
-        />
-      </video>
-    );
+const CasesMainSection = () => {
+  // Constants
+  const COLORS = {
+    background: '#c0bbae',
+    text: '#262424'
   }
 
-  return (
-    <Image
-      src={normalizeImageUrl(src)}
-      alt={alt || ""} 
-      className={className} 
-      width={width}
-      height={height}
-      priority={false}
-    />
-  );
-};
+  const RESPONSIVE_CLASSES = {
+    desktopOnly: 'hidden lg:block',
+    mobileOnly: 'block lg:hidden'
+  }
 
-// Media component for video/image rendering
-const MediaContent = ({ media }: { media: MediaData }) => {
-  const normalizedMedia = normalizeMediaData(media);
-  
-  if (normalizedMedia.type === 'video') {
-    const { desktop, mobile, isResponsive } = normalizedMedia;
+  const COMMON_CLASSES = {
+    mediaBase: 'absolute inset-0 w-full h-full object-cover',
+    overlay: 'absolute inset-0 bg-black bg-opacity-20 flex flex-col justify-between'
+  }
+
+  // Service tag component
+  const ServiceTag = ({ service }: { service: string }) => (
+    <span className="text-[10px] px-2 py-1 border border-white rounded text-white uppercase" style={FONT_STYLES.aeonik}>
+      {service}
+    </span>
+  )
+
+  // CTA Link component
+  const CTALink = ({ href }: { href: string }) => (
+    <div className="hidden lg:flex">
+      <a href={href} className="cta-link-hover flex items-center gap-2 text-white transition-opacity duration-300">
+        <div className="flex items-center gap-2">
+          <span className="arrow-left w-4 h-4"><ArrowIcon /></span>
+          <span className="text-[12px] uppercase" style={FONT_STYLES.aeonik}>view full case</span>
+          <span className="arrow-right w-4 h-4"><ArrowIcon /></span>
+        </div>
+      </a>
+    </div>
+  )
+
+  // Reusable media element component
+  const MediaElement = ({ 
+    type, 
+    src, 
+    poster, 
+    alt, 
+    width, 
+    height, 
+    responsiveClass 
+  }: {
+    type: 'video' | 'image';
+    src: string;
+    poster?: string;
+    alt?: string;
+    width: number;
+    height: number;
+    responsiveClass: string;
+  }) => {
+    const className = `${COMMON_CLASSES.mediaBase} ${responsiveClass}`;
     
-    if (!isResponsive) {
-      // Use single video element when desktop and mobile are identical
+    if (type === 'video') {
       return (
-        <MediaElement
-          type="video"
-          src={desktop.src}
-          poster={desktop.poster}
-          alt=""
-          width={desktop.width}
-          height={desktop.height}
-          responsiveClass=""
-        />
+        <video 
+          playsInline 
+          autoPlay
+          muted 
+          loop 
+          preload="metadata"
+          className={className}
+          poster={normalizeImageUrl(poster!)}>
+          <source src={normalizeImageUrl(src)} type="video/mp4" />
+          <Image
+            src={normalizeImageUrl(poster!)} 
+            alt={alt || ""} 
+            width={width}
+            height={height}
+            className="w-full h-full object-cover"
+          />
+        </video>
       );
     }
-    
-    // Use separate elements for different desktop/mobile sources
+
     return (
-      <>
-        <MediaElement
-          type="video"
-          src={desktop.src}
-          poster={desktop.poster}
-          alt=""
-          width={desktop.width}
-          height={desktop.height}
-          responsiveClass={RESPONSIVE_CLASSES.desktopOnly}
-        />
-        <MediaElement
-          type="video"
-          src={mobile.src}
-          poster={mobile.poster}
-          alt=""
-          width={mobile.width}
-          height={mobile.height}
-          responsiveClass={RESPONSIVE_CLASSES.mobileOnly}
-        />
-      </>
+      <Image
+        src={normalizeImageUrl(src)}
+        alt={alt || ""} 
+        className={className} 
+        width={width}
+        height={height}
+        priority={false}
+      />
     );
-  }
+  };
 
-  // For images, always render single element (no responsive variants in current data)
-  return (
-    <MediaElement
-      type="image"
-      src={normalizedMedia.data.src}
-      alt={normalizedMedia.data.alt}
-      width={normalizedMedia.data.width}
-      height={normalizedMedia.data.height}
-      responsiveClass=""
-    />
-  );
-};
+  // Media component for video/image rendering
+  const MediaContent = ({ media }: { media: MediaData }) => {
+    const normalizedMedia = normalizeMediaData(media);
+    
+    if (normalizedMedia.type === 'video') {
+      const { desktop, mobile, isResponsive } = normalizedMedia;
+      
+      if (!isResponsive) {
+        // Use single video element when desktop and mobile are identical
+        return (
+          <MediaElement
+            type="video"
+            src={desktop.src}
+            poster={desktop.poster}
+            alt=""
+            width={desktop.width}
+            height={desktop.height}
+            responsiveClass=""
+          />
+        );
+      }
+      
+      // Use separate elements for different desktop/mobile sources
+      return (
+        <>
+          <MediaElement
+            type="video"
+            src={desktop.src}
+            poster={desktop.poster}
+            alt=""
+            width={desktop.width}
+            height={desktop.height}
+            responsiveClass={RESPONSIVE_CLASSES.desktopOnly}
+          />
+          <MediaElement
+            type="video"
+            src={mobile.src}
+            poster={mobile.poster}
+            alt=""
+            width={mobile.width}
+            height={mobile.height}
+            responsiveClass={RESPONSIVE_CLASSES.mobileOnly}
+          />
+        </>
+      );
+    }
 
-// Case card component
-const CaseCard = ({ caseData }: { caseData: CaseData }) => {
-  const colSpan = caseData.isFullWidth ? 'col-span-2' : 'col-span-2 lg:col-span-1'
-  const contentLayout = caseData.isFullWidth ? 'flex justify-between items-end' : ''
-  
-  return (
-    <div className={`${colSpan} relative group`}>
-      <div className={`relative overflow-hidden ${caseData.aspectRatio}`}>
-        <MediaContent media={caseData.media} />
-        <div className={`${COMMON_CLASSES.overlay} ${caseData.padding}`}>
-          <div className="text-white">
-            <div className={`flex gap-2 ${caseData.marginBottom}`}>
-              {caseData.services.map((service: string) => (
-                <ServiceTag key={service} service={service} />
-              ))}
-            </div>
-            <div className={`hidden lg:block text-center ${caseData.marginBottom}`}></div>
-            <div className={contentLayout}>
-              <div>
-                <p className="text-[14px] font-medium mb-2" style={FONT_STYLES.aeonik}>{caseData.title}</p>
-                <div className={`text-[12px] leading-[1.4] mb-3 ${caseData.descriptionClass}`} style={FONT_STYLES.aeonik}>
-                  <p>{caseData.description}</p>
-                </div>
+    // For images, always render single element (no responsive variants in current data)
+    return (
+      <MediaElement
+        type="image"
+        src={normalizedMedia.data.src}
+        alt={normalizedMedia.data.alt}
+        width={normalizedMedia.data.width}
+        height={normalizedMedia.data.height}
+        responsiveClass=""
+      />
+    );
+  };
+
+  // Case card component
+  const CaseCard = ({ caseData }: { caseData: CaseData }) => {
+    const colSpan = caseData.isFullWidth ? 'col-span-2' : 'col-span-2 lg:col-span-1'
+    const contentLayout = caseData.isFullWidth ? 'flex justify-between items-end' : ''
+    
+    return (
+      <div className={`${colSpan} relative group`}>
+        <div className={`relative overflow-hidden rounded-lg ${caseData.aspectRatio}`}>
+          <MediaContent media={caseData.media} />
+          <div className={`${COMMON_CLASSES.overlay} ${caseData.padding}`}>
+            {/* Services at the top */}
+            <div className="text-white">
+              <div className={`flex gap-2 ${caseData.marginBottom}`}>
+                {caseData.services.map((service: string) => (
+                  <ServiceTag key={service} service={service} />
+                ))}
               </div>
-              <CTALink href={caseData.href} />
+            </div>
+            
+            {/* Content at the bottom */}
+            <div className="text-white">
+              <div className={`hidden lg:block text-center ${caseData.marginBottom}`}></div>
+              <div className={contentLayout}>
+                <div>
+                  <p className="text-[14px] font-medium mb-2 uppercase" style={FONT_STYLES.aeonik}>{caseData.title}</p>
+                  <div className={`text-[12px] leading-[1.4] mb-3 ${caseData.descriptionClass}`} style={FONT_STYLES.aeonik}>
+                    <p>{caseData.description}</p>
+                  </div>
+                </div>
+                <CTALink href={caseData.href} />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 
-const CasesMainSection = () => {
   return (
-   <div className="w-screen -mt-[65.55px]">
+   <div className="max-w-screen">
                 <section className="relative" style={{ backgroundColor: COLORS.background }}>
-                    <div className="mx-auto px-4">
+                    <div className="mx-auto px-4 ">
                         <div className="pt-[180px] pb-10 lg:pt-[200px] lg:pb-10">
-                            <div className="grid grid-cols-10 gap-4 mb-8">
-                                <div className="col-span-10 lg:col-span-6">
-                                    <h3 className="text-[30px] lg:text-[48px] leading-[1.2] font-light" style={{ ...FONT_STYLES.editorial, color: COLORS.text }}>Together with our clients, we&apos;re changing the way to do e-commerce.</h3>
+                            <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-24 mb-8 border-b pb-6">
+                                <div className="lg:flex-1">
+                                    <h3 className="text-[38px] lg:text-[48px] leading-[1.2] font-light" style={{ ...FONT_STYLES.editorial, color: COLORS.text }}>Together with our clients, we&apos;re changing the way to do e-commerce.</h3>
                                 </div>
-                                <div className="col-span-10 lg:col-span-4">
+                                <div className="lg:flex-1">
                                     <p className="text-[12px] leading-[1.4]" style={{ ...FONT_STYLES.aeonik, color: COLORS.text }}>Enhancing each other, positively influencing one another,
                                         uncovering new possible territories in the digital space and in the minds of
                                         their communities.</p>

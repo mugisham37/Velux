@@ -31,3 +31,56 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* Arrow animation for CTA link */
+@keyframes arrowSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+}
+
+@keyframes arrowSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.arrow-left {
+  animation: arrowSlideOut 0.4s ease-out forwards;
+  transform-origin: center;
+}
+
+.arrow-right {
+  animation: arrowSlideIn 0.4s ease-out forwards;
+  transform-origin: center;
+}
+
+.cta-link-hover:hover .arrow-left {
+  animation: arrowSlideOut 0.4s ease-out forwards;
+}
+
+.cta-link-hover:hover .arrow-right {
+  animation: arrowSlideIn 0.4s ease-out forwards;
+}
+
+.cta-link-hover .arrow-left {
+  animation: none;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cta-link-hover .arrow-right {
+  animation: none;
+  opacity: 0;
+  transform: translateX(12px);
+}
