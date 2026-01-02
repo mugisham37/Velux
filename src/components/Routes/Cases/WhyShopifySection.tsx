@@ -179,13 +179,13 @@ const WhyShopifySection = () => {
     const opacity = logoOpacities[index];
     
     return (
-      <div className="flex items-center justify-center p-4 min-h-[80px] lg:min-h-[100px]">
+      <div className="flex items-center justify-center px-8 py-16 lg:px-4 lg:py-22 bg-[#3a3a3a] rounded-[5px]">
         <Image
           src={currentLogo?.src || config.src}
           alt={config.alt}
           width={200}
           height={parseInt(currentLogo?.height || config.heights.desktop)}
-          className={`w-auto transition-opacity duration-500 ease-in-out max-h-[${config.heights.mobile}px] lg:max-h-[${config.heights.desktop}px]`}
+          className={`w-auto transition-opacity duration-500 ease-in-out`}
           style={{ 
             opacity: opacity || 0,
             maxHeight: `${currentLogo?.height || config.heights.desktop}px`
@@ -197,9 +197,9 @@ const WhyShopifySection = () => {
   };
 
   return (
-    <section className="bg-[#c0bbae] pt-[60px] pb-[60px] lg:pt-[100px] lg:pb-[100px] relative">
+    <section className="max-w-screen bg-[#c0bbae] pt-[60px] pb-[60px] lg:pt-[100px] lg:pb-[100px] relative">
       {/* Container - Max width with horizontal padding */}
-      <div className="max-w-[1200px] mx-auto px-4 lg:px-6">
+      <div className="mx-auto px-4 lg:px-6">
         {/* Grid Container - CSS Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
           {/* Left Column - 4/12 columns on desktop */}
@@ -222,9 +222,9 @@ const WhyShopifySection = () => {
             {/* CTA Button */}
             <a 
               href="/pages/clients" 
-              className="inline-flex items-center gap-2 bg-[#9B978B] text-[#262424] px-6 py-3 text-[12px] font-['Aeonik'] font-medium transition-all duration-300 hover:bg-[#8a8680] group"
+              className="cta-link-hover flex w-fit items-center gap-2 bg-[#9B978B] text-[#262424] px-6 py-3 text-[12px] font-['Aeonik'] font-medium transition-all duration-300 hover:bg-[#8a8680] uppercase rounded-[9px]"
             >
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
+              <span className="arrow-left">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path fillRule="evenodd" clipRule="evenodd"
                     d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z"
@@ -232,7 +232,7 @@ const WhyShopifySection = () => {
                 </svg>
               </span>
               <span>Our clients</span>
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
+              <span className="arrow-right">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path fillRule="evenodd" clipRule="evenodd"
                     d="M8.375 2.79297L13.5821 8.00008L8.375 13.2072L7.66789 12.5001L11.6679 8.50008H2.625V7.50008H11.6679L7.66789 3.50008L8.375 2.79297Z"
@@ -243,10 +243,10 @@ const WhyShopifySection = () => {
           </div>
           
           {/* Right Column - 8/12 columns on desktop */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-8 lg:border-l-2 lg:border-[#262424] lg:pl-6">
             <div className="w-full">
               {/* Logo Grid Container */}
-              <div className="grid grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+              <div className="grid grid-cols-3 gap-1 lg:grid-cols-4 lg:gap-2">
                 {Array.from({ length: LOGO_COUNT }, (_, index) => (
                   <LogoContainer key={index} index={index} />
                 ))}

@@ -305,23 +305,29 @@ const CasesMainSection = () => {
     const className = `${COMMON_CLASSES.mediaBase} ${responsiveClass}`;
     
     if (type === 'video') {
+      const videoSrc = src.startsWith('http') ? src : `https://${src}`;
+      const posterUrl = poster?.startsWith('http') ? poster : (poster ? `https://${poster}` : undefined);
+      
       return (
         <video 
           playsInline 
           autoPlay
           muted 
           loop 
-          preload="metadata"
+          preload="auto"
           className={className}
-          poster={normalizeImageUrl(poster!)}>
-          <source src={normalizeImageUrl(src)} type="video/mp4" />
-          <Image
-            src={normalizeImageUrl(poster!)} 
-            alt={alt || ""} 
-            width={width}
-            height={height}
-            className="w-full h-full object-cover"
-          />
+          poster={posterUrl}
+          crossOrigin="anonymous">
+          <source src={videoSrc} type="video/mp4" />
+          {posterUrl && (
+            <Image
+              src={posterUrl} 
+              alt={alt || ""} 
+              width={width}
+              height={height}
+              className="w-full h-full object-cover"
+            />
+          )}
         </video>
       );
     }
@@ -402,10 +408,11 @@ const CasesMainSection = () => {
   const CaseCard = ({ caseData }: { caseData: CaseData }) => {
     const colSpan = caseData.isFullWidth ? 'col-span-2' : 'col-span-2 lg:col-span-1'
     const contentLayout = caseData.isFullWidth ? 'flex justify-between items-end' : ''
+    const heightClass = caseData.isFullWidth ? 'md:aspect-video lg:aspect-video' : 'md:aspect-3/4 lg:aspect-4/5'
     
     return (
       <div className={`${colSpan} relative group`}>
-        <div className={`relative overflow-hidden rounded-lg ${caseData.aspectRatio}`}>
+        <div className={`relative overflow-hidden rounded-lg ${caseData.aspectRatio} ${heightClass}`}>
           <MediaContent media={caseData.media} />
           <div className={`${COMMON_CLASSES.overlay} ${caseData.padding}`}>
             {/* Services at the top */}
@@ -439,14 +446,14 @@ const CasesMainSection = () => {
   return (
    <div className="max-w-screen">
                 <section className="relative" style={{ backgroundColor: COLORS.background }}>
-                    <div className="mx-auto px-4 ">
+                    <div className="mx-auto px-2 lg:px-4 ">
                         <div className="pt-[180px] pb-10 lg:pt-[200px] lg:pb-10">
-                            <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-24 mb-8 border-b pb-6">
+                            <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start lg:gap-24 mb-8 border-b pb-6">
                                 <div className="lg:flex-1">
                                     <h3 className="text-[38px] lg:text-[48px] leading-[1.2] font-light" style={{ ...FONT_STYLES.editorial, color: COLORS.text }}>Together with our clients, we&apos;re changing the way to do e-commerce.</h3>
                                 </div>
                                 <div className="lg:flex-1">
-                                    <p className="text-[12px] leading-[1.4]" style={{ ...FONT_STYLES.aeonik, color: COLORS.text }}>Enhancing each other, positively influencing one another,
+                                    <p className="text-[17px] leading-[1.4]" style={{ ...FONT_STYLES.aeonik, color: COLORS.text }}>Enhancing each other, positively influencing one another,
                                         uncovering new possible territories in the digital space and in the minds of
                                         their communities.</p>
                                 </div>
