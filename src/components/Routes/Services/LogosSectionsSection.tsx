@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
@@ -83,7 +85,7 @@ const LogosSectionsSection = () => {
   }, [logoSources]);
 
   return (
-    <div className="bg-[#e5e2de]">
+    <div className="bg-[#e5e2de] relative z-0">
       <section className="pt-[60px] pb-[60px] lg:pt-[120px] lg:pb-[120px] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">

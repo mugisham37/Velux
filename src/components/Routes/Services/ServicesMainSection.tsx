@@ -1,7 +1,7 @@
 const ServicesMainSection = () => {
   return (
     <div className="w-full">
-      <section className="relative pt-[60px] pb-20 lg:pt-[100px] lg:pb-[100px] rounded-t-[15px] bg-[#c0bbae] -mt-[15px]">
+      <section className="relative pt-[60px] pb-20 lg:pt-[100px] lg:pb-[100px] rounded-t-[15px] bg-[#c0bbae] mt-0">
         <div className="max-w-[1200px] mx-auto px-4 lg:px-6">
           <div className="w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-8 lg:mb-12">

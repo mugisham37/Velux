@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const ServicesVideoSection = () => {
   return (
-    <div className="sticky top-0 w-full z-10">
+    <div className="relative w-full">
       <section className="pt-0 pb-0 lg:pt-0 lg:pb-0 rounded-none bg-[#e5e2de]">
         <div>
           <div className="w-full">

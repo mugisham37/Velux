@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <main>
-        <div className="">
+      <main className="relative">
+        <div className="relative">
           <ServicesTextBannerSection/>
           <ServicesVideoSection/>
           <ServicesMainSection />

@@ -1,6 +1,6 @@
 const ServicesTextBannerSection = () => {
     return (
-        <div className="mt-[-68.875px]">
+        <div className="mt-0">
                 <section className="relative bg-[#e5e2de]">
                     <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
