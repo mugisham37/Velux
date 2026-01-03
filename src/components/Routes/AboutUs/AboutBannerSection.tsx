@@ -3,18 +3,44 @@
 
 const AboutBannerSection = () => {
   return (
-    <div 
-      id="shopify-section-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98"
-      className="shopify-section main_banner"
-    >
-      <section
-        className="section-banner section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 relative-sec relative pt-2.5 lg:pt-5 pb-0 -mt-[15px] rounded-t-[15px] bg-[#f7f7f6]"
-      >
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="banner-wrap [&_img]:rounded-lg [&_video]:rounded-lg"></div>
-        </div>
-      </section>
-    </div>
+    <div id="shopify-section-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98"
+                class="shopify-section main_banner">
+                <link href="//www.notsellingliquid.com/cdn/shop/t/39/assets/banner.css?v=54277540370872013631758090047"
+                    rel="stylesheet" type="text/css" media="all">
+                <section
+                    class="section-banner section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 relative-sec">
+                    <style>
+                        .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 .mainbnr_wrap img,
+                        .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 .mainbnr_wrap video {
+                            border-radius: 8px 8px 8px 8px;
+                        }
+
+                        .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 {
+                            padding-top: 10px;
+                            padding-bottom: 0px;
+                            margin-top: -15px;
+
+                            border-radius: 15px 15px 0px 0px;
+                            background: #f7f7f6;
+                        }
+
+                        @media(min-width:992px) {
+                            .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 {
+                                padding-top: 20px;
+                                padding-bottom: 0px;
+                            }
+                        }
+                    </style>
+                    <div class="container">
+                        <div class="banner-wrap"></div>
+                    </div>
+                </section>
+
+
+
+
+
+            </div>
   )
 }
 

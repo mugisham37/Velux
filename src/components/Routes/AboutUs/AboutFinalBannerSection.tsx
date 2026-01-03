@@ -3,113 +3,91 @@ import Image from 'next/image'
 const AboutFinalBannerSection = () => {
   return (
     <div id="shopify-section-template--26430796890455__47daf102-ce31-4b33-906a-eae624818962"
-      className="relative">
-      <section className="relative pt-0 pb-2.5 lg:pb-5 -mb-3.5 rounded-b-2xl bg-[#e5e2de]">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col">
-            <div className="w-full">
-              <div className="relative">
-                <Image 
-                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1273.jpg?v=1759500048" 
-                  alt=""
-                  loading="lazy" 
-                  className="w-full h-auto rounded-lg hidden lg:block" 
-                  width={3000}
-                  height={2001}
-                  unoptimized
-                />
-                <Image
-                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1273.jpg?v=1759500048"
-                  alt="" 
-                  loading="lazy" 
-                  className="w-full h-auto rounded-lg block lg:hidden" 
-                  width={3000}
-                  height={2001}
-                  unoptimized
-                />
-                <div className="absolute inset-0 flex items-start justify-start">
-                  <div className=""></div>
+      class="shopify-section main_banner">
+      <link href="//www.notsellingliquid.com/cdn/shop/t/39/assets/banner.css?v=54277540370872013631758090047"
+        rel="stylesheet" type="text/css" media="all">
+        <section
+          class="section-banner section-id-template--26430796890455__47daf102-ce31-4b33-906a-eae624818962 relative-sec">
+          <style>
+            .section-id-template--26430796890455__47daf102-ce31-4b33-906a-eae624818962 .mainbnr_wrap img,
+            .section-id-template--26430796890455__47daf102-ce31-4b33-906a-eae624818962 .mainbnr_wrap video {
+              border - radius: 8px 8px 8px 8px;
+                        }
+
+            .section-id-template--26430796890455__47daf102-ce31-4b33-906a-eae624818962 {
+              padding - top: 0px;
+            padding-bottom: 10px;
+
+            margin-bottom: -15px;
+            border-radius: 0px 0px 15px 15px;
+            background: #e5e2de;
+                        }
+
+            @media(min-width:992px) {
+                            .section - id - template--26430796890455__47daf102-ce31-4b33-906a-eae624818962 {
+              padding - top: 0px;
+            padding-bottom: 20px;
+                            }
+                        }
+          </style>
+          <div class="container">
+            <div class="banner-wrap">
+              <div class="snippet-banner block-id-51b9fd2d-4ff6-4389-a6ec-8157cd91415e full-width">
+                <style></style>
+                <div class="mainbnr_wrap banner
+      
+        
+      
+      ">
+                  <div class="banner-con desk_left mob_left deskver_top mobver_top">
+                    <div class="banner-coninr deskhor_left mobhor_left"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="w-full">
-              <div className="relative">
-                <Image 
-                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1257.jpg?v=1759500048" 
-                  alt=""
-                  loading="lazy" 
-                  className="w-full h-auto rounded-lg hidden lg:block" 
-                  width={3000}
-                  height={2001}
-                  unoptimized
-                />
-                <Image
-                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1257.jpg?v=1759500048"
-                  alt="" 
-                  loading="lazy" 
-                  className="w-full h-auto rounded-lg block lg:hidden" 
-                  width={3000}
-                  height={2001}
-                  unoptimized
-                />
-                <div className="absolute inset-0 flex items-start justify-start">
-                  <div className=""></div>
+              <div class="snippet-banner block-id-media_zGtbcC full-width">
+                <style></style>
+                <div class="mainbnr_wrap banner
+      
+        
+      
+      ">
+                  <div class="banner-con desk_left mob_left deskver_top mobver_top">
+                    <div class="banner-coninr deskhor_left mobhor_left"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="w-full">
-              <div className="relative">
-                <Image 
-                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1364.jpg?v=1759500046" 
-                  alt=""
-                  loading="lazy" 
-                  className="w-full h-auto rounded-lg hidden lg:block" 
-                  width={3000}
-                  height={2001}
-                  unoptimized
-                />
-                <Image
-                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1364.jpg?v=1759500046"
-                  alt="" 
-                  loading="lazy" 
-                  className="w-full h-auto rounded-lg block lg:hidden" 
-                  width={3000}
-                  height={2001}
-                  unoptimized
-                />
-                <div className="absolute inset-0 flex items-start justify-start">
-                  <div className=""></div>
+              <div class="snippet-banner block-id-media_GXnbGt full-width">
+                <style></style>
+                <div class="mainbnr_wrap banner
+      
+        
+      
+      ">
+                  <div class="banner-con desk_left mob_left deskver_top mobver_top">
+                    <div class="banner-coninr deskhor_left mobhor_left"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="w-full">
-              <div className="relative">
-                <Image 
-                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1334.jpg?v=1759500047" 
-                  alt=""
-                  loading="lazy" 
-                  className="w-full h-auto rounded-lg hidden lg:block" 
-                  width={3000}
-                  height={2001}
-                  unoptimized
-                />
-                <Image
-                  src="https://www.notsellingliquid.com/cdn/shop/files/NSL_Interieur_HR-1334.jpg?v=1759500047"
-                  alt="" 
-                  loading="lazy" 
-                  className="w-full h-auto rounded-lg block lg:hidden" 
-                  width={3000}
-                  height={2001}
-                  unoptimized
-                />
-                <div className="absolute inset-0 flex items-start justify-start">
-                  <div className=""></div>
+              <div class="snippet-banner block-id-224947c6-3cc6-40a9-856c-86ea693aa3d1 full-width">
+                <style></style>
+                <div class="mainbnr_wrap banner
+      
+        
+      
+      ">
+                  <div class="banner-con desk_left mob_left deskver_top mobver_top">
+                    <div class="banner-coninr deskhor_left mobhor_left"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+
+
+
+
     </div>
   )
 }
