@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import AboutIntroSection from '../../components/Routes/AboutUs/AboutIntroSection'
-import AboutBannerSection from '../../components/Routes/AboutUs/AboutBannerSection'
 import AboutStepsSection from '../../components/Routes/AboutUs/AboutStepsSection'
 import AboutRichTextSection from '../../components/Routes/AboutUs/AboutRichTextSection'
 import AboutFinalBannerSection from '../../components/Routes/AboutUs/AboutFinalBannerSection'
@@ -15,7 +14,6 @@ export default function AboutUsPage() {
     <main>
       <div className="">
         <AboutIntroSection />
-        <AboutBannerSection />
         <AboutStepsSection />
         <AboutRichTextSection />
         <AboutFinalBannerSection />
