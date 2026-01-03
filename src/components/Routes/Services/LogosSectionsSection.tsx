@@ -17,7 +17,7 @@ const LogosSectionsSection = () => {
 
   useEffect(() => {
     // Initialize logo functionality
-    let wsAllData: Array<{src: string; height: string}> = [];
+    let wsAllData: Array<{src: string; height: string}> = []
     if (window.innerWidth < 992) {
         wsAllData = [
             { "src": "https://www.notsellingliquid.com/cdn/shop/files/shopify-plus-logo--black.png?v=1687155627", "height": "20" }, 
@@ -28,7 +28,7 @@ const LogosSectionsSection = () => {
             { "src": "https://www.notsellingliquid.com/cdn/shop/files/SB-logo.svg?v=1687155885", "height": "25" }, 
             { "src": "https://www.notsellingliquid.com/cdn/shop/files/Klarna-logotype-black.png?v=1687156015", "height": "18" }, 
             { "src": "https://www.notsellingliquid.com/cdn/shop/files/JW.png?v=1687156274", "height": "20" }
-        ];
+        ]
     } else {
         wsAllData = [
             { "src": "https://www.notsellingliquid.com/cdn/shop/files/shopify-plus-logo--black.png?v=1687155627", "height": "35" }, 
@@ -39,64 +39,61 @@ const LogosSectionsSection = () => {
             { "src": "https://www.notsellingliquid.com/cdn/shop/files/SB-logo.svg?v=1687155885", "height": "50" }, 
             { "src": "https://www.notsellingliquid.com/cdn/shop/files/Klarna-logotype-black.png?v=1687156015", "height": "26" }, 
             { "src": "https://www.notsellingliquid.com/cdn/shop/files/JW.png?v=1687156274", "height": "39" }
-        ];
+        ]
     }
     
     function initLogo() {
         // Initialize with the wsAllData sources
-        const newSources = wsAllData.map(item => item.src);
-        setLogoSources(newSources);
-        swapLogos();
+        const newSources = wsAllData.map(item => item.src)
+        setLogoSources(newSources)
+        swapLogos()
     }
     
     function swapLogos() {
-      const logoContainers = document.querySelectorAll('.logo-container');
+      const logoContainers = document.querySelectorAll('.logo-swap-container')
       if (logoContainers.length > 12) {
-        const index = Math.floor(Math.random() * wsAllData.length);
+        const index = Math.floor(Math.random() * wsAllData.length)
         
         // Get current visible logos
-        const visibleLogos = logoSources.slice();
-        const currentLogo = visibleLogos[index];
+        const visibleLogos = logoSources.slice()
+        const currentLogo = visibleLogos[index]
         
         // Find available logos that aren't currently visible
         const availableAll = wsAllData.filter(logo => 
           !visibleLogos.includes(logo.src) && currentLogo !== logo.src
-        );
+        )
         
         if (availableAll.length > 0) {
-          const randomAll = availableAll[Math.floor(Math.random() * availableAll.length)];
+          const randomAll = availableAll[Math.floor(Math.random() * availableAll.length)]
           
           // Update the logo source
           setLogoSources(prev => {
-            const newSources = [...prev];
-            newSources[index] = randomAll.src;
-            return newSources;
-          });
+            const newSources = [...prev]
+            newSources[index] = randomAll.src
+            return newSources
+          })
         }
         
-        setTimeout(swapLogos, 1500);
+        setTimeout(swapLogos, 1500)
       }
     }
     
-    const logoContainers = document.querySelectorAll('.logo-container');
+    const logoContainers = document.querySelectorAll('.logo-swap-container')
     if (logoContainers.length > 12) {
-        initLogo();
+        initLogo()
     }
-  }, [logoSources]);
+  }, [logoSources])
 
   return (
     <div className="bg-[#e5e2de] relative z-0">
       <section className="pt-[60px] pb-[60px] lg:pt-[120px] lg:pb-[120px] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             <div className="lg:col-span-4">
-              <h3 
-                className="text-[30px] lg:text-[48px] font-light leading-tight text-[#262424] mb-6"
-                style={{ fontFamily: 'PP Editorial Old, serif' }}
-              >
+              <h3 className="font-['PP_Editorial_Old',serif] text-[30px] lg:text-[48px] font-light leading-[1.25] text-[#262424] mb-6">
                 Connected with the best in the industry, and a certified Shopify Premier partner.
               </h3>
-              <div className="text-sm leading-relaxed text-[#262424] mb-6">
+              <div className="font-['Aeonik',sans-serif] text-sm leading-[1.625] text-[#262424] mb-6">
                 <p>Together with our unique set of partners, we&apos;ve changed the way we do e-commerce.
                   Collaboration is key to connecting a tech stack that works harmoniously for your
                   brand. These platforms help boost growth and satisfaction across channels.</p>
@@ -112,7 +109,7 @@ const LogosSectionsSection = () => {
                       fill="initial"></path>
                   </svg>
                 </span>
-                <span>Shopify plus</span>
+                <span className="font-['Aeonik',sans-serif]">Shopify plus</span>
                 <span className="w-4 h-4 fill-current">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd"
@@ -125,7 +122,7 @@ const LogosSectionsSection = () => {
             <div className="lg:col-span-8">
               <div className="w-full">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
-                  <div className="logo-container flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
                     <Image 
                       src={logoSources[0]}
                       alt="Shopify Plus partner" 
@@ -135,7 +132,7 @@ const LogosSectionsSection = () => {
                       priority
                     />
                   </div>
-                  <div className="logo-container flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
                     <Image 
                       src={logoSources[1]}
                       alt="Klaviyo partner" 
@@ -144,7 +141,7 @@ const LogosSectionsSection = () => {
                       className="w-auto h-auto object-contain max-h-[20px] lg:max-h-[35px]"
                     />
                   </div>
-                  <div className="logo-container flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
                     <Image 
                       src={logoSources[2]}
                       alt="Mollie partner" 
@@ -153,7 +150,7 @@ const LogosSectionsSection = () => {
                       className="w-auto h-auto object-contain max-h-[20px] lg:max-h-[30px]"
                     />
                   </div>
-                  <div className="logo-container flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
                     <Image 
                       src={logoSources[3]}
                       alt="Yotpo partner" 
@@ -162,7 +159,7 @@ const LogosSectionsSection = () => {
                       className="w-auto h-auto object-contain max-h-[20px] lg:max-h-[30px]"
                     />
                   </div>
-                  <div className="logo-container flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
                     <Image 
                       src={logoSources[4]}
                       alt="Gorgias partner" 
@@ -171,7 +168,7 @@ const LogosSectionsSection = () => {
                       className="w-auto h-auto object-contain max-h-[20px] lg:max-h-[30px]"
                     />
                   </div>
-                  <div className="logo-container flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
                     <Image 
                       src={logoSources[5]}
                       alt="Stone & Bridges partner" 
@@ -180,7 +177,7 @@ const LogosSectionsSection = () => {
                       className="w-auto h-auto object-contain max-h-[25px] lg:max-h-[50px]"
                     />
                   </div>
-                  <div className="logo-container flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
                     <Image 
                       src={logoSources[6]}
                       alt="Klarna partner" 
@@ -189,7 +186,7 @@ const LogosSectionsSection = () => {
                       className="w-auto h-auto object-contain max-h-[18px] lg:max-h-[26px]"
                     />
                   </div>
-                  <div className="logo-container flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
                     <Image 
                       src={logoSources[7]}
                       alt="JW Player partner" 
