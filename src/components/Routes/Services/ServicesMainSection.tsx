@@ -70,14 +70,13 @@ const ServicesMainSection = () => {
             </div>
             
             <div 
-              className="flex flex-row lg:grid lg:grid-cols-4 gap-6 lg:gap-8 overflow-x-auto lg:overflow-x-visible "
+              className="flex flex-row lg:grid lg:grid-cols-5 gap-6 lg:gap-8 overflow-x-auto lg:overflow-x-visible "
               style={{
                 scrollbarWidth: 'none',
                 msOverflowStyle: 'none',
               }}
             >
-              {/* Empty first column - only visible on lg */}
-              <div className="hidden lg:block flex-shrink-0"></div>
+            
               
               {/* Service columns */}
               {servicesData.map((service, index) => (

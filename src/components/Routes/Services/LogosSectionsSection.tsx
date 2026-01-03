@@ -3,43 +3,91 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
+const LOGO_DATA = [
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/shopify-plus-logo--black.png?v=1687155627",
+    alt: "Shopify Plus partner",
+    mobileHeight: "20",
+    desktopHeight: "35",
+    mobileMaxHeight: "max-h-[20px]",
+    desktopMaxHeight: "max-h-[35px]"
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/62e1786b32ece27b4ee77340.png?v=1687155635",
+    alt: "Klaviyo partner",
+    mobileHeight: "20",
+    desktopHeight: "35",
+    mobileMaxHeight: "max-h-[20px]",
+    desktopMaxHeight: "max-h-[35px]"
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/MollieLogo23-Black.png?v=1687155675",
+    alt: "Mollie partner",
+    mobileHeight: "20",
+    desktopHeight: "30",
+    mobileMaxHeight: "max-h-[20px]",
+    desktopMaxHeight: "max-h-[30px]"
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/2560px-Yotpo-logo.png?v=1687155729",
+    alt: "Yotpo partner",
+    mobileHeight: "20",
+    desktopHeight: "30",
+    mobileMaxHeight: "max-h-[20px]",
+    desktopMaxHeight: "max-h-[30px]"
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/gorgias_logo_dark.png?v=1687155807",
+    alt: "Gorgias partner",
+    mobileHeight: "20",
+    desktopHeight: "30",
+    mobileMaxHeight: "max-h-[20px]",
+    desktopMaxHeight: "max-h-[30px]"
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/SB-logo.svg?v=1687155885",
+    alt: "Stone & Bridges partner",
+    mobileHeight: "25",
+    desktopHeight: "50",
+    mobileMaxHeight: "max-h-[25px]",
+    desktopMaxHeight: "max-h-[50px]"
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/Klarna-logotype-black.png?v=1687156015",
+    alt: "Klarna partner",
+    mobileHeight: "18",
+    desktopHeight: "26",
+    mobileMaxHeight: "max-h-[18px]",
+    desktopMaxHeight: "max-h-[26px]"
+  },
+  {
+    src: "https://www.notsellingliquid.com/cdn/shop/files/JW.png?v=1687156274",
+    alt: "JW Player partner",
+    mobileHeight: "20",
+    desktopHeight: "39",
+    mobileMaxHeight: "max-h-[20px]",
+    desktopMaxHeight: "max-h-[39px]"
+  }
+]
+
 const LogosSectionsSection = () => {
-  const [logoSources, setLogoSources] = useState<string[]>([
-    "https://www.notsellingliquid.com/cdn/shop/files/shopify-plus-logo--black_900x.png?v=1687155627",
-    "https://www.notsellingliquid.com/cdn/shop/files/62e1786b32ece27b4ee77340_581x.png?v=1687155635",
-    "https://www.notsellingliquid.com/cdn/shop/files/MollieLogo23-Black_1600x.png?v=1687155675",
-    "https://www.notsellingliquid.com/cdn/shop/files/2560px-Yotpo-logo_2560x.png?v=1687155729",
-    "https://www.notsellingliquid.com/cdn/shop/files/gorgias_logo_dark_1280x.png?v=1687155807",
-    "https://www.notsellingliquid.com/cdn/shop/files/SB-logo_726x.svg?v=1687155885",
-    "https://www.notsellingliquid.com/cdn/shop/files/Klarna-logotype-black_998x.png?v=1687156015",
-    "https://www.notsellingliquid.com/cdn/shop/files/JW_504x.png?v=1687156274"
-  ]);
+  const [logoSources, setLogoSources] = useState<string[]>(
+    LOGO_DATA.map(logo => logo.src.replace('.png', '_900x.png').replace('.svg', '_726x.svg').replace('JW.png', 'JW_504x.png').replace('62e1786b32ece27b4ee77340.png', '62e1786b32ece27b4ee77340_581x.png').replace('MollieLogo23-Black.png', 'MollieLogo23-Black_1600x.png').replace('2560px-Yotpo-logo.png', '2560px-Yotpo-logo_2560x.png').replace('gorgias_logo_dark.png', 'gorgias_logo_dark_1280x.png').replace('Klarna-logotype-black.png', 'Klarna-logotype-black_998x.png'))
+  );
 
   useEffect(() => {
     // Initialize logo functionality
     let wsAllData: Array<{src: string; height: string}> = []
     if (window.innerWidth < 992) {
-        wsAllData = [
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/shopify-plus-logo--black.png?v=1687155627", "height": "20" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/62e1786b32ece27b4ee77340.png?v=1687155635", "height": "20" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/MollieLogo23-Black.png?v=1687155675", "height": "20" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/2560px-Yotpo-logo.png?v=1687155729", "height": "20" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/gorgias_logo_dark.png?v=1687155807", "height": "20" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/SB-logo.svg?v=1687155885", "height": "25" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/Klarna-logotype-black.png?v=1687156015", "height": "18" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/JW.png?v=1687156274", "height": "20" }
-        ]
+        wsAllData = LOGO_DATA.map(logo => ({
+          src: logo.src,
+          height: logo.mobileHeight
+        }))
     } else {
-        wsAllData = [
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/shopify-plus-logo--black.png?v=1687155627", "height": "35" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/62e1786b32ece27b4ee77340.png?v=1687155635", "height": "35" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/MollieLogo23-Black.png?v=1687155675", "height": "30" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/2560px-Yotpo-logo.png?v=1687155729", "height": "30" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/gorgias_logo_dark.png?v=1687155807", "height": "30" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/SB-logo.svg?v=1687155885", "height": "50" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/Klarna-logotype-black.png?v=1687156015", "height": "26" }, 
-            { "src": "https://www.notsellingliquid.com/cdn/shop/files/JW.png?v=1687156274", "height": "39" }
-        ]
+        wsAllData = LOGO_DATA.map(logo => ({
+          src: logo.src,
+          height: logo.desktopHeight
+        }))
     }
     
     function initLogo() {
@@ -85,9 +133,9 @@ const LogosSectionsSection = () => {
   }, [logoSources])
 
   return (
-    <div className="bg-[#e5e2de] relative z-0">
-      <section className="pt-[60px] pb-[60px] lg:pt-[120px] lg:pb-[120px] relative">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-[#262424] relative z-0 max-w-screen">
+      <section className="pt-[60px] pb-[60px] lg:pt-[120px] lg:pb-[120px] relative bg-[#e5e2de] rounded-b-2xl">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             <div className="lg:col-span-4">
               <h3 className="font-['PP_Editorial_Old',serif] text-[30px] lg:text-[48px] font-light leading-[1.25] text-[#262424] mb-6">
@@ -109,7 +157,7 @@ const LogosSectionsSection = () => {
                       fill="initial"></path>
                   </svg>
                 </span>
-                <span className="font-['Aeonik',sans-serif]">Shopify plus</span>
+                <span className="font-['Aeonik',sans-serif] uppercase">Shopify plus</span>
                 <span className="w-4 h-4 fill-current">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd"
@@ -119,82 +167,21 @@ const LogosSectionsSection = () => {
                 </span>
               </a>
             </div>
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-8 lg:pl-8 lg:border-l border-[#080807]">
               <div className="w-full">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
-                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
-                    <Image 
-                      src={logoSources[0]}
-                      alt="Shopify Plus partner" 
-                      width={120}
-                      height={35}
-                      className="w-auto h-auto object-contain max-h-[20px] lg:max-h-[35px]"
-                      priority
-                    />
-                  </div>
-                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
-                    <Image 
-                      src={logoSources[1]}
-                      alt="Klaviyo partner" 
-                      width={120}
-                      height={35}
-                      className="w-auto h-auto object-contain max-h-[20px] lg:max-h-[35px]"
-                    />
-                  </div>
-                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
-                    <Image 
-                      src={logoSources[2]}
-                      alt="Mollie partner" 
-                      width={120}
-                      height={30}
-                      className="w-auto h-auto object-contain max-h-[20px] lg:max-h-[30px]"
-                    />
-                  </div>
-                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
-                    <Image 
-                      src={logoSources[3]}
-                      alt="Yotpo partner" 
-                      width={120}
-                      height={30}
-                      className="w-auto h-auto object-contain max-h-[20px] lg:max-h-[30px]"
-                    />
-                  </div>
-                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
-                    <Image 
-                      src={logoSources[4]}
-                      alt="Gorgias partner" 
-                      width={120}
-                      height={30}
-                      className="w-auto h-auto object-contain max-h-[20px] lg:max-h-[30px]"
-                    />
-                  </div>
-                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
-                    <Image 
-                      src={logoSources[5]}
-                      alt="Stone & Bridges partner" 
-                      width={120}
-                      height={50}
-                      className="w-auto h-auto object-contain max-h-[25px] lg:max-h-[50px]"
-                    />
-                  </div>
-                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
-                    <Image 
-                      src={logoSources[6]}
-                      alt="Klarna partner" 
-                      width={120}
-                      height={26}
-                      className="w-auto h-auto object-contain max-h-[18px] lg:max-h-[26px]"
-                    />
-                  </div>
-                  <div className="logo-swap-container flex items-center justify-center p-4 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
-                    <Image 
-                      src={logoSources[7]}
-                      alt="JW Player partner" 
-                      width={120}
-                      height={39}
-                      className="w-auto h-auto object-contain max-h-[20px] lg:max-h-[39px]"
-                    />
-                  </div>
+                <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+                  {LOGO_DATA.map((logo, index) => (
+                    <div key={index} className="logo-swap-container flex items-center justify-center p-20 bg-white rounded-lg shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]">
+                      <Image 
+                        src={logoSources[index]}
+                        alt={logo.alt}
+                        width={190}
+                        height={parseInt(logo.desktopHeight)}
+                        className={`w-auto h-auto object-contain ${logo.mobileMaxHeight} lg:${logo.desktopMaxHeight}`}
+                        priority={index === 0}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
