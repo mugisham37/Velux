@@ -1,6 +1,3 @@
-// Self-contained component with Tailwind CSS - preserves exact HTML styling and functionality
-// Converted from original HTML with precise Tailwind equivalents
-
 const AboutBannerSection = () => {
   return (
     <div>
