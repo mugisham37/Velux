@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   turbopack: {},
   
   // Webpack optimizations
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config, { dev }) => {
     // Optimize for development
     if (dev) {
       config.watchOptions = {
@@ -48,22 +48,13 @@ const nextConfig: NextConfig = {
         hostname: 'notsellingliquid.com',
         pathname: '/cdn/shop/**',
       },
-      {
-        protocol: 'http',
-        hostname: 'www.notsellingliquid.com',
-        pathname: '/cdn/shop/**',
-      },
     ],
     formats: ['image/webp', 'image/avif'],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // Allow images with query strings by disabling optimization for external images
-    unoptimized: false,
-    // Add loader to handle protocol-relative URLs
-    loader: 'default',
     // Set minimum cache TTL
     minimumCacheTTL: 60,
-    // Allow query strings in image URLs
+    // Device and image sizes for responsive images
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },

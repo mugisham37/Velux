@@ -16,7 +16,7 @@ const AboutStepsSection = () => {
                 <div className="w-full">
                   {/* Desktop Image */}
                   <Image
-                    src="//www.notsellingliquid.com/cdn/shop/files/INTRODUCING_91f45b7a-88c0-4dc3-be39-dd574d0b92a0.webp?v=1746016032"
+                    src="https://www.notsellingliquid.com/cdn/shop/files/INTRODUCING_91f45b7a-88c0-4dc3-be39-dd574d0b92a0.webp?v=1746016032"
                     alt="Values introduction image" 
                     className="hidden lg:block w-full h-auto object-cover" 
                     width={2049}
@@ -25,7 +25,7 @@ const AboutStepsSection = () => {
                   />
                   {/* Mobile Image */}
                   <Image
-                    src="//www.notsellingliquid.com/cdn/shop/files/INTRODUCING_91f45b7a-88c0-4dc3-be39-dd574d0b92a0.webp?v=1746016032"
+                    src="https://www.notsellingliquid.com/cdn/shop/files/INTRODUCING_91f45b7a-88c0-4dc3-be39-dd574d0b92a0.webp?v=1746016032"
                     alt="Values introduction image" 
                     className="block lg:hidden w-full h-auto object-cover" 
                     width={2049} 
