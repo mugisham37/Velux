@@ -1,4 +1,4 @@
-data-shopify{
+ data-shopify{
         @font-face {
             font-family: 'Aeonik';
             src: url("//www.notsellingliquid.com/cdn/shop/files/Aeonik-Regular.woff2?v=11777328378613522966") format('woff2'),
@@ -61,7 +61,7 @@ data-shopify{
         html {
             box-sizing: border-box;
         }
-}
+ }
 gravity-font-faces{
         @font-face {
             font-family: 'GTStandard-M';
@@ -121,4 +121,4 @@ kl-custom-fonts{
             font-style: normal;
             font-display: swap;
         }
-    }
+}

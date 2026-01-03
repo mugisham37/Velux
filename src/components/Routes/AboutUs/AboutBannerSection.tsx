@@ -1,46 +1,47 @@
-// Self-contained Tailwind component - no external CSS dependencies required
+// Self-contained component - preserves exact HTML styling and functionality
 // Converted from: https://www.notsellingliquid.com/cdn/shop/t/39/assets/banner.css?v=54277540370872013631758090047
 
 const AboutBannerSection = () => {
   return (
-    <div id="shopify-section-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98"
-                class="shopify-section main_banner">
-                <link href="//www.notsellingliquid.com/cdn/shop/t/39/assets/banner.css?v=54277540370872013631758090047"
-                    rel="stylesheet" type="text/css" media="all">
-                <section
-                    class="section-banner section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 relative-sec">
-                    <style>
-                        .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 .mainbnr_wrap img,
-                        .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 .mainbnr_wrap video {
-                            border-radius: 8px 8px 8px 8px;
-                        }
+    <div 
+      id="shopify-section-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98"
+      className="shopify-section main_banner"
+    >
+      <link 
+        href="//www.notsellingliquid.com/cdn/shop/t/39/assets/banner.css?v=54277540370872013631758090047"
+        rel="stylesheet" 
+        type="text/css" 
+        media="all" 
+      />
+      <section className="section-banner section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 relative-sec">
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 .mainbnr_wrap img,
+            .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 .mainbnr_wrap video {
+              border-radius: 8px 8px 8px 8px;
+            }
 
-                        .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 {
-                            padding-top: 10px;
-                            padding-bottom: 0px;
-                            margin-top: -15px;
+            .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 {
+              padding-top: 10px;
+              padding-bottom: 0px;
+              margin-top: -15px;
+              border-radius: 15px 15px 0px 0px;
+              background: #f7f7f6;
+            }
 
-                            border-radius: 15px 15px 0px 0px;
-                            background: #f7f7f6;
-                        }
-
-                        @media(min-width:992px) {
-                            .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 {
-                                padding-top: 20px;
-                                padding-bottom: 0px;
-                            }
-                        }
-                    </style>
-                    <div class="container">
-                        <div class="banner-wrap"></div>
-                    </div>
-                </section>
-
-
-
-
-
-            </div>
+            @media(min-width:992px) {
+              .section-id-template--26430796890455__809c3410-f45b-4408-a2c4-a969ad86ae98 {
+                padding-top: 20px;
+                padding-bottom: 0px;
+              }
+            }
+          `
+        }} />
+        <div className="container">
+          <div className="banner-wrap"></div>
+        </div>
+      </section>
+    </div>
   )
 }
 
