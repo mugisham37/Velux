@@ -1,6 +1,6 @@
 const AboutIntroSection = () => {
   return (
-    <div className="block min-w-screen">
+    <div className="block max-w-screen">
       <section className="relative bg-[#262424] pt-60 pb-10 lg:pb-12 lg:pt-100">
         <div className="mx-auto px-4 lg:px-4">
           <div className="flex flex-col lg:flex-row lg:gap-8">

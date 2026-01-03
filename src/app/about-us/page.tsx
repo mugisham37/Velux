@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import AboutIntroSection from '../../components/Routes/AboutUs/AboutIntroSection'
 import AboutStepsSection from '../../components/Routes/AboutUs/AboutStepsSection'
 import AboutRichTextSection from '../../components/Routes/AboutUs/AboutRichTextSection'
-import AboutFinalBannerSection from '../../components/Routes/AboutUs/AboutFinalBannerSection'
 
 export const metadata: Metadata = {
   title: "About Us – Not selling liquid",
@@ -16,7 +15,6 @@ export default function AboutUsPage() {
         <AboutIntroSection />
         <AboutStepsSection />
         <AboutRichTextSection />
-        <AboutFinalBannerSection />
       </div>
     </main>
   )

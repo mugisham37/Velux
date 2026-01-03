@@ -1,19 +1,19 @@
 const AboutRichTextSection = () => {
   return (
-    <div className="w-full">
-      <section className="relative bg-[#e5e2de]">
+    <div className="max-w-screen bg-[#262424]">
+      <section className="relative bg-[#e5e2de] rounded-b-2xl">
         <div className="pt-16 lg:pt-20 pb-16 lg:pb-20 border-b border-[#262424]">
           <div className="max-w-7xl mx-auto px-4 lg:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
               <div className="lg:col-span-8 lg:col-start-5">
                 <div className="space-y-8 lg:space-y-12">
-                  <h3 className="text-3xl lg:text-5xl font-light leading-tight text-[#262424]" style={{ fontFamily: 'PP Editorial Old, serif' }}>
+                  <h3 className="text-[42px] lg:text-[48px] font-light leading-[39px] lg:leading-[47px] text-[#262424]" style={{ fontFamily: 'PP Editorial Old, serif' }}>
                     Many of our people started their careers on the brand side before joining our team, giving us first-hand experience about the ins and outs of the industry.
                   </h3>
-                  <div className="space-y-6 lg:space-y-8">
-                    <div className="space-y-4">
+                  <div className="space-y-6 lg:space-y-0 lg:flex lg:gap-8">
+                    <div className="space-y-4 border-t pt-6 lg:border-t-0 lg:pt-0 lg:border-l lg:pl-4">
                       <div className="space-y-3">
-                        <p className="text-base font-medium text-[#262424]" style={{ fontFamily: 'Aeonik, sans-serif' }}>
+                        <p className="text-[30px] font-medium text-[#262424] uppercase lg:text-sm" style={{ fontFamily: 'Aeonik, sans-serif' }}>
                           Background &amp; Vision
                         </p>
                         <div className="space-y-3">
@@ -37,7 +37,7 @@ const AboutRichTextSection = () => {
                             />
                           </svg>
                         </span>
-                        <span>Our approach</span>
+                        <span className="uppercase">Our approach</span>
                         <span className="w-4 h-4 transition-transform group-hover:translate-x-1">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path 
@@ -50,9 +50,9 @@ const AboutRichTextSection = () => {
                         </span>
                       </a>
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-4 border-t pt-6 lg:border-t-0 lg:pt-0 lg:border-l lg:pl-4">
                       <div className="space-y-3">
-                        <p className="text-base font-medium text-[#262424]" style={{ fontFamily: 'Aeonik, sans-serif' }}>
+                        <p className="text-[30px] font-medium text-[#262424] uppercase lg:text-sm" style={{ fontFamily: 'Aeonik, sans-serif' }}>
                           Team &amp; Culture
                         </p>
                         <div className="space-y-3">
@@ -76,7 +76,7 @@ const AboutRichTextSection = () => {
                             />
                           </svg>
                         </span>
-                        <span>Open Positions</span>
+                        <span className="uppercase">Open Positions</span>
                         <span className="w-4 h-4 transition-transform group-hover:translate-x-1">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path 
