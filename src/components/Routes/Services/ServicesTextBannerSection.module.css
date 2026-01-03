@@ -1,0 +1,38 @@
+/* Responsive display utilities */
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-lg-none {
+  display: block;
+}
+
+.d-lg-block {
+  display: none;
+}
+
+/* Desktop breakpoint (992px and up) */
+@media (min-width: 992px) {
+  .d-lg-none {
+    display: none;
+  }
+  
+  .d-lg-block {
+    display: block;
+  }
+}
+
+/* Mobile h2 responsive font size */
+.mobile-h2 {
+  font-size: 40px;
+}
+
+@media (min-width: 992px) {
+  .mobile-h2 {
+    font-size: 60px;
+  }
+}
