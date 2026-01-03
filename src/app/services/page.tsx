@@ -13,12 +13,10 @@ export default function ServicesPage() {
   return (
     <>
       <main className="relative">
-        <div className="relative">
-          <ServicesTextBannerSection/>
-          <ServicesVideoSection/>
-          <ServicesMainSection />
-          <LogosSectionsSection/>
-        </div>
+        <ServicesTextBannerSection />
+        <ServicesVideoSection />
+        <ServicesMainSection />
+        <LogosSectionsSection />
       </main>
     </>
   )
